@@ -62,12 +62,14 @@ export default function Nivel3Page() {
               <Badge variant="default">Nivel 3</Badge>
               <Badge variant="outline">Nivel 4</Badge>
               <Badge variant="outline">Nivel 5</Badge>
-              <Badge variant="outline">Nivel 6</Badge>
+              <Badge variant="outline">Nivel 5</Badge>
             </div>
           </div>
-          <Button variant="outline" disabled>
-            Nivel 4
-            <ArrowLeft className="w-4 h-4 ml-2 rotate-180" />
+          <Button variant="outline" asChild>
+            <Link href="/nivel-4">
+              Nivel 4
+              <ArrowLeft className="w-4 h-4 ml-2 rotate-180" />
+            </Link>
           </Button>
         </div>
 
