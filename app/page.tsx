@@ -1,14 +1,27 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { ArrowRight, BookOpen, Users, Trophy, Star, ChevronRight } from "lucide-react"
-import Link from "next/link"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+  ArrowRight,
+  BookOpen,
+  Users,
+  Trophy,
+  Star,
+  ChevronRight,
+} from "lucide-react";
+import Link from "next/link";
 
 export default function HomePage() {
-  const [showOnboarding, setShowOnboarding] = useState(true)
+  const [showOnboarding, setShowOnboarding] = useState(true);
 
   if (showOnboarding) {
     return (
@@ -18,9 +31,12 @@ export default function HomePage() {
             <div className="mx-auto w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center">
               <Trophy className="w-8 h-8 text-white" />
             </div>
-            <CardTitle className="text-3xl font-bold text-gray-900">Reglamento USAG</CardTitle>
+            <CardTitle className="text-3xl font-bold text-gray-900">
+              Reglamento USAG
+            </CardTitle>
             <CardDescription className="text-lg text-gray-600">
-              Tu guía completa del reglamento de gimnasia artística de USA Gymnastics
+              Tu guía completa del reglamento de gimnasia artística de USA
+              Gymnastics
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
@@ -28,33 +44,45 @@ export default function HomePage() {
               <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
                 <BookOpen className="w-5 h-5 text-blue-600" />
                 <div>
-                  <h3 className="font-medium text-gray-900">Información Clara</h3>
-                  <p className="text-sm text-gray-600">Reglamentos organizados y fáciles de entender</p>
+                  <h3 className="font-medium text-gray-900">
+                    Información Clara
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    Reglamentos organizados y fáciles de entender
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
                 <Users className="w-5 h-5 text-green-600" />
                 <div>
                   <h3 className="font-medium text-gray-900">Por Categorías</h3>
-                  <p className="text-sm text-gray-600">Separado por niveles y disciplinas</p>
+                  <p className="text-sm text-gray-600">
+                    Separado por niveles y disciplinas
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-3 p-3 bg-purple-50 rounded-lg">
                 <Star className="w-5 h-5 text-purple-600" />
                 <div>
                   <h3 className="font-medium text-gray-900">Actualizado</h3>
-                  <p className="text-sm text-gray-600">Información basada en las últimas regulaciones</p>
+                  <p className="text-sm text-gray-600">
+                    Información basada en las últimas regulaciones
+                  </p>
                 </div>
               </div>
             </div>
-            <Button onClick={() => setShowOnboarding(false)} className="w-full bg-blue-600 hover:bg-blue-700" size="lg">
+            <Button
+              onClick={() => setShowOnboarding(false)}
+              className="w-full bg-blue-600 hover:bg-blue-700"
+              size="lg"
+            >
               Comenzar
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </CardContent>
         </Card>
       </div>
-    )
+    );
   }
 
   return (
@@ -67,7 +95,9 @@ export default function HomePage() {
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                 <Trophy className="w-5 h-5 text-white" />
               </div>
-              <h1 className="text-xl font-bold text-gray-900">Reglamento USAG</h1>
+              <h1 className="text-xl font-bold text-gray-900">
+                Reglamento USAG
+              </h1>
             </div>
             <Badge variant="secondary">Gimnasia Artística</Badge>
           </div>
@@ -77,15 +107,18 @@ export default function HomePage() {
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Explora el Reglamento por Categorías</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            Explora el Reglamento por Categorías
+          </h2>
           <p className="text-gray-600">
-            Selecciona la sección que necesites consultar para acceder a información detallada y actualizada.
+            Selecciona la sección que necesites consultar para acceder a
+            información detallada y actualizada.
           </p>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {/* Niveles Competitivos */}
-          <Link href="/nivel-1">
+          <Link href="/niveles-competitivos">
             <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer group">
               <CardHeader>
                 <div className="flex items-center justify-between">
@@ -95,7 +128,9 @@ export default function HomePage() {
                   <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-gray-600 transition-colors" />
                 </div>
                 <CardTitle className="text-lg">Niveles Competitivos</CardTitle>
-                <CardDescription>Requisitos y regulaciones para cada nivel de competencia</CardDescription>
+                <CardDescription>
+                  Requisitos y regulaciones para cada nivel de competencia
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
@@ -118,7 +153,9 @@ export default function HomePage() {
                   <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-gray-600 transition-colors" />
                 </div>
                 <CardTitle className="text-lg">Aparatos Femeninos</CardTitle>
-                <CardDescription>Reglamentos específicos para gimnasia artística femenina</CardDescription>
+                <CardDescription>
+                  Reglamentos específicos para gimnasia artística femenina
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
@@ -142,7 +179,9 @@ export default function HomePage() {
                   <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-gray-600 transition-colors" />
                 </div>
                 <CardTitle className="text-lg">Aparatos Masculinos</CardTitle>
-                <CardDescription>Reglamentos específicos para gimnasia artística masculina</CardDescription>
+                <CardDescription>
+                  Reglamentos específicos para gimnasia artística masculina
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
@@ -168,7 +207,9 @@ export default function HomePage() {
                   <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-gray-600 transition-colors" />
                 </div>
                 <CardTitle className="text-lg">Sistema de Puntuación</CardTitle>
-                <CardDescription>Cómo se evalúan las rutinas y se asignan las puntuaciones</CardDescription>
+                <CardDescription>
+                  Cómo se evalúan las rutinas y se asignan las puntuaciones
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
@@ -190,8 +231,12 @@ export default function HomePage() {
                   </div>
                   <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-gray-600 transition-colors" />
                 </div>
-                <CardTitle className="text-lg">Requisitos de Competencia</CardTitle>
-                <CardDescription>Elementos obligatorios y restricciones por nivel</CardDescription>
+                <CardTitle className="text-lg">
+                  Requisitos de Competencia
+                </CardTitle>
+                <CardDescription>
+                  Elementos obligatorios y restricciones por nivel
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
@@ -213,8 +258,12 @@ export default function HomePage() {
                   </div>
                   <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-gray-600 transition-colors" />
                 </div>
-                <CardTitle className="text-lg">Guías para Entrenadores</CardTitle>
-                <CardDescription>Recursos y directrices para entrenadores certificados</CardDescription>
+                <CardTitle className="text-lg">
+                  Guías para Entrenadores
+                </CardTitle>
+                <CardDescription>
+                  Recursos y directrices para entrenadores certificados
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
@@ -231,32 +280,50 @@ export default function HomePage() {
         <div className="mt-12">
           <Card className="bg-blue-50 border-blue-200">
             <CardHeader>
-              <CardTitle className="text-lg text-blue-900">Acceso Rápido</CardTitle>
+              <CardTitle className="text-lg text-blue-900">
+                Acceso Rápido
+              </CardTitle>
               <CardDescription className="text-blue-700">
                 Enlaces directos a las secciones más consultadas
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                <Button variant="outline" className="justify-start bg-transparent" asChild>
+                <Button
+                  variant="outline"
+                  className="justify-start bg-transparent"
+                  asChild
+                >
                   <Link href="/tablas-puntuacion">
                     <BookOpen className="w-4 h-4 mr-2" />
                     Tablas de Puntuación
                   </Link>
                 </Button>
-                <Button variant="outline" className="justify-start bg-transparent" asChild>
+                <Button
+                  variant="outline"
+                  className="justify-start bg-transparent"
+                  asChild
+                >
                   <Link href="/elementos-prohibidos">
                     <Trophy className="w-4 h-4 mr-2" />
                     Elementos Prohibidos
                   </Link>
                 </Button>
-                <Button variant="outline" className="justify-start bg-transparent" asChild>
+                <Button
+                  variant="outline"
+                  className="justify-start bg-transparent"
+                  asChild
+                >
                   <Link href="/cambios-recientes">
                     <Star className="w-4 h-4 mr-2" />
                     Cambios Recientes
                   </Link>
                 </Button>
-                <Button variant="outline" className="justify-start bg-transparent" asChild>
+                <Button
+                  variant="outline"
+                  className="justify-start bg-transparent"
+                  asChild
+                >
                   <Link href="/preguntas-frecuentes">
                     <Users className="w-4 h-4 mr-2" />
                     FAQ
@@ -268,5 +335,5 @@ export default function HomePage() {
         </div>
       </main>
     </div>
-  )
+  );
 }
