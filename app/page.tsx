@@ -13,7 +13,7 @@ export default function HomePage() {
   if (showOnboarding) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-        <Card className="w-full max-w-2xl">
+        <Card className="w-full max-w-md sm:max-w-lg md:max-w-2xl">
           <CardHeader className="text-center space-y-4">
             <div className="mx-auto w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center">
               <Trophy className="w-8 h-8 text-white" />
@@ -83,7 +83,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {/* Niveles Competitivos */}
           <Link href="/nivel-1">
             <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer group">

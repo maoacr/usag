@@ -5,7 +5,18 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { ArrowLeft, Trophy, BookOpen, Target, AlertCircle, CheckCircle } from "lucide-react"
+import {
+  ArrowLeft,
+  Trophy,
+  BookOpen,
+  Target,
+  AlertCircle,
+  CheckCircle,
+  Zap,
+  Activity,
+  BarChart3,
+  Users,
+} from "lucide-react"
 import Link from "next/link"
 
 export default function Nivel1Page() {
@@ -40,7 +51,7 @@ export default function Nivel1Page() {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Nivel Anterior
           </Button>
-          <div className="text-center">
+          <div className="hidden md:block text-center">
             <p className="text-sm text-gray-600">Progresión de Niveles USAG</p>
             <div className="flex items-center gap-2 mt-2">
               <Badge variant="default">Nivel 1</Badge>
@@ -69,10 +80,22 @@ export default function Nivel1Page() {
 
         <Tabs defaultValue="salto" className="space-y-6">
           <TabsList className="grid w-full grid-cols-4">
-            <TabsTrigger value="salto">Salto</TabsTrigger>
-            <TabsTrigger value="barras">Barras Asimétricas</TabsTrigger>
-            <TabsTrigger value="viga">Viga de Equilibrio</TabsTrigger>
-            <TabsTrigger value="suelo">Suelo</TabsTrigger>
+            <TabsTrigger value="salto" className="flex items-center gap-2">
+              <Zap className="w-4 h-4" />
+              <span className="hidden md:inline">Salto</span>
+            </TabsTrigger>
+            <TabsTrigger value="barras" className="flex items-center gap-2">
+              <BarChart3 className="w-4 h-4" />
+              <span className="hidden md:inline">Barras Asimétricas</span>
+            </TabsTrigger>
+            <TabsTrigger value="viga" className="flex items-center gap-2">
+              <Activity className="w-4 h-4" />
+              <span className="hidden md:inline">Viga de Equilibrio</span>
+            </TabsTrigger>
+            <TabsTrigger value="suelo" className="flex items-center gap-2">
+              <Users className="w-4 h-4" />
+              <span className="hidden md:inline">Suelo</span>
+            </TabsTrigger>
           </TabsList>
 
           {/* SALTO */}
@@ -784,7 +807,7 @@ export default function Nivel1Page() {
                     <h4 className="font-semibold text-blue-900 mb-2">Notas Importantes:</h4>
                     <ul className="space-y-1 text-blue-800 text-sm">
                       <li>• Figuras son guía, texto tiene cierta flexibilidad</li>
-                      <li>• Solo elementos en mayúsculas son principales</li>
+                      <li>• Solo elementos principales en mayúsculas</li>
                       <li>• Brazos en arriba pueden ser curvados o extendidos</li>
                       <li>• Rutina puede invertirse totalmente salvo elementos con asterisco (*)</li>
                     </ul>

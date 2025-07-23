@@ -27,12 +27,7 @@ export default function Nivel3Page() {
               </div>
               <h1 className="text-xl font-bold text-gray-900">Nivel 3 - USAG</h1>
             </div>
-            <div className="flex items-center gap-2">
-              <Badge variant="secondary">Gimnasia Artística</Badge>
-              <Button variant="outline" size="sm" asChild>
-                <Link href="/nivel-2">Ver Nivel 2</Link>
-              </Button>
-            </div>
+            <Badge variant="secondary">Gimnasia Artística</Badge>
           </div>
         </div>
       </header>
@@ -1119,7 +1114,7 @@ export default function Nivel3Page() {
                     • <strong>Series de saltos extendidos y rebotes:</strong> En viga baja
                   </li>
                   <li>
-                    • <strong>Paradas de manos transversales y laterales:</strong> A descenso sobre colchones
+                    • <strong>Parada de manos transversales y laterales:</strong> A descenso sobre colchones
                   </li>
                   <li>
                     • <strong>Inversiones laterales a paradas de manos lateral:</strong> Con descendente controlado
@@ -1138,8 +1133,8 @@ export default function Nivel3Page() {
                   Suelo - Descripción General
                 </CardTitle>
                 <CardDescription>
-                  La rutina de suelo en Nivel 3 continúa desarrollando los fundamentos de tumbling y danza, manteniendo
-                  el enfoque en la técnica correcta y expresión artística.
+                  La rutina de suelo en Nivel 2 mantiene el enfoque en fundamentos de tumbling y danza, con mayor
+                  énfasis en la expresión artística y coordinación.
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -1147,17 +1142,17 @@ export default function Nivel3Page() {
                   <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-600">
                     <h4 className="font-semibold text-blue-900 mb-2">Notas Importantes:</h4>
                     <ul className="space-y-1 text-blue-800 text-sm">
-                      <li>• Figuras son guía, texto con flexibilidad para opciones</li>
-                      <li>• Sólo elementos principales en mayúsculas</li>
-                      <li>• Brazos indicados arriba pueden ser curvados o extendidos</li>
+                      <li>• Figuras son guía, texto tiene flexibilidad para opciones</li>
+                      <li>• Solo elementos principales en mayúsculas</li>
+                      <li>• Brazos en arriba pueden ser curvados o extendidos</li>
                       <li>• Rutina puede invertirse salvo elementos con asterisco (*)</li>
                     </ul>
                   </div>
                   <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-600">
                     <h4 className="font-semibold text-green-900 mb-2">Posición Inicial:</h4>
                     <p className="text-green-800 text-sm">
-                      Iniciar en esquina o borde del podio de suelo, posición recta de pie con brazo derecho flexionado
-                      en espalda baja y brazo izquierdo diagonal abajo al lado. Enfoque hacia brazo izquierdo.
+                      Comenzar en esquina o borde de suelo. Posición recta de pie. Brazo derecho flexionado con dorso y
+                      antebrazo en espalda baja, brazo izquierdo diagonal abajo al lado. Enfoque hacia brazo izquierdo.
                     </p>
                   </div>
                 </div>
@@ -1178,12 +1173,13 @@ export default function Nivel3Page() {
                     <div>
                       <h4 className="font-semibold mb-2">Secuencia Completa:</h4>
                       <ul className="space-y-1 text-sm">
-                        <li>• Desde posición inicial, demi-plié e inclinación ligera hacia adelante</li>
+                        <li>• Desde posición inicial, demi-plié y ligero torso hacia adelante</li>
                         <li>• Abdominales contraídos</li>
-                        <li>• Brazos hacia adelante y arriba terminando flexionados con palmas afuera</li>
-                        <li>• Extender torso y piernas a posición recta</li>
+                        <li>• Brazos hacia adelante y arriba para terminar flexionados con palmas afuera</li>
+                        <li>• Extender torso y piernas a posición recta de pie</li>
                         <li>• Abrir brazos a lados-en medio, enfoque al frente</li>
-                        <li>• Transferir peso a pie derecho para desplante o escalador</li>
+                        <li>• Si se invierte inversión lateral, apuntar pie izquierdo adelante</li>
+                        <li>• Transferir peso a pie derecho para desplante derecho</li>
                         <li>• Levantar pierna izquierda atrás y arriba sobre cabeza</li>
                         <li>• Cubrir orejas con brazos mientras gira 90° izquierda</li>
                         <li>• Colocar manos en suelo separadas ancho hombros para inversión lateral</li>
@@ -1194,7 +1190,8 @@ export default function Nivel3Page() {
                     </div>
                     <div className="bg-green-50 p-2 rounded">
                       <p className="text-sm text-green-700">
-                        <strong>Énfasis:</strong> Alineación de cuerpo y cabeza, ángulo hombros y verticalidad
+                        <strong>Énfasis:</strong> Alineación cuerpo y cabeza, mostrar ángulo hombros abierto y pasar
+                        vertical
                       </p>
                     </div>
                     <div className="bg-red-50 p-2 rounded">
@@ -1204,7 +1201,7 @@ export default function Nivel3Page() {
                     </div>
                     <div className="bg-yellow-50 p-2 rounded">
                       <p className="text-sm text-yellow-700">
-                        <strong>Penalizaciones:</strong> 0.10 colocación incorrecta de manos, hasta 0.30 no pasar
+                        <strong>Deducciones:</strong> 0.10 colocación incorrecta manos simultánea, hasta 0.30 no pasar
                         vertical, 0.10 no mantener alineación cabeza
                       </p>
                     </div>
@@ -1222,15 +1219,14 @@ export default function Nivel3Page() {
                 </CardHeader>
                 <CardContent className="text-yellow-800">
                   <p>
-                    La rutina de suelo del Nivel 3 continúa con elementos adicionales de tumbling y danza. La
+                    La rutina de suelo del Nivel 2 continúa con elementos adicionales de tumbling y danza. La
                     información completa incluye más elementos que desarrollan coordinación, expresión artística y
                     habilidades progresivas de gimnasia, construyendo sobre las bases de los niveles anteriores.
                   </p>
                   <div className="mt-3 p-3 bg-white rounded border-l-4 border-yellow-600">
                     <p className="text-sm text-yellow-800">
-                      <strong>Determinación de Dominancia:</strong> Se debe determinar diestra o zurda según dominio
-                      para adaptar el texto. Para gimnastas zurdas, intercambiar derecha por izquierda en toda la
-                      rutina.
+                      <strong>Determinación de Dominancia:</strong> Para gimnastas zurdas, intercambiar derecha por
+                      izquierda en toda la rutina según dominio determinado por salto leap split y split frontal.
                     </p>
                   </div>
                 </CardContent>
