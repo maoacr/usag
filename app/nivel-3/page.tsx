@@ -5,7 +5,19 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { ArrowLeft, Trophy, BookOpen, Target, AlertCircle, CheckCircle, Clock, Zap } from "lucide-react"
+import {
+  ArrowLeft,
+  Trophy,
+  BookOpen,
+  Target,
+  AlertCircle,
+  CheckCircle,
+  Clock,
+  Zap,
+  Activity,
+  BarChart3,
+  Users,
+} from "lucide-react"
 import Link from "next/link"
 
 export default function Nivel3Page() {
@@ -42,7 +54,7 @@ export default function Nivel3Page() {
               Nivel 2
             </Link>
           </Button>
-          <div className="text-center">
+          <div className="hidden md:block text-center">
             <p className="text-sm text-gray-600">Progresión de Niveles USAG</p>
             <div className="flex items-center gap-2 mt-2">
               <Badge variant="outline">Nivel 1</Badge>
@@ -69,10 +81,22 @@ export default function Nivel3Page() {
 
         <Tabs defaultValue="salto" className="space-y-6">
           <TabsList className="grid w-full grid-cols-4">
-            <TabsTrigger value="salto">Salto</TabsTrigger>
-            <TabsTrigger value="barras">Barras Asimétricas</TabsTrigger>
-            <TabsTrigger value="viga">Viga de Equilibrio</TabsTrigger>
-            <TabsTrigger value="suelo">Suelo</TabsTrigger>
+            <TabsTrigger value="salto" className="flex items-center gap-2">
+              <Zap className="w-4 h-4" />
+              <span className="hidden md:inline">Salto</span>
+            </TabsTrigger>
+            <TabsTrigger value="barras" className="flex items-center gap-2">
+              <BarChart3 className="w-4 h-4" />
+              <span className="hidden md:inline">Barras Asimétricas</span>
+            </TabsTrigger>
+            <TabsTrigger value="viga" className="flex items-center gap-2">
+              <Activity className="w-4 h-4" />
+              <span className="hidden md:inline">Viga de Equilibrio</span>
+            </TabsTrigger>
+            <TabsTrigger value="suelo" className="flex items-center gap-2">
+              <Users className="w-4 h-4" />
+              <span className="hidden md:inline">Suelo</span>
+            </TabsTrigger>
           </TabsList>
 
           {/* SALTO */}
