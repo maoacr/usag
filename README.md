@@ -14,13 +14,9 @@ Any changes you make to your deployed app will be automatically pushed to this r
 
 Your project is live at:
 
-**[https://vercel.com/sorcols-projects/v0-usag-gymnastics-app](https://vercel.com/sorcols-projects/v0-usag-gymnastics-app)**
+**[Sitio web del reglamente de Gimnasia USAG](https://v0-usag-gymnastics-app.vercel.app/)**
 
 ## Build your app
-
-Continue building your app on:
-
-**[https://v0.dev/chat/projects/Ky1n7cZHJJW](https://v0.dev/chat/projects/Ky1n7cZHJJW)**
 
 ## How It Works
 
