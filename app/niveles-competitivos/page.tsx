@@ -9,8 +9,34 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowLeft, Trophy, Star, Users, BookOpen } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
+  ArrowLeft,
+  Trophy,
+  Target,
+  AlertCircle,
+  CheckCircle,
+  Clock,
+  Zap,
+  Activity,
+  BarChart3,
+  Users,
+  Info,
+  Scale,
+} from "lucide-react";
 import Link from "next/link";
 
 export default function NivelesCompetitivosPage() {
@@ -30,10 +56,10 @@ export default function NivelesCompetitivosPage() {
                 <Trophy className="w-5 h-5 text-white" />
               </div>
               <h1 className="text-xl font-bold text-gray-900">
-                Niveles Competitivos
+                Niveles Competitivos - USAG
               </h1>
             </div>
-            <Badge variant="secondary">USAG</Badge>
+            <Badge variant="secondary">Gimnasia Artística</Badge>
           </div>
         </div>
       </header>
@@ -42,619 +68,775 @@ export default function NivelesCompetitivosPage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Sistema de Niveles USAG
+            Niveles Competitivos USAG
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl">
-            El sistema de niveles de USA Gymnastics está diseñado para
-            proporcionar una progresión estructurada desde principiantes hasta
-            atletas de élite, asegurando el desarrollo seguro y apropiado de
-            habilidades.
+          <p className="text-lg text-gray-600 max-w-4xl">
+            Sistema de niveles progresivos que desarrolla habilidades técnicas,
+            fuerza y precisión en gimnasia artística competitiva.
           </p>
         </div>
 
-        <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-4">
-            <TabsTrigger value="overview">Resumen</TabsTrigger>
-            <TabsTrigger value="levels-1-6">Niveles 1-6</TabsTrigger>
-            <TabsTrigger value="levels-7-10">Niveles 7-10</TabsTrigger>
-            <TabsTrigger value="elite">Elite</TabsTrigger>
-          </TabsList>
+        {/* Botón flotante para penalizaciones generales */}
+        <div className="fixed bottom-6 right-6 z-50">
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button
+                size="lg"
+                className="rounded-full shadow-lg bg-blue-600 hover:bg-blue-700 text-white"
+              >
+                <Scale className="w-5 h-5 mr-2" />
+                Penalizaciones Generales
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+              <DialogHeader>
+                <DialogTitle className="flex items-center gap-2">
+                  <Scale className="w-6 h-6" />
+                  Penalizaciones Generales - USAG
+                </DialogTitle>
+                <DialogDescription>
+                  Sistema completo de deducciones aplicable a todos los aparatos
+                  y niveles
+                </DialogDescription>
+              </DialogHeader>
 
-          <TabsContent value="overview" className="space-y-6">
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              <Link href="/nivel-1">
-                <Card className="border-blue-200 bg-blue-50">
+              <div className="space-y-6">
+                {/* Ámbito de aplicación */}
+                <Card>
                   <CardHeader>
-                    <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-2">
-                      <Users className="w-6 h-6 text-white" />
-                    </div>
-                    <CardTitle className="text-blue-900">Niveles 1-6</CardTitle>
-                    <CardDescription className="text-blue-700">
-                      Programa de desarrollo básico
-                    </CardDescription>
+                    <CardTitle className="flex items-center gap-2">
+                      <Target className="w-5 h-5" />
+                      Ámbito de Aplicación
+                    </CardTitle>
                   </CardHeader>
-                  <CardContent className="text-blue-800">
-                    <ul className="space-y-2 text-sm">
-                      <li>• Enfoque en fundamentos</li>
-                      <li>• Rutinas obligatorias</li>
-                      <li>• Desarrollo de fuerza y flexibilidad</li>
-                      <li>• Introducción a elementos básicos</li>
-                    </ul>
-                  </CardContent>
-                </Card>
-              </Link>
-
-              <Card className="border-green-200 bg-green-50">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mb-2">
-                    <Trophy className="w-6 h-6 text-white" />
-                  </div>
-                  <CardTitle className="text-green-900">Niveles 7-10</CardTitle>
-                  <CardDescription className="text-green-700">
-                    Programa competitivo opcional
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="text-green-800">
-                  <ul className="space-y-2 text-sm">
-                    <li>• Rutinas opcionales</li>
-                    <li>• Mayor dificultad técnica</li>
-                    <li>• Preparación para becas universitarias</li>
-                    <li>• Competencias estatales y regionales</li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="border-purple-200 bg-purple-50">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-2">
-                    <Star className="w-6 h-6 text-white" />
-                  </div>
-                  <CardTitle className="text-purple-900">Elite</CardTitle>
-                  <CardDescription className="text-purple-700">
-                    Nivel más alto de competencia
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="text-purple-800">
-                  <ul className="space-y-2 text-sm">
-                    <li>• Camino hacia equipos nacionales</li>
-                    <li>• Competencias internacionales</li>
-                    <li>• Requisitos de calificación estrictos</li>
-                    <li>• Entrenamiento de tiempo completo</li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <BookOpen className="w-5 h-5" />
-                  Progresión del Sistema
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
-                    <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                      1
-                    </div>
-                    <div>
-                      <h4 className="font-medium">
-                        Desarrollo de Fundamentos (Niveles 1-3)
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Enfoque en postura, formas básicas y coordinación
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
-                    <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                      2
-                    </div>
-                    <div>
-                      <h4 className="font-medium">
-                        Construcción de Habilidades (Niveles 4-6)
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Introducción de elementos más complejos y rutinas
-                        completas
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
-                    <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                      3
-                    </div>
-                    <div>
-                      <h4 className="font-medium">
-                        Competencia Avanzada (Niveles 7-10)
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Rutinas opcionales y preparación para competencias de
-                        alto nivel
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
-                    <div className="w-8 h-8 bg-yellow-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                      4
-                    </div>
-                    <div>
-                      <h4 className="font-medium">Elite y Internacional</h4>
-                      <p className="text-sm text-gray-600">
-                        Máximo nivel de competencia con aspiraciones olímpicas
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          <TabsContent value="levels-1-6" className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Niveles 1-6: Programa de Desarrollo</CardTitle>
-                <CardDescription>
-                  Estos niveles forman la base del programa de gimnasia
-                  artística, enfocándose en el desarrollo progresivo de
-                  habilidades fundamentales.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid gap-6 md:grid-cols-2">
-                  <div className="space-y-4">
-                    <h4 className="font-semibold text-lg">
-                      Características Generales:
-                    </h4>
-                    <ul className="space-y-2 text-sm">
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                        <span>
-                          <strong>Rutinas Obligatorias:</strong> Todas las
-                          gimnastas realizan las mismas rutinas
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                        <span>
-                          <strong>Progresión Estructurada:</strong> Cada nivel
-                          construye sobre el anterior
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                        <span>
-                          <strong>Enfoque en Forma:</strong> Técnica correcta
-                          sobre dificultad
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                        <span>
-                          <strong>Desarrollo Integral:</strong> Trabajo en todos
-                          los aparatos
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="space-y-4">
-                    <h4 className="font-semibold text-lg">
-                      Requisitos de Avance:
-                    </h4>
-                    <ul className="space-y-2 text-sm">
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
-                        <span>
-                          <strong>Puntuación Mínima:</strong> Generalmente 31.00
-                          en All-Around
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
-                        <span>
-                          <strong>Edad Apropiada:</strong> Desarrollo físico y
-                          mental adecuado
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
-                        <span>
-                          <strong>Dominio Técnico:</strong> Ejecución
-                          consistente de habilidades
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
-                        <span>
-                          <strong>Preparación Mental:</strong> Confianza para el
-                          siguiente nivel
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <div className="grid gap-4 md:grid-cols-3">
-              {[1, 2, 3, 4, 5, 6].map((level) => (
-                <Card key={level} className="border-l-4 border-l-blue-600">
-                  <Link href={`/nivel-${level}`} key={level}>
-                    <CardHeader className="pb-3">
-                      <CardTitle className="text-lg">Nivel {level}</CardTitle>
-                      <Badge variant="outline" className="w-fit">
-                        {level <= 3 ? "Fundamentos" : "Desarrollo"}
-                      </Badge>
-                    </CardHeader>
-                    <CardContent className="text-sm">
-                      <p className="text-gray-600 mb-3">
-                        {level === 1 &&
-                          "Introducción a posiciones básicas y movimientos fundamentales"}
-                        {level === 2 &&
-                          "Desarrollo de fuerza básica y coordinación"}
-                        {level === 3 &&
-                          "Elementos básicos en todos los aparatos"}
-                        {level === 4 && "Introducción a elementos de conexión"}
-                        {level === 5 &&
-                          "Habilidades más complejas y rutinas completas"}
-                        {level === 6 && "Preparación para programa opcional"}
-                      </p>
-                      <div className="space-y-1">
-                        <div className="text-xs text-gray-500">
-                          Edad típica:
-                        </div>
-                        <div className="font-medium">
-                          {level <= 2 && "6-8 años"}
-                          {level === 3 && "7-9 años"}
-                          {level === 4 && "8-10 años"}
-                          {level === 5 && "9-11 años"}
-                          {level === 6 && "10-12 años"}
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Link>
-                </Card>
-              ))}
-            </div>
-          </TabsContent>
-
-          <TabsContent value="levels-7-10" className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Niveles 7-10: Programa Opcional</CardTitle>
-                <CardDescription>
-                  Los niveles opcionales permiten a las gimnastas crear rutinas
-                  personalizadas mientras cumplen con requisitos específicos de
-                  elementos y dificultad.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid gap-6 md:grid-cols-2">
-                  <div className="space-y-4">
-                    <h4 className="font-semibold text-lg">
-                      Características del Programa Opcional:
-                    </h4>
-                    <ul className="space-y-2 text-sm">
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
-                        <span>
-                          <strong>Rutinas Personalizadas:</strong> Coreografía
-                          única para cada gimnasta
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
-                        <span>
-                          <strong>Requisitos de Elementos:</strong> Grupos
-                          específicos de habilidades requeridas
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
-                        <span>
-                          <strong>Valor de Dificultad:</strong> Puntuación
-                          basada en dificultad de elementos
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
-                        <span>
-                          <strong>Competencias Estatales:</strong> Oportunidad
-                          de avanzar a regionales/nacionales
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="space-y-4">
-                    <h4 className="font-semibold text-lg">
-                      Sistema de Puntuación:
-                    </h4>
-                    <ul className="space-y-2 text-sm">
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-purple-600 rounded-full mt-2"></div>
-                        <span>
-                          <strong>Valor de Inicio:</strong> Basado en dificultad
-                          de elementos (hasta 10.0)
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-purple-600 rounded-full mt-2"></div>
-                        <span>
-                          <strong>Ejecución:</strong> Deducciones por errores
-                          técnicos y de forma
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-purple-600 rounded-full mt-2"></div>
-                        <span>
-                          <strong>Artística:</strong> Evaluación de presentación
-                          y coreografía
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-purple-600 rounded-full mt-2"></div>
-                        <span>
-                          <strong>Neutrales:</strong> Deducciones por
-                          violaciones de tiempo/vestimenta
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <div className="grid gap-4 md:grid-cols-2">
-              {[7, 8, 9, 10].map((level) => (
-                <Card key={level} className="border-l-4 border-l-green-600">
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-lg">Nivel {level}</CardTitle>
+                  <CardContent>
                     <div className="flex gap-2">
-                      <Badge variant="outline">Opcional</Badge>
-                      <Badge variant="secondary">
-                        {level <= 8 ? "Desarrollo" : "Avanzado"}
-                      </Badge>
+                      {[
+                        "Barras Asimétricas",
+                        "Viga de Equilibrio",
+                        "Suelo",
+                      ].map((aparato) => (
+                        <Badge key={aparato} variant="outline">
+                          {aparato}
+                        </Badge>
+                      ))}
                     </div>
+                  </CardContent>
+                </Card>
+
+                {/* Principios Generales */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Info className="w-5 h-5" />
+                      Principios Generales
+                    </CardTitle>
                   </CardHeader>
-                  <CardContent className="text-sm space-y-3">
-                    <p className="text-gray-600">
-                      {level === 7 &&
-                        "Primera experiencia con rutinas opcionales, elementos básicos requeridos"}
-                      {level === 8 &&
-                        "Mayor complejidad técnica, introducción a elementos de conexión avanzados"}
-                      {level === 9 &&
-                        "Preparación para competencia universitaria, habilidades de alto nivel"}
-                      {level === 10 &&
-                        "Máximo nivel antes de Elite, preparación para becas universitarias"}
-                    </p>
-                    <div className="grid grid-cols-2 gap-4 text-xs">
-                      <div>
-                        <div className="text-gray-500 mb-1">Edad típica:</div>
-                        <div className="font-medium">
-                          {level === 7 && "11-13 años"}
-                          {level === 8 && "12-14 años"}
-                          {level === 9 && "13-16 años"}
-                          {level === 10 && "14-18 años"}
+                  <CardContent>
+                    <ul className="space-y-2 text-sm">
+                      {[
+                        "Todos los elementos y enlaces deben realizarse con máxima amplitud y mejor ejecución en orden escrito.",
+                        "Cualquier desviación técnica o ejecución correcta se penaliza según esta tabla.",
+                        "Penalizaciones específicas de cada aparato se aplican además de estas generales.",
+                        "Errores que causen caída deducen ejecución y amplitud, pero no deducir errores de equilibrio que causen caída.",
+                        "Deducciones totales por ejecución y amplitud en un elemento principal no exceden el valor del elemento + 0.50.",
+                        "Deducciones por caídas, balanceos adicionales o falta de continuidad por caída son adicionales.",
+                        "Si más de la mitad de elementos principales se hacen con ayuda del entrenador, nota se basa en elementos sin ayuda menos deducciones por ejecución y amplitud, incluyendo elementos ayudados.",
+                        "Rutinas pueden invertirse en su totalidad, excepto elementos indicados individualmente.",
+                        "Determinar diestra o zurda según dominancia de salto leap split y split frontal; adaptar instrucciones de derecha/izquierda en consecuencia.",
+                      ].map((principio, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <Badge variant="outline" className="mt-0.5 text-xs">
+                            {index + 1}
+                          </Badge>
+                          <span>{principio}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                {/* Cambios al Texto Prescrito */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Cambios al Texto Prescrito</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Accordion type="single" collapsible>
+                      <AccordionItem value="cambios-texto">
+                        <AccordionTrigger className="text-sm">
+                          Penalizaciones por Modificaciones
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <div className="space-y-3 text-sm">
+                            <div className="grid gap-2">
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Cambiar, invertir, añadir u omitir una parte
+                                  pequeña
+                                </span>
+                                <Badge variant="secondary">0.10</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Cambiar, invertir u omitir serie de enlaces
+                                </span>
+                                <Badge variant="secondary">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Invertir orden de dos elementos en serie de
+                                  danza enlazada en viga o suelo
+                                </span>
+                                <Badge variant="secondary">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                                <span>Cambiar un elemento principal</span>
+                                <Badge variant="destructive">
+                                  Valor del elemento
+                                </Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                                <span>
+                                  Sustituir u omitir un elemento principal
+                                </span>
+                                <Badge variant="destructive">
+                                  Doble del valor
+                                </Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                                <span>
+                                  Invertir elemento principal si no permitido
+                                </span>
+                                <Badge variant="destructive">
+                                  Mitad del valor
+                                </Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Elemento principal incompleto</span>
+                                <Badge variant="secondary">
+                                  Hasta valor del elemento
+                                </Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Añadir un elemento adicional</span>
+                                <Badge variant="secondary">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-green-50 rounded">
+                                <span>
+                                  Repetición de elemento perdido sin
+                                  penalización
+                                </span>
+                                <Badge variant="outline">Sin deducción</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Elemento principal con giro adicional
+                                </span>
+                                <Badge variant="secondary">
+                                  Hasta valor del elemento
+                                </Badge>
+                              </div>
+                            </div>
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                  </CardContent>
+                </Card>
+
+                {/* Deducciones Específicas de Ejecución */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Deducciones Específicas de Ejecución</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Accordion type="single" collapsible>
+                      <AccordionItem value="deducciones-ejecucion">
+                        <AccordionTrigger className="text-sm">
+                          Deducciones Generales por Ejecución
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <div className="space-y-3 text-sm">
+                            <div className="bg-blue-50 p-3 rounded">
+                              <h4 className="font-semibold mb-2">Máximas:</h4>
+                              <ul className="space-y-1">
+                                <li>
+                                  • Ejecución y amplitud en un elemento: 0.50
+                                </li>
+                                <li>• Caída: 0.50</li>
+                              </ul>
+                            </div>
+                            <div className="grid gap-2">
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Dar pasos adicionales</span>
+                                <Badge variant="secondary">0.05</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Pies flexionados o relajados</span>
+                                <Badge variant="secondary">0.05</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Separación de piernas o rodillas</span>
+                                <Badge variant="secondary">0.20</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Alineación cuerpo/postura incorrecta en
+                                  elementos principales
+                                </span>
+                                <Badge variant="secondary">0.20</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Brazos flexionados en apoyo</span>
+                                <Badge variant="secondary">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Piernas flexionadas en apoyo</span>
+                                <Badge variant="secondary">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Errores de equilibrio (pequeños, medianos,
+                                  grandes)
+                                </span>
+                                <Badge variant="secondary">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                                <span>Caída en o desde aparato</span>
+                                <Badge variant="destructive">0.50</Badge>
+                              </div>
+                            </div>
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                  </CardContent>
+                </Card>
+
+                {/* Deducciones Específicas por Aparato */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Deducciones Específicas por Aparato</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Accordion type="single" collapsible>
+                      <AccordionItem value="barras-asimetricas">
+                        <AccordionTrigger className="text-sm">
+                          Barras Asimétricas
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <div className="space-y-2 text-sm">
+                            <div className="grid gap-2">
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Dudas en salto o kip superior</span>
+                                <Badge variant="secondary">0.10</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Ajustes en colocación de manos o pies
+                                </span>
+                                <Badge variant="secondary">0.10</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Agarre alternativo o recuperar sin apoyo
+                                  adicional
+                                </span>
+                                <Badge variant="secondary">0.20</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Balanceo/impulso intermedio adicional (máx.
+                                  0.50)
+                                </span>
+                                <Badge variant="secondary">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Tomar aparato para evitar caída</span>
+                                <Badge variant="secondary">0.30</Badge>
+                              </div>
+                            </div>
+                            <div className="bg-blue-50 p-3 rounded">
+                              <h5 className="font-semibold mb-2">
+                                Rozar/Tocar/Golpear:
+                              </h5>
+                              <ul className="space-y-1">
+                                <li>• Rozar o tocar: 0.10</li>
+                                <li>• Golpear aparato: 0.20</li>
+                                <li>• Golpear colchón: 0.30</li>
+                                <li>• Apoyar peso total en colchón: 0.50</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+
+                      <AccordionItem value="viga-suelo">
+                        <AccordionTrigger className="text-sm">
+                          Viga de Equilibrio y Suelo
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <div className="space-y-2 text-sm">
+                            <div className="grid gap-2">
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>No marcar passé relevé</span>
+                                <Badge variant="secondary">0.05</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  No realizar giros 180°/360° en pie relevé alto
+                                </span>
+                                <Badge variant="secondary">0.10</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  No mantener brazos cubriendo orejas en
+                                  elementos acrobáticos lentos
+                                </span>
+                                <Badge variant="secondary">0.05</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  No aterrizar pies cerrados en saltos/jump
+                                </span>
+                                <Badge variant="secondary">0.10</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  No aterrizar dos pies al mismo tiempo en
+                                  saltos/jump
+                                </span>
+                                <Badge variant="secondary">0.10</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Alineación incorrecta de piernas en arabesca
+                                  cuando indicado
+                                </span>
+                                <Badge variant="secondary">0.10</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  No contraer o arquear cuando indicado
+                                </span>
+                                <Badge variant="secondary">0.10</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  No patear o balancear pierna horizontal o más
+                                  arriba
+                                </span>
+                                <Badge variant="secondary">0.10</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Separación desigual de piernas en saltos
+                                  leap/jump
+                                </span>
+                                <Badge variant="secondary">0.20</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Apoyar pierna en superficie lateral de viga
+                                </span>
+                                <Badge variant="secondary">0.20</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Split insuficiente en elementos sin vuelo o
+                                  danza
+                                </span>
+                                <Badge variant="secondary">0.20</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Patada adicional a parada de manos</span>
+                                <Badge variant="secondary">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Movimientos adicionales para
+                                  equilibrio/control
+                                </span>
+                                <Badge variant="secondary">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Tomar viga para evitar caída</span>
+                                <Badge variant="secondary">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Uso de apoyo complementario</span>
+                                <Badge variant="secondary">0.30</Badge>
+                              </div>
+                            </div>
+                            <div className="bg-blue-50 p-3 rounded">
+                              <h5 className="font-semibold mb-2">
+                                Ejemplos de uso de apoyo complementario:
+                              </h5>
+                              <ul className="space-y-1">
+                                <li>
+                                  • Pie(s) permanece(n) en colchón o botador
+                                  durante entrada
+                                </li>
+                                <li>
+                                  • Pie(s) contacto con colchón en sentado con
+                                  piernas separadas
+                                </li>
+                                <li>
+                                  • Pie(s) usan soporte o base de viga para
+                                  apoyarse
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                  </CardContent>
+                </Card>
+
+                {/* Deducciones por Ayuda */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Deducciones por Ayuda</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3 text-sm">
+                      <div className="bg-red-50 p-3 rounded">
+                        <h4 className="font-semibold mb-2">
+                          Valor máximo: Valor del elemento + 0.50
+                        </h4>
+                        <p>El entrenador ayuda o toca durante el elemento</p>
+                      </div>
+                      <div className="grid gap-2">
+                        <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                          <span>Deducción por ayuda</span>
+                          <Badge variant="destructive">0.50</Badge>
+                        </div>
+                        <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                          <span>Deducción por ayuda en aterrizaje</span>
+                          <Badge variant="destructive">0.50</Badge>
+                        </div>
+                        <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                          <span>Deducción por caída después de ayuda</span>
+                          <Badge variant="destructive">0.50</Badge>
+                        </div>
+                        <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                          <span>Deducción por captura en caída</span>
+                          <Badge variant="destructive">0.50</Badge>
                         </div>
                       </div>
-                      <div>
-                        <div className="text-gray-500 mb-1">
-                          Valor de inicio:
-                        </div>
-                        <div className="font-medium">
-                          {level === 7 && "9.0-9.5"}
-                          {level === 8 && "9.0-9.8"}
-                          {level === 9 && "9.0-10.0"}
-                          {level === 10 && "9.0-10.0"}
-                        </div>
+                      <div className="bg-yellow-50 p-2 rounded text-xs">
+                        <strong>Nota:</strong> Se deduce solo una caída aunque
+                        la gimnasta sea atrapada.
                       </div>
                     </div>
                   </CardContent>
                 </Card>
-              ))}
-            </div>
-          </TabsContent>
 
-          <TabsContent value="elite" className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Programa Elite</CardTitle>
-                <CardDescription>
-                  El nivel Elite representa la cúspide de la gimnasia artística
-                  en Estados Unidos, sirviendo como puerta de entrada a los
-                  equipos nacionales y competencias internacionales.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid gap-6 md:grid-cols-2">
-                  <div className="space-y-4">
-                    <h4 className="font-semibold text-lg">
-                      Requisitos de Calificación:
-                    </h4>
-                    <ul className="space-y-2 text-sm">
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-purple-600 rounded-full mt-2"></div>
-                        <span>
-                          <strong>Puntuación de Calificación:</strong> Mínimo
-                          requerido en competencia oficial
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-purple-600 rounded-full mt-2"></div>
-                        <span>
-                          <strong>Edad Mínima:</strong> Restricciones
-                          específicas por categoría
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-purple-600 rounded-full mt-2"></div>
-                        <span>
-                          <strong>Evaluación Técnica:</strong> Revisión por
-                          comité técnico nacional
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-purple-600 rounded-full mt-2"></div>
-                        <span>
-                          <strong>Entrenamiento Intensivo:</strong> Compromiso
-                          de tiempo completo
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="space-y-4">
-                    <h4 className="font-semibold text-lg">Oportunidades:</h4>
-                    <ul className="space-y-2 text-sm">
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-yellow-600 rounded-full mt-2"></div>
-                        <span>
-                          <strong>Equipos Nacionales:</strong> Junior y Senior
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-yellow-600 rounded-full mt-2"></div>
-                        <span>
-                          <strong>Competencias Internacionales:</strong>{" "}
-                          Mundiales, Juegos Olímpicos
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-yellow-600 rounded-full mt-2"></div>
-                        <span>
-                          <strong>Desarrollo Profesional:</strong> Entrenamiento
-                          con mejores coaches
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-yellow-600 rounded-full mt-2"></div>
-                        <span>
-                          <strong>Becas Universitarias:</strong> Oportunidades
-                          académicas premium
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
+                {/* Deducciones del Juez Principal */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Deducciones del Juez Principal</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Accordion type="single" collapsible>
+                      <AccordionItem value="advertencias">
+                        <AccordionTrigger className="text-sm">
+                          Advertencias (0.10 puntos)
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <div className="space-y-2 text-sm">
+                            <ul className="space-y-1">
+                              <li>
+                                • Exceder tiempo en viga (evaluación continúa
+                                tras advertencia)
+                              </li>
+                              <li>
+                                • Cualquier parte del cuerpo toca fuera de marca
+                                límite de suelo
+                              </li>
+                              <li>
+                                • No presentarse ante Juez Principal antes y
+                                después de la rutina
+                              </li>
+                              <li>
+                                • Entrenador parado junto a viga durante toda la
+                                rutina tras advertencia
+                              </li>
+                            </ul>
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+
+                      <AccordionItem value="otras-deducciones">
+                        <AccordionTrigger className="text-sm">
+                          Otras Deducciones
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <div className="space-y-2 text-sm">
+                            <div className="grid gap-2">
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Indicaciones verbales o técnicas por
+                                  entrenador o compañeras
+                                </span>
+                                <Badge variant="secondary">0.20</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Vestimenta incorrecta</span>
+                                <Badge variant="secondary">0.20</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Inicio de rutina fuera de tiempo</span>
+                                <Badge variant="secondary">0.20</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>No respetar tiempo de calentamiento</span>
+                                <Badge variant="secondary">0.20</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Conducta antideportiva de gimnasta</span>
+                                <Badge variant="secondary">0.20</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Uso excesivo de magnesia o cinta incorrecta
+                                </span>
+                                <Badge variant="secondary">0.20</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                                <span>
+                                  Uso de colchones, botadores o bloques no
+                                  autorizados
+                                </span>
+                                <Badge variant="destructive">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                                <span>
+                                  No retirar botador, colchón o bloque después
+                                  de la entrada
+                                </span>
+                                <Badge variant="destructive">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                                <span>
+                                  Uso incorrecto de especificaciones del aparato
+                                </span>
+                                <Badge variant="destructive">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                                <span>
+                                  Comenzar rutina antes de la señal del Juez
+                                  Principal
+                                </span>
+                                <Badge variant="destructive">0.50</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                                <span>
+                                  Rutina de suelo realizada sin música
+                                </span>
+                                <Badge variant="destructive">1.00</Badge>
+                              </div>
+                            </div>
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                  </CardContent>
+                </Card>
+              </div>
+            </DialogContent>
+          </Dialog>
+        </div>
+
+        {/* Grid de Niveles */}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {/* Nivel 1 */}
+          <Card className="hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold">1</span>
                 </div>
-              </CardContent>
-            </Card>
-
-            <div className="grid gap-4 md:grid-cols-2">
-              <Card className="border-l-4 border-l-purple-600">
-                <CardHeader>
-                  <CardTitle className="text-lg">Elite Junior</CardTitle>
-                  <Badge variant="outline" className="w-fit">
-                    11-15 años
-                  </Badge>
-                </CardHeader>
-                <CardContent className="text-sm space-y-3">
-                  <p className="text-gray-600">
-                    Programa diseñado para gimnastas jóvenes con potencial
-                    excepcional, enfocado en desarrollo técnico avanzado y
-                    preparación para competencias internacionales junior.
-                  </p>
-                  <div className="space-y-2">
-                    <h5 className="font-medium">Características:</h5>
-                    <ul className="space-y-1 text-xs text-gray-600">
-                      <li>
-                        • Rutinas basadas en Código de Puntuación FIG modificado
-                      </li>
-                      <li>• Competencias nacionales e internacionales</li>
-                      <li>• Desarrollo progresivo hacia Elite Senior</li>
-                      <li>• Enfoque en fundamentos técnicos sólidos</li>
-                    </ul>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="border-l-4 border-l-yellow-600">
-                <CardHeader>
-                  <CardTitle className="text-lg">Elite Senior</CardTitle>
-                  <Badge variant="outline" className="w-fit">
-                    16+ años
-                  </Badge>
-                </CardHeader>
-                <CardContent className="text-sm space-y-3">
-                  <p className="text-gray-600">
-                    El nivel más alto de competencia doméstica, siguiendo
-                    completamente el Código de Puntuación FIG y sirviendo como
-                    selección para equipos olímpicos y mundiales.
-                  </p>
-                  <div className="space-y-2">
-                    <h5 className="font-medium">Características:</h5>
-                    <ul className="space-y-1 text-xs text-gray-600">
-                      <li>• Código de Puntuación FIG completo</li>
-                      <li>• Selección para Juegos Olímpicos</li>
-                      <li>• Campeonatos Mundiales</li>
-                      <li>• Máximo nivel de dificultad técnica</li>
-                    </ul>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            <Card className="bg-yellow-50 border-yellow-200">
-              <CardHeader>
-                <CardTitle className="text-yellow-900">
-                  Camino hacia Elite
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4 p-3 bg-white rounded-lg">
-                    <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                      1
-                    </div>
-                    <div>
-                      <h4 className="font-medium">Excelencia en Nivel 10</h4>
-                      <p className="text-sm text-gray-600">
-                        Puntuaciones consistentemente altas y dominio técnico
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4 p-3 bg-white rounded-lg">
-                    <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                      2
-                    </div>
-                    <div>
-                      <h4 className="font-medium">Evaluación y Calificación</h4>
-                      <p className="text-sm text-gray-600">
-                        Competencia de calificación con puntuación mínima
-                        requerida
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4 p-3 bg-white rounded-lg">
-                    <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                      3
-                    </div>
-                    <div>
-                      <h4 className="font-medium">
-                        Entrenamiento Especializado
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Transición a entrenamiento de tiempo completo con
-                        coaches elite
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4 p-3 bg-white rounded-lg">
-                    <div className="w-8 h-8 bg-yellow-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                      4
-                    </div>
-                    <div>
-                      <h4 className="font-medium">Competencia Elite</h4>
-                      <p className="text-sm text-gray-600">
-                        Participación en competencias nacionales e
-                        internacionales
-                      </p>
-                    </div>
-                  </div>
+                Nivel 1
+              </CardTitle>
+              <CardDescription>
+                Fundamentos básicos y elementos introductorios
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                <div className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <span>Elementos básicos en todos los aparatos</span>
                 </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
-        </Tabs>
+                <div className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <span>Enfoque en técnica correcta</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <span>Desarrollo de fuerza y flexibilidad</span>
+                </div>
+                <Button asChild className="w-full mt-4">
+                  <Link href="/nivel-1">
+                    Ver Detalles
+                    <ArrowLeft className="w-4 h-4 ml-2 rotate-180" />
+                  </Link>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Nivel 2 */}
+          <Card className="hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold">2</span>
+                </div>
+                Nivel 2
+              </CardTitle>
+              <CardDescription>
+                Progresión técnica y elementos más complejos
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                <div className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <span>Elementos intermedios</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <span>Mayor precisión técnica</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <span>Desarrollo de rutinas</span>
+                </div>
+                <Button asChild className="w-full mt-4">
+                  <Link href="/nivel-2">
+                    Ver Detalles
+                    <ArrowLeft className="w-4 h-4 ml-2 rotate-180" />
+                  </Link>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Nivel 3 */}
+          <Card className="hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold">3</span>
+                </div>
+                Nivel 3
+              </CardTitle>
+              <CardDescription>
+                Técnicas avanzadas y elementos competitivos
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                <div className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <span>Elementos avanzados</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <span>Rutinas completas</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <span>Preparación competitiva</span>
+                </div>
+                <Button asChild className="w-full mt-4">
+                  <Link href="/nivel-3">
+                    Ver Detalles
+                    <ArrowLeft className="w-4 h-4 ml-2 rotate-180" />
+                  </Link>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Nivel 4 */}
+          <Card className="hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <div className="w-8 h-8 bg-orange-600 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold">4</span>
+                </div>
+                Nivel 4
+              </CardTitle>
+              <CardDescription>
+                Nivel competitivo con equipamiento estándar
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                <div className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <span>Equipamiento oficial</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <span>Elementos de alto nivel</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <span>Competencia oficial</span>
+                </div>
+                <Button asChild className="w-full mt-4">
+                  <Link href="/nivel-4">
+                    Ver Detalles
+                    <ArrowLeft className="w-4 h-4 ml-2 rotate-180" />
+                  </Link>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Nivel 5 */}
+          <Card className="hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold">5</span>
+                </div>
+                Nivel 5
+              </CardTitle>
+              <CardDescription>
+                Máximo nivel competitivo juvenil
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                <div className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <span>Elementos de élite</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <span>Máxima precisión técnica</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <span>Competencia de alto nivel</span>
+                </div>
+                <Button asChild className="w-full mt-4">
+                  <Link href="/nivel-5">
+                    Ver Detalles
+                    <ArrowLeft className="w-4 h-4 ml-2 rotate-180" />
+                  </Link>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </main>
     </div>
   );

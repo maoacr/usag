@@ -26,8 +26,18 @@ import {
   Activity,
   BarChart3,
   Users,
+  Info,
+  Scale,
 } from "lucide-react";
 import Link from "next/link";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export default function Nivel5Page() {
   const router = useRouter();
@@ -94,19 +104,19 @@ export default function Nivel5Page() {
         <Tabs defaultValue="salto" className="space-y-6">
           <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger value="salto" className="flex items-center gap-2">
-              <Zap className="w-4 h-4" />
+              <img src="/vault.png" alt="Salto" className="w-8 h-8" />
               <span className="hidden md:inline">Salto</span>
             </TabsTrigger>
             <TabsTrigger value="barras" className="flex items-center gap-2">
-              <BarChart3 className="w-4 h-4" />
+              <img src="/ubars.png" alt="Salto" className="w-8 h-8" />
               <span className="hidden md:inline">Barras Asimétricas</span>
             </TabsTrigger>
             <TabsTrigger value="viga" className="flex items-center gap-2">
-              <Activity className="w-4 h-4" />
+              <img src="/beam.png" alt="Salto" className="w-8 h-8" />
               <span className="hidden md:inline">Viga de Equilibrio</span>
             </TabsTrigger>
             <TabsTrigger value="suelo" className="flex items-center gap-2">
-              <Users className="w-4 h-4" />
+              <img src="/floor.png" alt="Salto" className="w-8 h-8" />
               <span className="hidden md:inline">Suelo</span>
             </TabsTrigger>
           </TabsList>
@@ -300,135 +310,307 @@ export default function Nivel5Page() {
             {/* Sistema de Penalizaciones */}
             <Card>
               <CardHeader>
-                <CardTitle>
-                  Sistema de Penalizaciones del Resorte sobre Tabla
-                </CardTitle>
+                <CardTitle>Tabla de Penalizaciones Detallada</CardTitle>
                 <CardDescription>
-                  Deducciones específicas para cada fase del resorte sobre tabla
-                  de salto
+                  Sistema completo de deducciones para el resorte sobre tabla de
+                  salto (Niveles 4 y 5)
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <Accordion type="single" collapsible>
-                  <AccordionItem value="sin-deduccion">
-                    <AccordionTrigger className="text-sm">
-                      <span className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4" />
-                        Sin Deducción
-                      </span>
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div className="space-y-2 text-sm">
-                        <ul className="space-y-1 text-green-600">
-                          <li>• Carrera vacía #1 sin recarga en tabla.</li>
-                          <li>• Entrenador parado entre botador y tabla.</li>
-                          <li>
-                            • Uso botador alternativo (trampolín o junior).
-                          </li>
-                        </ul>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-
-                  <AccordionItem value="nulo">
+                  {/* Faltas Generales y Saltos Nulos */}
+                  <AccordionItem value="faltas-generales">
                     <AccordionTrigger className="text-sm">
                       <span className="flex items-center gap-2">
                         <AlertCircle className="w-4 h-4" />
-                        Salto Nulo
+                        Faltas Generales y Saltos Nulos
                       </span>
                     </AccordionTrigger>
                     <AccordionContent>
+                      <div className="space-y-4 text-sm">
+                        <div>
+                          <h5 className="font-medium text-green-700 mb-2">
+                            Sin Deducción:
+                          </h5>
+                          <ul className="space-y-1 text-green-600">
+                            <li>
+                              • Carrera vacía #1: acercamiento de carrera sin
+                              recargarse o apoyarse sobre la tabla de salto
+                            </li>
+                            <li>
+                              • Entrenador parado entre el botador y la tabla de
+                              salto
+                            </li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h5 className="font-medium text-red-700 mb-2">
+                            Salto NULO (0.00 puntos):
+                          </h5>
+                          <ul className="space-y-1 text-red-600">
+                            <li>• Carrera vacía #2 o #3</li>
+                            <li>
+                              • Ayuda del entrenador en cualquier fase (primera
+                              fase de vuelo, apoyo o segunda fase de vuelo)
+                            </li>
+                            <li>
+                              • Uso de botador alternativo (trampolín o botador
+                              junior)
+                            </li>
+                            <li>
+                              • Salto incorrecto (ejemplo: salto a cuclillas)
+                            </li>
+                            <li>
+                              • La gimnasta nunca alcanza la vertical y regresa
+                              al botador/piso o aterriza en la tabla de salto
+                              entre el botador y la colocación de las manos
+                            </li>
+                            <li>
+                              • Correr sobre el botador y subir en la tabla de
+                              salto o rebotar recargándose en la tabla con
+                              cualquier parte del cuerpo
+                            </li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h5 className="font-medium text-yellow-700 mb-2">
+                            Penalizaciones Generales:
+                          </h5>
+                          <ul className="space-y-1 text-yellow-600">
+                            <li>
+                              • 2.00 - Ayuda del entrenador en cualquier fase
+                            </li>
+                            <li>
+                              • 0.30 - Dinamismo insuficiente
+                              (velocidad/potencia)
+                            </li>
+                            <li>• 0.30 - Desviación de una dirección recta</li>
+                            <li>
+                              • 0.50 - Realizar el salto sin la señal del Juez
+                              Principal (deducción promedio del siguiente salto
+                              completado)
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Penalizaciones Técnicas (todas las fases) */}
+                  <AccordionItem value="fase-tecnica">
+                    <AccordionTrigger className="text-sm">
+                      Penalizaciones Técnicas (todas las fases)
+                    </AccordionTrigger>
+                    <AccordionContent>
                       <div className="space-y-2 text-sm">
-                        <ul className="space-y-1 text-red-600">
-                          <li>• Carrera vacía #2 o #3.</li>
+                        <ul className="space-y-1 text-yellow-600">
                           <li>
-                            • Salto incorrecto (ejemplo salto a cuclillas).
+                            • 0.10 - No mantener una posición neutra de la
+                            cabeza
                           </li>
                           <li>
-                            • No alcanzar vertical y regresar o aterrizar entre
-                            botador y manos.
+                            • 0.10 - Forma incorrecta de pies (flexionados,
+                            relajados)
                           </li>
-                          <li>• Ayuda del entrenador en cualquier fase.</li>
-                          <li>• Subir o rebotar sin base válida.</li>
-                          <li>• Sin contacto de manos en tabla.</li>
-                          <li>• Tocar solo con una mano la tabla.</li>
+                          <li>• 0.20 - Piernas separadas</li>
+                          <li>• 0.30 - Piernas dobladas</li>
+                          <li>
+                            • 0.30 - No mantener la posición extendida del
+                            cuerpo (arqueada)
+                          </li>
+                          <li>
+                            • 0.50 - No mantener la posición extendida del
+                            cuerpo (carpada)
+                          </li>
                         </ul>
                       </div>
                     </AccordionContent>
                   </AccordionItem>
 
-                  <AccordionItem value="penalizaciones-tecnica">
+                  {/* Penalizaciones en la Fase de Apoyo */}
+                  <AccordionItem value="fase-apoyo">
                     <AccordionTrigger className="text-sm">
-                      Penalizaciones por Técnica
+                      Penalizaciones en la Fase de Apoyo
                     </AccordionTrigger>
                     <AccordionContent>
-                      <div className="space-y-3 text-sm">
+                      <div className="space-y-2 text-sm">
+                        <ul className="space-y-1 text-yellow-600">
+                          <li>
+                            • 0.10 - Colocación separada o alternada de manos
+                          </li>
+                          <li>• 0.20 - Rechace alternado de manos</li>
+                          <li>
+                            • 0.20 - Alineación incorrecta de hombros (ángulo
+                            menor a 180°)
+                          </li>
+                          <li>• 0.50 - Brazos doblados en el apoyo</li>
+                          <li>
+                            • 2.00 - La cabeza hace contacto con la tabla de
+                            salto en la fase de apoyo (incluye flexión excesiva
+                            de brazos)
+                          </li>
+                          <li>
+                            • 0.10 a 0.30 - Colocación adicional de manos (dar
+                            pasos/brincos con las manos)
+                          </li>
+                          <li>• 0.50 - Mucho tiempo en el apoyo</li>
+                          <li>
+                            • 1.00 - Tocar la tabla de salto con solo una mano
+                            (deducción del JP, si al menos la mitad del panel lo
+                            ve)
+                          </li>
+                        </ul>
                         <div>
-                          <h5 className="font-semibold text-yellow-700 mb-2">
-                            Técnica General:
+                          <h5 className="font-medium text-yellow-700 mb-2">
+                            Ángulo de Rechace:
                           </h5>
                           <ul className="space-y-1 text-yellow-600">
-                            <li>• Dinamismo insuficiente: Hasta 0.30</li>
-                            <li>• Desviación de dirección: Hasta 0.30</li>
                             <li>
-                              • Posición cabeza incorrecta: Hasta 0.10 por fase
+                              • Abandonar la tabla de salto antes de la vertical
                             </li>
                             <li>
-                              • Forma de pies incorrecta: Hasta 0.10 por fase
+                              • Abandonar la tabla de salto entre 1° – 45°
+                              después de la vertical
                             </li>
-                            <li>• Piernas separadas: Hasta 0.20 por fase</li>
-                            <li>• Piernas dobladas: Hasta 0.30 por fase</li>
-                            <li>• Cuerpo arqueado: Hasta 0.30 por fase</li>
-                            <li>• Cuerpo carpado: Hasta 0.50 por fase</li>
+                            <li>
+                              • Abandonar la tabla de salto entre 46° – 89°
+                              después de la vertical
+                            </li>
                           </ul>
                         </div>
                         <div>
-                          <h5 className="font-semibold text-red-700 mb-2">
-                            Fase de Apoyo:
+                          <h5 className="font-medium text-red-700 mb-2">
+                            Sin Contacto de Manos:
                           </h5>
                           <ul className="space-y-1 text-red-600">
-                            <li>• Brazos doblados: Hasta 0.50</li>
-                            <li>• Contacto cabeza con tabla: Hasta 2.00</li>
-                            <li>• Tiempo excesivo en apoyo: Hasta 0.30</li>
-                            <li>• Toque con una sola mano: Hasta 1.00</li>
+                            <li>
+                              • Sin contacto de las manos en la tabla de salto
+                            </li>
                           </ul>
                         </div>
                       </div>
                     </AccordionContent>
                   </AccordionItem>
 
-                  <AccordionItem value="penalizaciones-aterrizaje">
+                  {/* Segunda Fase de Vuelo */}
+                  <AccordionItem value="segunda-fase-vuelo">
+                    <AccordionTrigger className="text-sm">
+                      Segunda Fase de Vuelo
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 text-sm">
+                        <ul className="space-y-1 text-yellow-600">
+                          <li>
+                            • 0.20 - Rozar o pegar con el cuerpo en el extremo
+                            más alejado de la tabla de salto
+                          </li>
+                        </ul>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Otras Observaciones */}
+                  <AccordionItem value="otras">
+                    <AccordionTrigger className="text-sm">
+                      Otras Observaciones
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 text-sm">
+                        <ul className="space-y-1 text-yellow-600">
+                          <li>
+                            • Distancia insuficiente (considerar estatura, punto
+                            de apoyo de manos y aterrizaje de pies, trayectoria
+                            amplitud de la 2da fase de vuelo)
+                          </li>
+                          <li>• Altura insuficiente</li>
+                        </ul>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Penalizaciones de Aterrizaje */}
+                  <AccordionItem value="aterrizaje">
                     <AccordionTrigger className="text-sm">
                       Penalizaciones de Aterrizaje
                     </AccordionTrigger>
                     <AccordionContent>
                       <div className="space-y-2 text-sm">
-                        <div>
-                          <strong>0.05:</strong> Pies separados ancho cadera o
-                          más, sin juntar
-                        </div>
-                        <div>
-                          <strong>0.10:</strong> Deslizamiento para juntarse,
-                          brinco o ajuste pequeño, pies escalonados
-                        </div>
-                        <div>
-                          <strong>0.20:</strong> Salto o paso largo (~1m o más),
-                          postura incorrecta, movimientos extra tronco
-                        </div>
-                        <div>
-                          <strong>0.30:</strong> Sentadilla (cadera a altura
-                          rodillas o abajo), toque leve manos sin apoyo
-                        </div>
-                        <div>
-                          <strong>0.50:</strong> Ayuda en aterrizaje, caída tras
-                          ayuda, apoyo manos en colchón, caída en rodillas o
-                          cadera, caída contra tabla, no aterrizaje con parte
-                          inferior de pies primero
-                        </div>
-                        <div>
-                          <strong>0.50+2.00:</strong> Aterrizaje sentada,
-                          acostada o pie tras pasar vertical
-                        </div>
+                        <h5 className="font-medium text-green-700 mb-2">
+                          Sin Deducción:
+                        </h5>
+                        <ul className="space-y-1 text-green-600">
+                          <li>
+                            • No hay deducción por pies separados a un máximo
+                            del ancho de la cadera si los talones se juntan
+                            (deslicen) a la extensión controlada
+                          </li>
+                        </ul>
+                        <h5 className="font-medium text-yellow-700 mb-2 mt-4">
+                          Penalizaciones:
+                        </h5>
+                        <ul className="space-y-1 text-yellow-600">
+                          <li>
+                            • 0.05 - Aterrizar con los pies separados al ancho
+                            de la cadera o más juntos, pero nunca juntos los
+                            talones
+                          </li>
+                          <li>
+                            • 0.10 - Si los pies se deslizan o levantan del piso
+                            para juntarse, se considera paso pequeño
+                          </li>
+                          <li>
+                            • 0.10 - Aterrizar con los pies separados más que el
+                            ancho de la cadera
+                          </li>
+                          <li>
+                            • 0.10 - Brinco pequeño, ajuste de pies ligero o
+                            pies escalonados
+                          </li>
+                          <li>• 0.10 a 0.40 - Pasos (cada uno, máximo 0.40)</li>
+                          <li>
+                            • 0.20 a 0.40 - Salto o paso largo (~1 metro o más,
+                            cada uno, máximo 0.40)
+                          </li>
+                          <li>
+                            • 0.10 - Balanceo de brazos para mantener el
+                            equilibrio
+                          </li>
+                          <li>
+                            • 0.20 - Postura incorrecta de cuerpo en el
+                            aterrizaje
+                          </li>
+                          <li>
+                            • 0.20 - Movimientos adicionales de tronco para
+                            mantener el equilibrio
+                          </li>
+                          <li>
+                            • 0.30 - Sentadilla en el aterrizaje (cadera a la
+                            altura de las rodillas o más abajo)
+                          </li>
+                          <li>
+                            • 0.30 - Ligero toque/roce de 1 o 2 manos en el
+                            colchón (sin apoyo)
+                          </li>
+                          <li>• 0.50 - Ayuda en el aterrizaje</li>
+                          <li>
+                            • 0.50 - Deducción por caída después de ayuda en el
+                            aterrizaje
+                          </li>
+                          <li>• 0.50 - Apoyo en el colchón con 1 o 2 manos</li>
+                          <li>
+                            • 0.50 - Caída sobre el colchón en rodillas o cadera
+                          </li>
+                          <li>• 0.50 - Caída contra la tabla de salto</li>
+                          <li>
+                            • 2.00 - No aterrizar con cualquier porción de la
+                            parte inferior de los pies primero
+                          </li>
+                          <li>
+                            • 2.50 - Aterrizaje en posición sentada, acostada o
+                            de pie sobre la tabla de salto después de pasar por
+                            la vertical (parada de manos)
+                          </li>
+                        </ul>
                       </div>
                     </AccordionContent>
                   </AccordionItem>
@@ -1103,6 +1285,580 @@ export default function Nivel5Page() {
             </Card>
           </TabsContent>
         </Tabs>
+
+        {/* Botón flotante para penalizaciones generales */}
+        <div className="fixed bottom-6 right-6 z-50">
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button
+                size="lg"
+                className="rounded-full shadow-lg bg-blue-600 hover:bg-blue-700 text-white"
+              >
+                <Scale className="w-5 h-5 mr-2" />
+                Penalizaciones Generales
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+              <DialogHeader>
+                <DialogTitle className="flex items-center gap-2">
+                  <Scale className="w-6 h-6" />
+                  Penalizaciones Generales - USAG
+                </DialogTitle>
+                <DialogDescription>
+                  Sistema completo de deducciones aplicable a todos los aparatos
+                  y niveles
+                </DialogDescription>
+              </DialogHeader>
+
+              <div className="space-y-6">
+                {/* Ámbito de aplicación */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Target className="w-5 h-5" />
+                      Ámbito de Aplicación
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex gap-2">
+                      {[
+                        "Barras Asimétricas",
+                        "Viga de Equilibrio",
+                        "Suelo",
+                      ].map((aparato) => (
+                        <Badge key={aparato} variant="outline">
+                          {aparato}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Principios Generales */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Info className="w-5 h-5" />
+                      Principios Generales
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2 text-sm">
+                      {[
+                        "Todos los elementos y enlaces deben realizarse con máxima amplitud y mejor ejecución en orden escrito.",
+                        "Cualquier desviación técnica o ejecución correcta se penaliza según esta tabla.",
+                        "Penalizaciones específicas de cada aparato se aplican además de estas generales.",
+                        "Errores que causen caída deducen ejecución y amplitud, pero no deducir errores de equilibrio que causen caída.",
+                        "Deducciones totales por ejecución y amplitud en un elemento principal no exceden el valor del elemento + 0.50.",
+                        "Deducciones por caídas, balanceos adicionales o falta de continuidad por caída son adicionales.",
+                        "Si más de la mitad de elementos principales se hacen con ayuda del entrenador, nota se basa en elementos sin ayuda menos deducciones por ejecución y amplitud, incluyendo elementos ayudados.",
+                        "Rutinas pueden invertirse en su totalidad, excepto elementos indicados individualmente.",
+                        "Determinar diestra o zurda según dominancia de salto leap split y split frontal; adaptar instrucciones de derecha/izquierda en consecuencia.",
+                      ].map((principio, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <Badge variant="outline" className="mt-0.5 text-xs">
+                            {index + 1}
+                          </Badge>
+                          <span>{principio}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                {/* Cambios al Texto Prescrito */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Cambios al Texto Prescrito</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Accordion type="single" collapsible>
+                      <AccordionItem value="cambios-texto">
+                        <AccordionTrigger className="text-sm">
+                          Penalizaciones por Modificaciones
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <div className="space-y-3 text-sm">
+                            <div className="grid gap-2">
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Cambiar, invertir, añadir u omitir una parte
+                                  pequeña
+                                </span>
+                                <Badge variant="secondary">0.10</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Cambiar, invertir u omitir serie de enlaces
+                                </span>
+                                <Badge variant="secondary">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Invertir orden de dos elementos en serie de
+                                  danza enlazada en viga o suelo
+                                </span>
+                                <Badge variant="secondary">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                                <span>Cambiar un elemento principal</span>
+                                <Badge variant="destructive">
+                                  Valor del elemento
+                                </Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                                <span>
+                                  Sustituir u omitir un elemento principal
+                                </span>
+                                <Badge variant="destructive">
+                                  Doble del valor
+                                </Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                                <span>
+                                  Invertir elemento principal si no permitido
+                                </span>
+                                <Badge variant="destructive">
+                                  Mitad del valor
+                                </Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Elemento principal incompleto</span>
+                                <Badge variant="secondary">
+                                  Hasta valor del elemento
+                                </Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Añadir un elemento adicional</span>
+                                <Badge variant="secondary">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-green-50 rounded">
+                                <span>
+                                  Repetición de elemento perdido sin
+                                  penalización
+                                </span>
+                                <Badge variant="outline">Sin deducción</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Elemento principal con giro adicional
+                                </span>
+                                <Badge variant="secondary">
+                                  Hasta valor del elemento
+                                </Badge>
+                              </div>
+                            </div>
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                  </CardContent>
+                </Card>
+
+                {/* Deducciones Específicas de Ejecución */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Deducciones Específicas de Ejecución</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Accordion type="single" collapsible>
+                      <AccordionItem value="deducciones-ejecucion">
+                        <AccordionTrigger className="text-sm">
+                          Deducciones Generales por Ejecución
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <div className="space-y-3 text-sm">
+                            <div className="bg-blue-50 p-3 rounded">
+                              <h4 className="font-semibold mb-2">Máximas:</h4>
+                              <ul className="space-y-1">
+                                <li>
+                                  • Ejecución y amplitud en un elemento: 0.50
+                                </li>
+                                <li>• Caída: 0.50</li>
+                              </ul>
+                            </div>
+                            <div className="grid gap-2">
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Dar pasos adicionales</span>
+                                <Badge variant="secondary">0.05</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Pies flexionados o relajados</span>
+                                <Badge variant="secondary">0.05</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Separación de piernas o rodillas</span>
+                                <Badge variant="secondary">0.20</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Alineación cuerpo/postura incorrecta en
+                                  elementos principales
+                                </span>
+                                <Badge variant="secondary">0.20</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Brazos flexionados en apoyo</span>
+                                <Badge variant="secondary">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Piernas flexionadas en apoyo</span>
+                                <Badge variant="secondary">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Errores de equilibrio (pequeños, medianos,
+                                  grandes)
+                                </span>
+                                <Badge variant="secondary">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                                <span>Caída en o desde aparato</span>
+                                <Badge variant="destructive">0.50</Badge>
+                              </div>
+                            </div>
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                  </CardContent>
+                </Card>
+
+                {/* Deducciones Específicas por Aparato */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Deducciones Específicas por Aparato</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Accordion type="single" collapsible>
+                      <AccordionItem value="barras-asimetricas">
+                        <AccordionTrigger className="text-sm">
+                          Barras Asimétricas
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <div className="space-y-2 text-sm">
+                            <div className="grid gap-2">
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Dudas en salto o kip superior</span>
+                                <Badge variant="secondary">0.10</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Ajustes en colocación de manos o pies
+                                </span>
+                                <Badge variant="secondary">0.10</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Agarre alternativo o recuperar sin apoyo
+                                  adicional
+                                </span>
+                                <Badge variant="secondary">0.20</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Balanceo/impulso intermedio adicional (máx.
+                                  0.50)
+                                </span>
+                                <Badge variant="secondary">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Tomar aparato para evitar caída</span>
+                                <Badge variant="secondary">0.30</Badge>
+                              </div>
+                            </div>
+                            <div className="bg-blue-50 p-3 rounded">
+                              <h5 className="font-semibold mb-2">
+                                Rozar/Tocar/Golpear:
+                              </h5>
+                              <ul className="space-y-1">
+                                <li>• Rozar o tocar: 0.10</li>
+                                <li>• Golpear aparato: 0.20</li>
+                                <li>• Golpear colchón: 0.30</li>
+                                <li>• Apoyar peso total en colchón: 0.50</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+
+                      <AccordionItem value="viga-suelo">
+                        <AccordionTrigger className="text-sm">
+                          Viga de Equilibrio y Suelo
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <div className="space-y-2 text-sm">
+                            <div className="grid gap-2">
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>No marcar passé relevé</span>
+                                <Badge variant="secondary">0.05</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  No realizar giros 180°/360° en pie relevé alto
+                                </span>
+                                <Badge variant="secondary">0.10</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  No mantener brazos cubriendo orejas en
+                                  elementos acrobáticos lentos
+                                </span>
+                                <Badge variant="secondary">0.05</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  No aterrizar pies cerrados en saltos/jump
+                                </span>
+                                <Badge variant="secondary">0.10</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  No aterrizar dos pies al mismo tiempo en
+                                  saltos/jump
+                                </span>
+                                <Badge variant="secondary">0.10</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Alineación incorrecta de piernas en arabesca
+                                  cuando indicado
+                                </span>
+                                <Badge variant="secondary">0.10</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  No contraer o arquear cuando indicado
+                                </span>
+                                <Badge variant="secondary">0.10</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  No patear o balancear pierna horizontal o más
+                                  arriba
+                                </span>
+                                <Badge variant="secondary">0.10</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Separación desigual de piernas en saltos
+                                  leap/jump
+                                </span>
+                                <Badge variant="secondary">0.20</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Apoyar pierna en superficie lateral de viga
+                                </span>
+                                <Badge variant="secondary">0.20</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Split insuficiente en elementos sin vuelo o
+                                  danza
+                                </span>
+                                <Badge variant="secondary">0.20</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Patada adicional a parada de manos</span>
+                                <Badge variant="secondary">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Movimientos adicionales para
+                                  equilibrio/control
+                                </span>
+                                <Badge variant="secondary">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Tomar viga para evitar caída</span>
+                                <Badge variant="secondary">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Uso de apoyo complementario</span>
+                                <Badge variant="secondary">0.30</Badge>
+                              </div>
+                            </div>
+                            <div className="bg-blue-50 p-3 rounded">
+                              <h5 className="font-semibold mb-2">
+                                Ejemplos de uso de apoyo complementario:
+                              </h5>
+                              <ul className="space-y-1">
+                                <li>
+                                  • Pie(s) permanece(n) en colchón o botador
+                                  durante entrada
+                                </li>
+                                <li>
+                                  • Pie(s) contacto con colchón en sentado con
+                                  piernas separadas
+                                </li>
+                                <li>
+                                  • Pie(s) usan soporte o base de viga para
+                                  apoyarse
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                  </CardContent>
+                </Card>
+
+                {/* Deducciones por Ayuda */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Deducciones por Ayuda</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3 text-sm">
+                      <div className="bg-red-50 p-3 rounded">
+                        <h4 className="font-semibold mb-2">
+                          Valor máximo: Valor del elemento + 0.50
+                        </h4>
+                        <p>El entrenador ayuda o toca durante el elemento</p>
+                      </div>
+                      <div className="grid gap-2">
+                        <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                          <span>Deducción por ayuda</span>
+                          <Badge variant="destructive">0.50</Badge>
+                        </div>
+                        <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                          <span>Deducción por ayuda en aterrizaje</span>
+                          <Badge variant="destructive">0.50</Badge>
+                        </div>
+                        <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                          <span>Deducción por caída después de ayuda</span>
+                          <Badge variant="destructive">0.50</Badge>
+                        </div>
+                        <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                          <span>Deducción por captura en caída</span>
+                          <Badge variant="destructive">0.50</Badge>
+                        </div>
+                      </div>
+                      <div className="bg-yellow-50 p-2 rounded text-xs">
+                        <strong>Nota:</strong> Se deduce solo una caída aunque
+                        la gimnasta sea atrapada.
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Deducciones del Juez Principal */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Deducciones del Juez Principal</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Accordion type="single" collapsible>
+                      <AccordionItem value="advertencias">
+                        <AccordionTrigger className="text-sm">
+                          Advertencias (0.10 puntos)
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <div className="space-y-2 text-sm">
+                            <ul className="space-y-1">
+                              <li>
+                                • Exceder tiempo en viga (evaluación continúa
+                                tras advertencia)
+                              </li>
+                              <li>
+                                • Cualquier parte del cuerpo toca fuera de marca
+                                límite de suelo
+                              </li>
+                              <li>
+                                • No presentarse ante Juez Principal antes y
+                                después de la rutina
+                              </li>
+                              <li>
+                                • Entrenador parado junto a viga durante toda la
+                                rutina tras advertencia
+                              </li>
+                            </ul>
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+
+                      <AccordionItem value="otras-deducciones">
+                        <AccordionTrigger className="text-sm">
+                          Otras Deducciones
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <div className="space-y-2 text-sm">
+                            <div className="grid gap-2">
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Indicaciones verbales o técnicas por
+                                  entrenador o compañeras
+                                </span>
+                                <Badge variant="secondary">0.20</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Vestimenta incorrecta</span>
+                                <Badge variant="secondary">0.20</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Inicio de rutina fuera de tiempo</span>
+                                <Badge variant="secondary">0.20</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>No respetar tiempo de calentamiento</span>
+                                <Badge variant="secondary">0.20</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>Conducta antideportiva de gimnasta</span>
+                                <Badge variant="secondary">0.20</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                                <span>
+                                  Uso excesivo de magnesia o cinta incorrecta
+                                </span>
+                                <Badge variant="secondary">0.20</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                                <span>
+                                  Uso de colchones, botadores o bloques no
+                                  autorizados
+                                </span>
+                                <Badge variant="destructive">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                                <span>
+                                  No retirar botador, colchón o bloque después
+                                  de la entrada
+                                </span>
+                                <Badge variant="destructive">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                                <span>
+                                  Uso incorrecto de especificaciones del aparato
+                                </span>
+                                <Badge variant="destructive">0.30</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                                <span>
+                                  Comenzar rutina antes de la señal del Juez
+                                  Principal
+                                </span>
+                                <Badge variant="destructive">0.50</Badge>
+                              </div>
+                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                                <span>
+                                  Rutina de suelo realizada sin música
+                                </span>
+                                <Badge variant="destructive">1.00</Badge>
+                              </div>
+                            </div>
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                  </CardContent>
+                </Card>
+              </div>
+            </DialogContent>
+          </Dialog>
+        </div>
       </main>
     </div>
   );
