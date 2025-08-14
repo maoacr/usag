@@ -1193,22 +1193,414 @@ export default function Nivel1Page() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Target className="w-5 h-5" />
-                  Suelo - En Desarrollo
+                  <Activity className="w-5 h-5" />
+                  Suelo - Nivel 1
                 </CardTitle>
                 <CardDescription>
-                  El contenido para Suelo del Nivel 1 estará disponible
-                  próximamente.
+                  El Nivel 1 en Suelo introduce los elementos fundamentales de gimnasia artística en el suelo, desarrollando la técnica básica y la coordinación necesarias para niveles superiores.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-600">
-                  <p className="text-yellow-800">
-                    <strong>Próximamente:</strong> Información detallada sobre
-                    los elementos requeridos, técnicas y penalizaciones para
-                    Suelo en Nivel 1.
+                <div className="space-y-4">
+                  <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-600">
+                    <h4 className="font-semibold text-blue-900 mb-2">
+                      Elementos Principales:
+                    </h4>
+                    <ul className="space-y-1 text-blue-800 text-sm">
+                      <li>• Inversión lateral (0.60 puntos)</li>
+                      <li>• Rodada atrás agrupada (0.60 puntos)</li>
+                      <li>• Vela (0.20 puntos)</li>
+                      <li>• Equilibrio en passé al frente (0.40 puntos)</li>
+                      <li>• Chassé al frente (0.20 puntos)</li>
+                      <li>• Salto extendido (0.40 puntos)</li>
+                      <li>• Rodada al frente agrupada (0.40 puntos)</li>
+                      <li>• ¾ de parada de manos (0.40 puntos)</li>
+                    </ul>
+                  </div>
+                  <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-600">
+                    <h4 className="font-semibold text-green-900 mb-2">
+                      Características Técnicas:
+                    </h4>
+                    <ul className="space-y-1 text-green-800 text-sm">
+                      <li>• Elementos de inversión controlados</li>
+                      <li>• Rodadas con técnica correcta</li>
+                      <li>• Equilibrios básicos mantenidos</li>
+                      <li>• Saltos con aterrizaje preciso</li>
+                      <li>• Elementos de danza básicos</li>
+                    </ul>
+                  </div>
+                  <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-600">
+                    <p className="text-yellow-800">
+                      <strong>Importante:</strong> Consultar Reglas y Políticas
+                      de USA Gymnastics para especificaciones de equipamiento.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Técnica Detallada */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg">
+                  Técnica Completa de Suelo
+                </CardTitle>
+                <Badge variant="outline">10.0 puntos total</Badge>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div>
+                    <h4 className="font-semibold mb-2">
+                      Elementos de Inversión:
+                    </h4>
+                    <ul className="space-y-1 text-sm">
+                      <li>• Inversión lateral con control</li>
+                      <li>• Colocación simultánea de manos</li>
+                      <li>• Paso por la vertical</li>
+                      <li>• ¾ de parada de manos estable</li>
+                      <li>• Alineación correcta de la cabeza</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">
+                      Elementos de Rodada:
+                    </h4>
+                    <ul className="space-y-1 text-sm">
+                      <li>• Rodada atrás con posición agrupada</li>
+                      <li>• Rodada al frente manteniendo agrupación</li>
+                      <li>• Control sin usar las manos</li>
+                      <li>• Continuidad en el movimiento</li>
+                      <li>• Finalización controlada</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div>
+                    <h4 className="font-semibold mb-2">Equilibrios y Danza:</h4>
+                    <ul className="space-y-1 text-sm">
+                      <li>• Vela con control completo</li>
+                      <li>• Equilibrio en passé al frente</li>
+                      <li>• Chassé con plié correcto</li>
+                      <li>• Posiciones de piernas precisas</li>
+                      <li>• Cierre adecuado de piernas en el aire</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Saltos:</h4>
+                    <ul className="space-y-1 text-sm">
+                      <li>• Salto extendido con piernas juntas</li>
+                      <li>• Aterrizaje simultáneo de ambos pies</li>
+                      <li>• Pies cerrados en aterrizaje</li>
+                      <li>• Control corporal durante el vuelo</li>
+                      <li>• Postura correcta en el aire</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-yellow-50 p-3 rounded-lg border-l-4 border-yellow-600">
+                  <p className="text-yellow-800 text-sm">
+                    <strong>Puntos Clave de Evaluación:</strong> Colocación
+                    correcta de manos, mantenimiento de posiciones agrupadas,
+                    control en inversiones, aterrizajes precisos, y técnica
+                    correcta en elementos de danza.
                   </p>
                 </div>
+              </CardContent>
+            </Card>
+
+            {/* Penalizaciones Detalladas */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Tabla de Penalizaciones Detallada</CardTitle>
+                <CardDescription>
+                  Sistema completo de deducciones para Suelo Nivel 1
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Accordion type="single" collapsible>
+                  {/* Inversión lateral */}
+                  <AccordionItem value="inversion-lateral">
+                    <AccordionTrigger className="text-sm">
+                      <span className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4" />
+                        Inversión lateral (0.60 puntos) - Símbolo de inversión
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 text-sm">
+                        <div className="bg-blue-50 p-3 rounded">
+                          <h5 className="font-semibold mb-2 text-blue-700">
+                            Elemento Principal:
+                          </h5>
+                          <p className="text-blue-600">
+                            Inversión lateral con paso por la vertical
+                          </p>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              Colocación incorrecta de las manos (simultánea)
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              No pasar por la vertical (hasta 0.30)
+                            </span>
+                            <Badge variant="secondary">0.30</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              No mantener la alineación de la cabeza
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Rodada atrás agrupada */}
+                  <AccordionItem value="rodada-atras">
+                    <AccordionTrigger className="text-sm">
+                      <span className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4" />
+                        Rodada atrás agrupada (0.60 puntos)
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 text-sm">
+                        <div className="bg-blue-50 p-3 rounded">
+                          <h5 className="font-semibold mb-2 text-blue-700">
+                            Elemento Principal:
+                          </h5>
+                          <p className="text-blue-600">
+                            Rodada atrás manteniendo posición agrupada
+                          </p>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                            <span>
+                              Colocar las manos en el suelo durante la fase de cuclillas antes de rodar hacia atrás
+                            </span>
+                            <Badge variant="destructive">0.30</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              No mantener la posición agrupada cuando los glúteos tocan el suelo (hasta 0.20)
+                            </span>
+                            <Badge variant="secondary">0.20</Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Vela */}
+                  <AccordionItem value="vela">
+                    <AccordionTrigger className="text-sm">
+                      <span className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4" />
+                        Vela (0.20 puntos)
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 text-sm">
+                        <div className="bg-blue-50 p-3 rounded">
+                          <h5 className="font-semibold mb-2 text-blue-700">
+                            Elemento Principal:
+                          </h5>
+                          <p className="text-blue-600">
+                            Vela con control completo del cuerpo
+                          </p>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                            <span>
+                              Empujar el suelo con las manos para llegar a las cuclillas
+                            </span>
+                            <Badge variant="destructive">0.30</Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Equilibrio en passé al frente */}
+                  <AccordionItem value="equilibrio-passe-suelo">
+                    <AccordionTrigger className="text-sm">
+                      <span className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4" />
+                        Equilibrio en passé al frente (0.40 puntos)
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 text-sm">
+                        <div className="bg-blue-50 p-3 rounded">
+                          <h5 className="font-semibold mb-2 text-blue-700">
+                            Elemento Principal:
+                          </h5>
+                          <p className="text-blue-600">
+                            Equilibrio en passé al frente
+                          </p>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              Piernas en la posición incorrecta (no en passé al frente)
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Chassé al frente */}
+                  <AccordionItem value="chasse-frente">
+                    <AccordionTrigger className="text-sm">
+                      <span className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4" />
+                        Chassé al frente (0.20 puntos)
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 text-sm">
+                        <div className="bg-blue-50 p-3 rounded">
+                          <h5 className="font-semibold mb-2 text-blue-700">
+                            Elemento Principal:
+                          </h5>
+                          <p className="text-blue-600">
+                            Chassé al frente con plié correcto
+                          </p>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              No pasar por plié al principio y al final del chassé al frente (cada vez)
+                            </span>
+                            <Badge variant="secondary">0.05</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              No cerrar las piernas en el aire (hasta 0.10)
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Salto extendido */}
+                  <AccordionItem value="salto-extendido-suelo">
+                    <AccordionTrigger className="text-sm">
+                      <span className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4" />
+                        Salto extendido (0.40 puntos)
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 text-sm">
+                        <div className="bg-blue-50 p-3 rounded">
+                          <h5 className="font-semibold mb-2 text-blue-700">
+                            Elemento Principal:
+                          </h5>
+                          <p className="text-blue-600">
+                            Salto extendido con técnica correcta
+                          </p>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              No mantener las piernas juntas en el aire durante el salto extendido
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              No aterrizar con los dos pies al mismo tiempo
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              No aterrizar con los pies cerrados (hasta 0.10)
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Rodada al frente agrupada */}
+                  <AccordionItem value="rodada-frente">
+                    <AccordionTrigger className="text-sm">
+                      <span className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4" />
+                        Rodada al frente agrupada (0.40 puntos)
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 text-sm">
+                        <div className="bg-blue-50 p-3 rounded">
+                          <h5 className="font-semibold mb-2 text-blue-700">
+                            Elemento Principal:
+                          </h5>
+                          <p className="text-blue-600">
+                            Rodada al frente manteniendo posición agrupada
+                          </p>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              No mantener la posición agrupada durante la rodada al frente (hasta 0.20)
+                            </span>
+                            <Badge variant="secondary">0.20</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                            <span>
+                              Empujar el suelo con las manos para llegar a las cuclillas
+                            </span>
+                            <Badge variant="destructive">0.30</Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* ¾ de parada de manos */}
+                  <AccordionItem value="tres-cuartos-parada">
+                    <AccordionTrigger className="text-sm">
+                      <span className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4" />
+                        ¾ de parada de manos (0.40 puntos) - Símbolo de inversión
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 text-sm">
+                        <div className="bg-blue-50 p-3 rounded">
+                          <h5 className="font-semibold mb-2 text-blue-700">
+                            Elemento Principal:
+                          </h5>
+                          <p className="text-blue-600">
+                            ¾ de parada de manos con control
+                          </p>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center p-2 bg-blue-50 rounded">
+                            <span>
+                              Ver Faltas y Penalizaciones generales
+                            </span>
+                            <Badge variant="outline">General</Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
               </CardContent>
             </Card>
           </TabsContent>

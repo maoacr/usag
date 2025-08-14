@@ -1540,149 +1540,322 @@ export default function Nivel2Page() {
                   Suelo - Descripción General
                 </CardTitle>
                 <CardDescription>
-                  La rutina de suelo en Nivel 2 mantiene el enfoque en
-                  fundamentos de tumbling y danza, con mayor énfasis en la
-                  expresión artística y coordinación.
+                  La rutina de suelo en Nivel 2 introduce elementos más complejos
+                  de acrobacia y danza, con mayor énfasis en la coordinación y
+                  técnica avanzada.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="grid gap-4 md:grid-cols-2">
                   <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-600">
                     <h4 className="font-semibold text-blue-900 mb-2">
-                      Notas Importantes:
+                      Elementos Principales:
                     </h4>
                     <ul className="space-y-1 text-blue-800 text-sm">
-                      <li>
-                        • Figuras son guía, texto tiene flexibilidad para
-                        opciones
-                      </li>
-                      <li>• Solo elementos principales en mayúsculas</li>
-                      <li>
-                        • Brazos en arriba pueden ser curvados o extendidos
-                      </li>
-                      <li>
-                        • Rutina puede invertirse salvo elementos con asterisco
-                        (*)
-                      </li>
+                      <li>• Inversión lateral (0.60 puntos)</li>
+                      <li>• Rodada atrás a posición de lagartija (0.60 puntos)</li>
+                      <li>• ½ giro en passé al frente (0.40 puntos)</li>
+                      <li>• Chassé al frente (0.20 puntos)</li>
+                      <li>• Salto leap split con piernas extendidas (0.60 puntos)</li>
+                      <li>• Salto jump split (0.40 puntos)</li>
+                      <li>• Parada de manos (0.40 puntos)</li>
+                      <li>• Vela (0.20 puntos)</li>
+                      <li>• Arco, patada a pasar (0.60 puntos)</li>
                     </ul>
                   </div>
                   <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-600">
                     <h4 className="font-semibold text-green-900 mb-2">
-                      Posición Inicial:
+                      Características Técnicas:
                     </h4>
-                    <p className="text-green-800 text-sm">
-                      Comenzar en esquina o borde de suelo. Posición recta de
-                      pie. Brazo derecho flexionado con dorso y antebrazo en
-                      espalda baja, brazo izquierdo diagonal abajo al lado.
-                      Enfoque hacia brazo izquierdo.
-                    </p>
+                    <ul className="space-y-1 text-green-800 text-sm">
+                      <li>• Elementos con símbolo de inversión</li>
+                      <li>• Técnicas de giro de presión de talón</li>
+                      <li>• Saltos con mayor exigencia de separación</li>
+                      <li>• Control en paradas de manos</li>
+                      <li>• Elementos dinámicos de acrobacia</li>
+                    </ul>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
+            {/* Elementos detallados */}
             <div className="space-y-4">
-              {/* Pose, Inversión lateral */}
+              {/* Inversión lateral */}
               <Card>
                 <CardHeader>
                   <div className="flex items-center justify-between">
-                    <CardTitle className="text-lg">
-                      1. Pose, Inversión Lateral*
+                    <CardTitle className="text-lg flex items-center gap-2">
+                      Inversión lateral
+                      <Badge variant="outline" className="bg-purple-100 text-purple-800">
+                        Inversión
+                      </Badge>
                     </CardTitle>
                     <Badge variant="secondary">0.60 puntos</Badge>
                   </div>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-3">
-                    <div>
-                      <h4 className="font-semibold mb-2">
-                        Secuencia Completa:
-                      </h4>
-                      <ul className="space-y-1 text-sm">
-                        <li>
-                          • Desde posición inicial, demi-plié y ligero torso
-                          hacia adelante
-                        </li>
-                        <li>• Abdominales contraídos</li>
-                        <li>
-                          • Brazos hacia adelante y arriba para terminar
-                          flexionados en medio
-                        </li>
-                        <li>• Palmas afuera, enfoque abajo</li>
-                        <li>
-                          • Extender torso y piernas a posición recta de pie
-                        </li>
-                        <li>
-                          • Abrir brazos a lados-en medio, enfoque al frente
-                        </li>
-                        <li>
-                          • Si se invierte inversión lateral, apuntar pie
-                          izquierdo adelante
-                        </li>
-                        <li>
-                          • Transferir peso a pie derecho para desplante derecho
-                        </li>
-                        <li>
-                          • Levantar pierna izquierda atrás y arriba sobre
-                          cabeza
-                        </li>
-                        <li>• Cubrir orejas con brazos durante descenso</li>
-                        <li>
-                          • Giro 90° izquierda, colocar manos separadas en suelo
-                        </li>
-                        <li>• Realizar inversión lateral derecha</li>
-                        <li>• Cabeza alineada, hombros y cadera abiertos</li>
-                        <li>• Girar 90° hacia adentro para descender</li>
-                        <li>• Piernas juntas, terminar recta de pie</li>
-                        <li>• Brazos arriba durante toda acción y descenso</li>
-                      </ul>
-                    </div>
-                    <div className="bg-green-50 p-2 rounded">
+                    <div className="bg-green-50 p-3 rounded">
                       <p className="text-sm text-green-700">
-                        <strong>Énfasis:</strong> Alineación cuerpo y cabeza,
-                        mostrar ángulo hombros abierto y pasar vertical
+                        <strong>Descripción:</strong> Elemento acrobático lateral
+                        con paso por la vertical
                       </p>
                     </div>
-                    <div className="bg-red-50 p-2 rounded">
-                      <p className="text-sm text-red-700">
-                        <strong>Nota:</strong> Elemento marcado con asterisco
-                        (*) - no se puede invertir
-                      </p>
-                    </div>
-                    <div className="bg-yellow-50 p-2 rounded">
-                      <p className="text-sm text-yellow-700">
-                        <strong>Deducciones:</strong> 0.10 colocación incorrecta
-                        manos simultánea, 0.30 no pasar por vertical, 0.10 no
-                        mantener alineación cabeza
-                      </p>
+                    <div className="bg-red-50 p-3 rounded">
+                      <h5 className="font-semibold text-red-800 mb-2">Penalizaciones:</h5>
+                      <ul className="space-y-1 text-sm text-red-700">
+                        <li>• 0.10 - Colocación incorrecta de las manos (simultánea)</li>
+                        <li>• 0.30 - No pasar por la vertical</li>
+                        <li>• 0.10 - No mantener la alineación de la cabeza</li>
+                      </ul>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              {/* Nota sobre continuación */}
-              <Card className="bg-yellow-50 border-yellow-200">
+              {/* Rodada atrás a posición de lagartija */}
+              <Card>
                 <CardHeader>
-                  <CardTitle className="text-yellow-900 flex items-center gap-2">
-                    <BookOpen className="w-5 h-5" />
-                    Rutina Continúa...
-                  </CardTitle>
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="text-lg">
+                      Rodada atrás a posición de lagartija
+                    </CardTitle>
+                    <Badge variant="secondary">0.60 puntos</Badge>
+                  </div>
                 </CardHeader>
-                <CardContent className="text-yellow-800">
-                  <p>
-                    La rutina de suelo del Nivel 2 continúa con elementos
-                    adicionales de tumbling y danza. La información completa
-                    incluye más elementos que desarrollan coordinación,
-                    expresión artística y habilidades progresivas de gimnasia,
-                    construyendo sobre las bases del Nivel 1.
-                  </p>
-                  <div className="mt-3 p-3 bg-white rounded border-l-4 border-yellow-600">
-                    <p className="text-sm text-yellow-800">
-                      <strong>Determinación de Dominancia:</strong> Para
-                      gimnastas zurdas, intercambiar derecha por izquierda en
-                      toda la rutina según dominio determinado por salto leap
-                      split y split frontal.
-                    </p>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="bg-green-50 p-3 rounded">
+                      <p className="text-sm text-green-700">
+                        <strong>Descripción:</strong> Rodar hacia atrás desde
+                        posición de cuclillas hasta mostrar posición de lagartija
+                      </p>
+                    </div>
+                    <div className="bg-red-50 p-3 rounded">
+                      <h5 className="font-semibold text-red-800 mb-2">Penalizaciones:</h5>
+                      <ul className="space-y-1 text-sm text-red-700">
+                        <li>• 0.30 - Colocar las manos en el suelo durante la fase de cuclillas antes de rodar hacia atrás</li>
+                        <li>• 0.10 - Entrelazar los dedos</li>
+                        <li>• 0.10 - Manos colocadas más separadas que el ancho de los hombros</li>
+                        <li>• 0.20 - No mostrar la posición de lagartija</li>
+                        <li>• 0.60 - Realizar una rodada atrás a parada de manos</li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* ½ (180°) giro en passé al frente */}
+              <Card>
+                <CardHeader>
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="text-lg flex items-center gap-2">
+                      ½ (180°) giro en passé al frente
+                      <Badge variant="outline" className="bg-purple-100 text-purple-800">
+                        Inversión
+                      </Badge>
+                    </CardTitle>
+                    <Badge variant="secondary">0.40 puntos</Badge>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="bg-green-50 p-3 rounded">
+                      <p className="text-sm text-green-700">
+                        <strong>Descripción:</strong> Giro de presión de talón
+                        de 180° en posición passé al frente
+                      </p>
+                    </div>
+                    <div className="bg-red-50 p-3 rounded">
+                      <h5 className="font-semibold text-red-800 mb-2">Penalizaciones:</h5>
+                      <ul className="space-y-1 text-sm text-red-700">
+                        <li>• 0.10 - Piernas en posición incorrecta (no en passé al frente)</li>
+                        <li>• 0.05 - No bajar el talón al terminar el giro</li>
+                        <li>• 0.30 - No usar la técnica de giro de presión de talón</li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Chassé al frente */}
+              <Card>
+                <CardHeader>
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="text-lg">
+                      Chassé al frente
+                    </CardTitle>
+                    <Badge variant="secondary">0.20 puntos</Badge>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="bg-green-50 p-3 rounded">
+                      <p className="text-sm text-green-700">
+                        <strong>Descripción:</strong> Paso de danza con desplazamiento
+                        hacia adelante con técnica de chassé
+                      </p>
+                    </div>
+                    <div className="bg-red-50 p-3 rounded">
+                      <h5 className="font-semibold text-red-800 mb-2">Penalizaciones:</h5>
+                      <ul className="space-y-1 text-sm text-red-700">
+                        <li>• 0.05 - No pasar por plié al principio y al final del chassé al frente (cada vez)</li>
+                        <li>• 0.10 (máx.) - No cerrar las piernas en el aire</li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Salto leap split con piernas extendidas */}
+              <Card>
+                <CardHeader>
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="text-lg">
+                      Salto leap split con piernas extendidas (60°)
+                    </CardTitle>
+                    <Badge variant="secondary">0.60 puntos</Badge>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="bg-green-50 p-3 rounded">
+                      <p className="text-sm text-green-700">
+                        <strong>Descripción:</strong> Salto en split con separación
+                        de piernas de 60° y piernas completamente extendidas
+                      </p>
+                    </div>
+                    <div className="bg-red-50 p-3 rounded">
+                      <h5 className="font-semibold text-red-800 mb-2">Penalizaciones:</h5>
+                      <ul className="space-y-1 text-sm text-red-700">
+                        <li>• 0.10 (máx.) - Flexionar la pierna guía (frontal) en el despegue</li>
+                        <li>• 0.20 (máx.) - Separación desigual de las piernas</li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Salto jump split */}
+              <Card>
+                <CardHeader>
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="text-lg">
+                      Salto jump split (60°)
+                    </CardTitle>
+                    <Badge variant="secondary">0.40 puntos</Badge>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="bg-green-50 p-3 rounded">
+                      <p className="text-sm text-green-700">
+                        <strong>Descripción:</strong> Salto jump con separación
+                        de piernas en split de 60°
+                      </p>
+                    </div>
+                    <div className="bg-red-50 p-3 rounded">
+                      <h5 className="font-semibold text-red-800 mb-2">Penalizaciones:</h5>
+                      <ul className="space-y-1 text-sm text-red-700">
+                        <li>• 0.10 - No aterrizar con los dos pies al mismo tiempo</li>
+                        <li>• 0.10 (máx.) - No aterrizar con los pies cerrados</li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Parada de manos */}
+              <Card>
+                <CardHeader>
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="text-lg flex items-center gap-2">
+                      Parada de manos
+                      <Badge variant="outline" className="bg-purple-100 text-purple-800">
+                        Inversión
+                      </Badge>
+                    </CardTitle>
+                    <Badge variant="secondary">0.40 puntos</Badge>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="bg-green-50 p-3 rounded">
+                      <p className="text-sm text-green-700">
+                        <strong>Descripción:</strong> Posición invertida
+                        manteniendo el equilibrio en las manos
+                      </p>
+                    </div>
+                    <div className="bg-red-50 p-3 rounded">
+                      <h5 className="font-semibold text-red-800 mb-2">Penalizaciones:</h5>
+                      <ul className="space-y-1 text-sm text-red-700">
+                        <li>• 0.30 (máx.) - No lograr la vertical</li>
+                        <li>• 0.10 - No cerrar las piernas en la vertical</li>
+                        <li>• 0.10 (máx.) - No mantener la parada de manos por un segundo</li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Vela */}
+              <Card>
+                <CardHeader>
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="text-lg">
+                      Vela
+                    </CardTitle>
+                    <Badge variant="secondary">0.20 puntos</Badge>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="bg-green-50 p-3 rounded">
+                      <p className="text-sm text-green-700">
+                        <strong>Descripción:</strong> Posición agrupada
+                        manteniendo los glúteos en contacto con el suelo
+                      </p>
+                    </div>
+                    <div className="bg-red-50 p-3 rounded">
+                      <h5 className="font-semibold text-red-800 mb-2">Penalizaciones:</h5>
+                      <ul className="space-y-1 text-sm text-red-700">
+                        <li>• 0.20 (máx.) - No mantener la posición agrupada cuando los glúteos tocan el suelo</li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Arco, patada a pasar */}
+              <Card>
+                <CardHeader>
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="text-lg flex items-center gap-2">
+                      Arco, patada a pasar
+                      <Badge variant="outline" className="bg-purple-100 text-purple-800">
+                        Inversión
+                      </Badge>
+                    </CardTitle>
+                    <Badge variant="secondary">0.60 puntos</Badge>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="bg-green-50 p-3 rounded">
+                      <p className="text-sm text-green-700">
+                        <strong>Descripción:</strong> Elemento que comienza
+                        en posición de arco y continúa con patada para alcanzar
+                        la posición vertical invertida
+                      </p>
+                    </div>
+                    <div className="bg-red-50 p-3 rounded">
+                      <h5 className="font-semibold text-red-800 mb-2">Penalizaciones:</h5>
+                      <ul className="space-y-1 text-sm text-red-700">
+                        <li>• 0.10 - Los hombros no se encuentran sobre las manos en la posición de arco</li>
+                        <li>• 0.30 - Patadas adicionales para lograr la posición vertical invertida en la patada a pasar (cada vez)</li>
+                      </ul>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
