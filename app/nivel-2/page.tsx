@@ -667,334 +667,408 @@ export default function Nivel2Page() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Target className="w-5 h-5" />
-                  Barras Asimétricas - Descripción General
+                  Barras Asimétricas - Nivel 2
                 </CardTitle>
                 <CardDescription>
-                  En Nivel 2, se introduce el balanceo de kip como elemento de
-                  entrada, aumentando la complejidad técnica y los requisitos de
-                  fuerza.
+                  El Nivel 2 en Barras Asimétricas introduce el balanceo de kip
+                  como elemento de entrada, aumentando la complejidad técnica y
+                  los requisitos de fuerza.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="grid gap-4 md:grid-cols-2">
+                <div className="space-y-4">
                   <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-600">
                     <h4 className="font-semibold text-blue-900 mb-2">
-                      Equipamiento:
+                      Elementos Principales:
                     </h4>
-                    <p className="text-blue-800 text-sm">
-                      Se puede usar una sola barra que cumpla con
-                      especificaciones de barra inferior.
-                    </p>
+                    <ul className="space-y-1 text-blue-800 text-sm">
+                      <li>• Balanceo de kip y regreso (0.20 puntos)</li>
+                      <li>• Entrada de subida de estómago (0.40 puntos)</li>
+                      <li>• Impulso (0.40 puntos)</li>
+                      <li>• Vuelta atrás (0.40 puntos)</li>
+                      <li>• Salida de sub balanceo (0.60 puntos)</li>
+                    </ul>
                   </div>
                   <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-600">
                     <h4 className="font-semibold text-green-900 mb-2">
-                      Posición Inicial:
+                      Características Técnicas:
                     </h4>
-                    <p className="text-green-800 text-sm">
-                      Parada con pies juntos mirando a barra inferior. Botador o
-                      colchón permitido como superficie de entrada, a remover lo
-                      antes posible.
+                    <ul className="space-y-1 text-green-800 text-sm">
+                      <li>• Balanceo de kip como elemento de entrada</li>
+                      <li>• Control en la transición entre elementos</li>
+                      <li>• Posición correcta del cuerpo en cada fase</li>
+                      <li>• Continuidad en los movimientos</li>
+                      <li>• Amplitud y extensión apropiadas</li>
+                    </ul>
+                  </div>
+                  <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-600">
+                    <p className="text-yellow-800">
+                      <strong>Importante:</strong> Consultar Reglas y Políticas
+                      de USA Gymnastics para especificaciones de equipamiento.
                     </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <div className="space-y-4">
-              {/* Entrada: Balanceo de kip */}
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-lg">
-                      1. Entrada: Balanceo de Kip y Regreso
-                    </CardTitle>
-                    <Badge variant="secondary">0.20 puntos</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <div>
-                      <h4 className="font-semibold mb-2">Técnica:</h4>
-                      <ul className="space-y-1 text-sm">
-                        <li>• Brincar con ambos pies, levantar cadera</li>
-                        <li>
-                          • Sujetar barra con toma dorsal, manos al ancho de
-                          hombros
-                        </li>
-                        <li>
-                          • Cuerpo carpado y ahuecado con piernas extendidas
-                        </li>
-                        <li>
-                          • Balancear cuerpo adelante con piernas juntas o
-                          separadas
-                        </li>
-                        <li>
-                          • Al finalizar balanceo adelante: piernas juntas,
-                          cadera extendida
-                        </li>
-                        <li>• Balanceo atrás con piernas estiradas y juntas</li>
-                        <li>• Pies fuera del piso durante balanceo</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-2">Puntos Críticos:</h4>
-                      <ul className="text-xs text-red-600 space-y-1">
-                        <li>
-                          • 0.10 - No despegar con ambos pies simultáneamente
-                        </li>
-                        <li>• 0.30 - Balanceo corriendo</li>
-                        <li>• 0.10 - No guiar balanceo al frente con pies</li>
-                        <li>• 0.20 - Extensión insuficiente final balanceo</li>
-                        <li>• 0.10 - No cerrar piernas en balanceo kip</li>
-                        <li>
-                          • 0.30 - Flexión piernas balanceo atrás antes de tocar
-                          piso
-                        </li>
-                      </ul>
-                      <div className="mt-2 bg-yellow-50 p-2 rounded">
-                        <p className="text-xs text-yellow-700">
-                          <strong>Importante:</strong> Pies no deben regresar al
-                          botador tras kip
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Subida de estómago */}
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-lg">
-                      2. Subida de Estómago
-                    </CardTitle>
-                    <Badge variant="secondary">0.40 puntos</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <div>
-                      <h4 className="font-semibold mb-2">Técnica:</h4>
-                      <ul className="space-y-1 text-sm">
-                        <li>• Levantar ambas piernas sobre barra inferior</li>
-                        <li>• Jalar con brazos flexionados</li>
-                        <li>
-                          • Levantar cadera sobre barra para apoyo frontal
-                          extendido
-                        </li>
-                        <li>• Mover manos a parte superior de barra</li>
-                        <li>• Estirar brazos, mantener piernas extendidas</li>
-                        <li>• Cabeza neutra durante todo el movimiento</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-2">Énfasis:</h4>
-                      <p className="text-sm text-green-700 bg-green-50 p-2 rounded mb-2">
-                        Simultaneidad en levantar piernas y terminar con brazos
-                        extendidos
-                      </p>
-                      <div>
-                        <h5 className="text-xs font-medium text-red-700">
-                          Deducciones:
-                        </h5>
-                        <ul className="text-xs text-red-600">
-                          <li>
-                            • 0.10 - No mantener contacto manos con barra entre
-                            kip y subida
-                          </li>
-                          <li>
-                            • 0.30 - No levantar ambas piernas simultáneamente
-                          </li>
-                          <li>
-                            • 0.30 - Apoyo complementario (barbilla sobre barra)
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Impulsos */}
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-lg">
-                      3. Impulso (Primer y Segundo)
-                    </CardTitle>
-                    <Badge variant="secondary">0.40 puntos</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <div>
-                      <h4 className="font-semibold mb-2">Técnica:</h4>
-                      <ul className="space-y-1 text-sm">
-                        <li>• Hombros ligeramente delante de barra</li>
-                        <li>• Balancear piernas adelante, atrás y arriba</li>
-                        <li>• Empujar barra, extender hombros</li>
-                        <li>• Levantar cuerpo con piernas juntas</li>
-                        <li>• Mantener cuerpo recto y ahuecado</li>
-                        <li>• Glúteos y abdominales apretados</li>
-                        <li>• Brazos y piernas extendidos, cabeza neutra</li>
-                        <li>
-                          • Segundo impulso idéntico tras regresar al apoyo
-                          frontal
-                        </li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-2">
-                        Puntos de Evaluación:
-                      </h4>
-                      <ul className="text-xs text-green-600 space-y-1">
-                        <li>• Impulsos con brazos extendidos</li>
-                        <li>• Piernas juntas durante todo el movimiento</li>
-                        <li>• Cuerpo recto y ahuecado</li>
-                        <li>• Control al regresar a la barra</li>
-                      </ul>
-                      <div className="mt-2">
-                        <h5 className="text-xs font-medium text-red-700">
-                          Deducciones:
-                        </h5>
-                        <ul className="text-xs text-red-600">
-                          <li>• 0.20 - Mala alineación del cuerpo</li>
-                          <li>• 0.10 - Falta control al regresar a barra</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Vuelta atrás */}
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-lg">4. Vuelta Atrás</CardTitle>
-                    <Badge variant="secondary">0.40 puntos</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <div>
-                      <h4 className="font-semibold mb-2">Técnica:</h4>
-                      <ul className="space-y-1 text-sm">
-                        <li>
-                          • Inclinar hombros atrás antes que cadera regrese a
-                          barra
-                        </li>
-                        <li>• Cuerpo hace círculo atrás sobre la barra</li>
-                        <li>• Mantener posición recta y ahuecada</li>
-                        <li>• Manos se mueven hacia parte superior de barra</li>
-                        <li>• Apoyo frontal extendido momentáneo</li>
-                        <li>• Cabeza neutra en todo momento</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-2">Énfasis:</h4>
-                      <p className="text-sm text-green-700 bg-green-50 p-2 rounded mb-2">
-                        Vuelta atrás continua con brazos y piernas extendidos
-                      </p>
-                      <div>
-                        <h5 className="text-xs font-medium text-red-700">
-                          Deducciones:
-                        </h5>
-                        <ul className="text-xs text-red-600">
-                          <li>• 0.10 - No mantener cabeza neutra</li>
-                          <li>• 0.20 - No mantener cuerpo recto y ahuecado</li>
-                          <li>
-                            • 0.20 - No mantener contacto cadera/muslos con
-                            barra
-                          </li>
-                          <li>• 0.10 - Falta continuidad de círculo</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Salida de sub balanceo */}
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-lg">
-                      5. Salida de Sub Balanceo
-                    </CardTitle>
-                    <Badge variant="secondary">0.60 puntos</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <div>
-                      <h4 className="font-semibold mb-2">Técnica:</h4>
-                      <ul className="space-y-1 text-sm">
-                        <li>
-                          • Presionar barra para contacto de parte media a
-                          inferior muslos
-                        </li>
-                        <li>• Cabeza neutra, pecho y torso ahuecados</li>
-                        <li>• Brazos extendidos durante preparación</li>
-                        <li>• Inclinar hombros hacia atrás</li>
-                        <li>• Hacer círculo en barra con cadera alejada</li>
-                        <li>• Al elevar cadera se abre ángulo de hombros</li>
-                        <li>• Empujar barra hacia atrás</li>
-                        <li>• Soltar manos para salida de sub balanceo</li>
-                        <li>• Mantener cuerpo apretado en vuelo</li>
-                        <li>• Aterrizar en demi-plié controlado</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-2">Énfasis:</h4>
-                      <p className="text-sm text-green-700 bg-green-50 p-2 rounded mb-2">
-                        Cuerpo recto, brazos extendidos hasta aterrizaje. Ritmo
-                        continuo del sub balanceo.
-                      </p>
-                      <div>
-                        <h5 className="text-xs font-medium text-red-700">
-                          Deducciones:
-                        </h5>
-                        <ul className="text-xs text-red-600">
-                          <li>• 0.10 - No mantener cabeza neutra</li>
-                          <li>• 0.20 - No mantener cuerpo recto y ahuecado</li>
-                          <li>
-                            • 0.20 - Cadera hace contacto (no si muslos tocan)
-                          </li>
-                          <li>• 0.20 - Extensión insuficiente en vuelo</li>
-                          <li>• 0.20 - Amplitud insuficiente en vuelo</li>
-                          <li>• 0.10 - Distancia insuficiente</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Elementos de Desarrollo */}
-            <Card className="bg-purple-50 border-purple-200">
+            {/* Técnica Detallada */}
+            <Card>
               <CardHeader>
-                <CardTitle className="text-purple-900">
-                  Elementos de Desarrollo
+                <CardTitle className="text-lg">
+                  Técnica Completa de Barras Asimétricas
                 </CardTitle>
+                <Badge variant="outline">10.0 puntos total</Badge>
               </CardHeader>
-              <CardContent className="text-purple-800">
-                <ul className="space-y-2">
-                  <li>
-                    • <strong>Balanceos de kip:</strong> Desde superficie
-                    elevada, cuerpo carpado y cabeza neutra
-                  </li>
-                  <li>
-                    • <strong>Mantenciones de inversiones ahuecadas:</strong>{" "}
-                    Sobre barra inferior durante 5-10 segundos con cabeza neutra
-                  </li>
-                  <li>
-                    • <strong>Simulación kip:</strong> Con dispositivos de
-                    entrenamiento para fortalecimiento y memoria muscular
-                  </li>
-                </ul>
+              <CardContent className="space-y-4">
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div>
+                    <h4 className="font-semibold mb-2">
+                      Entrada y Balanceo de Kip:
+                    </h4>
+                    <ul className="space-y-1 text-sm">
+                      <li>• Despegue simultáneo con ambos pies</li>
+                      <li>• Balanceo controlado sin "correr"</li>
+                      <li>• Guía del balanceo al frente con los pies</li>
+                      <li>• Extensión completa al final del balanceo</li>
+                      <li>
+                        • Cierre de piernas en balanceo con piernas separadas
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">
+                      Elementos Principales:
+                    </h4>
+                    <ul className="space-y-1 text-sm">
+                      <li>• Subida de estómago con contacto de manos</li>
+                      <li>• Impulso con alineación correcta</li>
+                      <li>• Vuelta atrás con posición recta</li>
+                      <li>• Salida controlada desde sub balanceo</li>
+                      <li>• Transiciones fluidas entre elementos</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div>
+                    <h4 className="font-semibold mb-2">Control Corporal:</h4>
+                    <ul className="space-y-1 text-sm">
+                      <li>• Posición neutra de la cabeza</li>
+                      <li>• Cuerpo recto y ahuecado</li>
+                      <li>• Contacto adecuado con la barra</li>
+                      <li>• Extensión completa en vuelos</li>
+                      <li>• Amplitud apropiada en salidas</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Técnica de Salida:</h4>
+                    <ul className="space-y-1 text-sm">
+                      <li>• Sub balanceo con técnica correcta</li>
+                      <li>• Extensión completa del cuerpo</li>
+                      <li>• Amplitud y distancia apropiadas</li>
+                      <li>• Control en la finalización</li>
+                      <li>• Posición correcta de la cadera</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-yellow-50 p-3 rounded-lg border-l-4 border-yellow-600">
+                  <p className="text-yellow-800 text-sm">
+                    <strong>Puntos Clave de Evaluación:</strong> Control en
+                    entrada y balanceo de kip, transiciones fluidas, posición
+                    correcta del cuerpo, continuidad en movimientos, y amplitud
+                    apropiada en salidas.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Penalizaciones Detalladas */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Tabla de Penalizaciones Detallada</CardTitle>
+                <CardDescription>
+                  Sistema completo de deducciones para Barras Asimétricas Nivel
+                  2
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Accordion type="single" collapsible>
+                  {/* Balanceo de kip y regreso */}
+                  <AccordionItem value="balanceo-kip">
+                    <AccordionTrigger className="text-sm">
+                      <span className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4" />
+                        Balanceo de kip y regreso (0.20 puntos)
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 text-sm">
+                        <div className="bg-blue-50 p-3 rounded">
+                          <h5 className="font-semibold mb-2 text-blue-700">
+                            Elemento Principal:
+                          </h5>
+                          <p className="text-blue-600">
+                            Balanceo controlado de kip con regreso
+                          </p>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              No despegar con los dos pies al mismo tiempo
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                            <span>Realizar un balanceo 'corriendo'</span>
+                            <Badge variant="destructive">0.30</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              No guiar el balanceo al frente con los pies
+                              (balanceo de suspensión larga)
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                            <span>
+                              Extensión insuficiente al final del balanceo de
+                              kip
+                            </span>
+                            <Badge variant="destructive">0.20</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              No cerrar las piernas al final del balanceo de kip
+                              con piernas separadas
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                            <span>
+                              Flexionar las piernas en el balanceo hacia atrás
+                              antes de hacer contacto con el piso
+                            </span>
+                            <Badge variant="destructive">0.30</Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Entrada de subida de estómago */}
+                  <AccordionItem value="entrada-subida">
+                    <AccordionTrigger className="text-sm">
+                      <span className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4" />
+                        Entrada de subida de estómago (0.40 puntos)
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 text-sm">
+                        <div className="bg-blue-50 p-3 rounded">
+                          <h5 className="font-semibold mb-2 text-blue-700">
+                            Elemento Principal:
+                          </h5>
+                          <p className="text-blue-600">
+                            Entrada controlada con subida de estómago
+                          </p>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              No mantener el contacto de las manos con la barra
+                              entre el balanceo de kip y la subida de estómago
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              Paso, brinco o salto adicional antes de la subida
+                              de estómago (cada vez)
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                            <span>
+                              No levantar ambas piernas al mismo tiempo
+                              (despegue de un pie)
+                            </span>
+                            <Badge variant="destructive">0.30</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                            <span>
+                              Apoyo complementario (barbilla sobre la barra
+                              antes del levantamiento de piernas)
+                            </span>
+                            <Badge variant="destructive">0.30</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              No terminar en apoyo frontal extendido (hasta
+                              0.10)
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Impulso */}
+                  <AccordionItem value="impulso">
+                    <AccordionTrigger className="text-sm">
+                      <span className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4" />
+                        Impulso (0.40 puntos)
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 text-sm">
+                        <div className="bg-blue-50 p-3 rounded">
+                          <h5 className="font-semibold mb-2 text-blue-700">
+                            Elemento Principal:
+                          </h5>
+                          <p className="text-blue-600">
+                            Impulso controlado con alineación correcta
+                          </p>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                            <span>
+                              Alineación incorrecta del cuerpo (no mostrar línea
+                              recta desde hombros a pies con pecho ahuecado),
+                              cada vez hasta 0.20
+                            </span>
+                            <Badge variant="destructive">0.20</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              Falta de control al regresar a la barra, cada vez
+                              hasta 0.10
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Vuelta atrás */}
+                  <AccordionItem value="vuelta-atras">
+                    <AccordionTrigger className="text-sm">
+                      <span className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4" />
+                        Vuelta atrás (0.40 puntos)
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 text-sm">
+                        <div className="bg-blue-50 p-3 rounded">
+                          <h5 className="font-semibold mb-2 text-blue-700">
+                            Elemento Principal:
+                          </h5>
+                          <p className="text-blue-600">
+                            Vuelta atrás con posición recta y ahuecada
+                          </p>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              No mantener posición neutra de la cabeza, hasta
+                              0.10
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                            <span>
+                              No mantener posición recta y ahuecada del cuerpo
+                              en todo momento, hasta 0.20
+                            </span>
+                            <Badge variant="destructive">0.20</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                            <span>
+                              No mantener el contacto de la cadera o parte
+                              superior de los muslos en barra en todo momento,
+                              hasta 0.20
+                            </span>
+                            <Badge variant="destructive">0.20</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              Falta de continuidad del círculo, hasta 0.10
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Salida de sub balanceo */}
+                  <AccordionItem value="salida-sub-balanceo">
+                    <AccordionTrigger className="text-sm">
+                      <span className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4" />
+                        Salida de sub balanceo (0.60 puntos)
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 text-sm">
+                        <div className="bg-blue-50 p-3 rounded">
+                          <h5 className="font-semibold mb-2 text-blue-700">
+                            Elemento Principal:
+                          </h5>
+                          <p className="text-blue-600">
+                            Salida controlada desde sub balanceo
+                          </p>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              No mantener posición neutra de la cabeza, hasta
+                              0.10
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                            <span>
+                              No mantener posición recta y ahuecada del cuerpo
+                              en todo momento, hasta 0.20
+                            </span>
+                            <Badge variant="destructive">0.20</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                            <span>
+                              La cadera hace contacto con la barra (sin
+                              deducción si los muslos tocan la barra), hasta
+                              0.20
+                            </span>
+                            <Badge variant="destructive">0.20</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                            <span>
+                              Extensión insuficiente del cuerpo en el vuelo,
+                              hasta 0.20
+                            </span>
+                            <Badge variant="destructive">0.20</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                            <span>
+                              Amplitud insuficiente del vuelo, hasta 0.20
+                            </span>
+                            <Badge variant="destructive">0.20</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>Distancia insuficiente, hasta 0.10</span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
               </CardContent>
             </Card>
           </TabsContent>
@@ -1005,455 +1079,454 @@ export default function Nivel2Page() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Clock className="w-5 h-5" />
-                  Viga de Equilibrio - Descripción General
+                  Viga de Equilibrio - Nivel 2
                 </CardTitle>
                 <CardDescription>
-                  La rutina de viga en Nivel 2 tiene un límite de tiempo de 40
-                  segundos (5 segundos más que Nivel 1) e introduce elementos
-                  más dinámicos como balanceos de piernas y giros.
+                  El Nivel 2 introduce elementos más dinámicos en la viga de
+                  equilibrio, incluyendo balanceos de piernas, giros y técnicas
+                  más avanzadas que desarrollan el control y la precisión.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="grid gap-4 md:grid-cols-2">
+                <div className="space-y-4">
                   <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-600">
                     <h4 className="font-semibold text-blue-900 mb-2">
-                      Límite de Tiempo:
+                      Elementos Principales:
                     </h4>
-                    <p className="text-blue-800 text-lg font-bold">
-                      40 segundos
-                    </p>
+                    <ul className="space-y-1 text-blue-800 text-sm">
+                      <li>• Entrada de salto al apoyo frontal (0.20 puntos)</li>
+                      <li>• Patada de una pierna a levantarse (0.40 puntos)</li>
+                      <li>• Equilibrio en passé al frente (0.20 puntos)</li>
+                      <li>• Salto extendido (0.40 puntos)</li>
+                      <li>• Arabesca (30°) (0.40 puntos)</li>
+                      <li>• Balanceo de pierna al frente (0.20 puntos)</li>
+                      <li>• Balanceo de pierna atrás (0.20 puntos)</li>
+                      <li>• ½ (180°) giro pivote (0.20 puntos)</li>
+                      <li>
+                        • Salida de inversión lateral a parada de manos lateral
+                        (0.60 puntos)
+                      </li>
+                    </ul>
                   </div>
                   <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-600">
                     <h4 className="font-semibold text-green-900 mb-2">
-                      Notas Importantes:
+                      Características Técnicas:
                     </h4>
                     <ul className="space-y-1 text-green-800 text-sm">
-                      <li>
-                        • Figuras guían aprendizaje, texto con flexibilidad
-                      </li>
-                      <li>
-                        • Rutina puede invertirse excepto elementos con
-                        asterisco
-                      </li>
-                      <li>
-                        • Reemplazar derecha por izquierda en gimnastas zurdas
-                      </li>
+                      <li>• Elementos dinámicos con balanceos de piernas</li>
+                      <li>• Técnicas de giro más avanzadas</li>
+                      <li>• Control mejorado en elementos de inversión</li>
+                      <li>• Precisión en posiciones de danza</li>
+                      <li>• Continuidad en secuencias complejas</li>
                     </ul>
+                  </div>
+                  <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-600">
+                    <p className="text-yellow-800">
+                      <strong>Importante:</strong> Consultar Reglas y Políticas
+                      de USA Gymnastics para especificaciones de equipamiento.
+                    </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <div className="space-y-4">
-              {/* Entrada */}
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-lg">
-                      1. Entrada de Salto al Apoyo Frontal
-                    </CardTitle>
-                    <Badge variant="secondary">0.20 puntos</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div>
-                      <h4 className="font-semibold mb-2">Secuencia:</h4>
-                      <ul className="space-y-1 text-sm">
-                        <li>• Manos a la altura de los hombros en viga</li>
-                        <li>
-                          • Saltar a apoyo frontal con brazos y cuerpo
-                          extendidos
-                        </li>
-                        <li>
-                          • Levantar pierna derecha con giro 90° a izquierda
-                        </li>
-                        <li>
-                          • Terminar sentada con piernas separadas mirando largo
-                          de viga
-                        </li>
-                        <li>
-                          • Brazos: izquierda hacia atrás, luego ambos a corona,
-                          atrás para tomar viga
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="bg-green-50 p-2 rounded">
-                      <p className="text-sm text-green-700">
-                        <strong>Énfasis:</strong> Postura y brazos extendidos
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Sentada en V */}
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-lg">
-                      2. Sentada en "V", Cuclillas, Apoyo Carpado, Patada de Una
-                      Pierna
-                    </CardTitle>
-                    <Badge variant="secondary">0.40 puntos</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div>
-                      <h4 className="font-semibold mb-2">
-                        Secuencia Completa:
-                      </h4>
-                      <ul className="space-y-1 text-sm">
-                        <li>
-                          • Levantar y flexionar piernas para cuclillas con
-                          dedos en punta
-                        </li>
-                        <li>• Brazos tomando viga detrás de glúteos</li>
-                        <li>• Extender pierna derecha a sentada en "V"</li>
-                        <li>• Pasos para cuclillas, empujar viga</li>
-                        <li>• Mover brazos adelante y arriba a corona</li>
-                        <li>
-                          • Extender piernas, talones planos para apoyo carpado
-                        </li>
-                        <li>
-                          •{" "}
-                          <strong>
-                            Patear pierna izquierda hacia atrás y arriba fuera
-                            de la viga
-                          </strong>
-                        </li>
-                        <li>
-                          • Descender pierna derecha manteniendo brazos
-                          cubriendo orejas
-                        </li>
-                        <li>
-                          • Cerrar izquierda detrás derecha, terminar piernas
-                          extendidas
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="bg-red-50 p-2 rounded">
-                      <p className="text-sm text-red-700">
-                        <strong>Deducción importante:</strong> 0.20 por pie(s)
-                        que no abandona viga en patada
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Equilibrio en passé */}
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-lg">
-                      3. Equilibrio en Passé al Frente
-                    </CardTitle>
-                    <Badge variant="secondary">0.20 puntos</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div>
-                      <h4 className="font-semibold mb-2">Técnica:</h4>
-                      <ul className="space-y-1 text-sm">
-                        <li>
-                          • Paso adelante sobre pierna derecha con pie
-                          ligeramente afuera
-                        </li>
-                        <li>
-                          • Flexionar rodilla izquierda con pie en punta tocando
-                          rodilla derecha
-                        </li>
-                        <li>• Manos en cadera, marcar posición</li>
-                      </ul>
-                    </div>
-                    <div className="bg-green-50 p-2 rounded">
-                      <p className="text-sm text-green-700">
-                        <strong>Énfasis:</strong> Postura, posición piernas y
-                        base
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Bloqueo de equilibrio y salto */}
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-lg">
-                      4. Bloqueo Relevé, Plié, Relevé, Plié, Salto Extendido
-                    </CardTitle>
-                    <Badge variant="secondary">0.40 puntos</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div>
-                      <h4 className="font-semibold mb-2">Secuencia Rítmica:</h4>
-                      <ul className="space-y-1 text-sm">
-                        <li>
-                          • Cerrar pie izquierdo detrás de pie derecho en
-                          bloqueo relevé
-                        </li>
-                        <li>• Brazos arriba adelante-arriba a corona</li>
-                        <li>• Hacer demi-plié, bajar brazos a lados-abajo</li>
-                        <li>
-                          • Estirar piernas para bloquear equilibrio en relevé
-                        </li>
-                        <li>• Repetir demi-plié, bajar brazos</li>
-                        <li>• Empujar viga para salto extendido</li>
-                        <li>
-                          • Durante salto juntar muslos presionando interno
-                        </li>
-                        <li>• Aterrizar con pies juntos en demi-plié</li>
-                        <li>• Brazos en corona durante salto y aterrizaje</li>
-                        <li>
-                          • Finalizar con círculo de brazos hacia atrás, abajo,
-                          adelante y arriba
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="bg-green-50 p-2 rounded">
-                      <p className="text-sm text-green-700">
-                        <strong>Énfasis:</strong> Postura, pies en punta, altura
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Arabesca */}
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-lg">5. Arabesca (30°)</CardTitle>
-                    <Badge variant="secondary">0.40 puntos</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div>
-                      <h4 className="font-semibold mb-2">Técnica:</h4>
-                      <ul className="space-y-1 text-sm">
-                        <li>• Bajar talón pie derecho</li>
-                        <li>
-                          • Mover pierna izquierda extendida atrás apuntando pie
-                          sobre viga
-                        </li>
-                        <li>• Brazos bajados a lados o medio</li>
-                        <li>
-                          • Mantener torso erguido y pierna izquierda girada
-                          hacia afuera
-                        </li>
-                        <li>
-                          • <strong>Levantar mínimo 30°</strong>
-                        </li>
-                        <li>
-                          • Cadera izquierda puede descuadrar para mostrar giro
-                        </li>
-                        <li>
-                          • <strong>Mantener posición 1 segundo</strong>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="bg-red-50 p-2 rounded">
-                      <p className="text-sm text-red-700">
-                        <strong>Deducciones:</strong> 0.20 por no levantar
-                        mínimo 30°, 0.10 por no mantener 1 segundo
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Balanceo de piernas */}
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-lg">
-                      6. Balanceo de Pierna al Frente y Atrás
-                    </CardTitle>
-                    <Badge variant="secondary">0.20 puntos</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div>
-                      <h4 className="font-semibold mb-2">Técnica:</h4>
-                      <ul className="space-y-1 text-sm">
-                        <li>
-                          • Paso adelante pierna izquierda ligeramente afuera
-                        </li>
-                        <li>
-                          • Balancear pierna derecha a horizontal o más arriba y
-                          bajar rápido
-                        </li>
-                        <li>• Paso adelante pierna derecha</li>
-                        <li>
-                          • Repetir con pierna izquierda balanceando atrás{" "}
-                          <strong>mínimo 45°</strong>
-                        </li>
-                        <li>
-                          • Bajar rápido, terminar con pies en planta
-                          ligeramente afuera
-                        </li>
-                        <li>• Brazos a los lados-en medio</li>
-                        <li>
-                          • Hacer demi-plié y relevé con bloqueo equilibrio
-                        </li>
-                        <li>• Brazos al frente-arriba a corona</li>
-                      </ul>
-                    </div>
-                    <div className="bg-green-50 p-2 rounded">
-                      <p className="text-sm text-green-700">
-                        <strong>Énfasis:</strong> Postura y piernas extendidas
-                        durante balanceos
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Giro pivote */}
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-lg">
-                      7. Bloqueo Relevé, ½ Giro Pivote, Pose en Desplante
-                    </CardTitle>
-                    <Badge variant="secondary">0.20 puntos</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div>
-                      <h4 className="font-semibold mb-2">Secuencia:</h4>
-                      <ul className="space-y-1 text-sm">
-                        <li>
-                          • Paso adelante izquierda, cerrar pie derecho detrás
-                        </li>
-                        <li>• Bloqueo relevé, brazos en corona</li>
-                        <li>
-                          •{" "}
-                          <strong>Hacer ½ giro pivote rápido a derecha</strong>
-                        </li>
-                        <li>• Brazos en corona durante giro</li>
-                        <li>
-                          • Hacer desplante izquierdo con pie arco forzado
-                        </li>
-                        <li>
-                          • Empujar rodilla y cadera adelante, torso cuadrado
-                        </li>
-                        <li>
-                          • Bajar brazos fluidamente adelante-abajo con palmas
-                          abajo
-                        </li>
-                        <li>• Desplante derecho similar, torso cuadrado</li>
-                        <li>
-                          • Flexionar brazos acercando palmas frente pecho
-                        </li>
-                        <li>
-                          • Levantar pierna derecha adelante apuntando pie sobre
-                          viga
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="bg-green-50 p-2 rounded">
-                      <p className="text-sm text-green-700">
-                        <strong>Énfasis:</strong> Mantener cadera cuadrada,
-                        relevé completo, giro preciso
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Salida */}
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-lg">
-                      8. Salida Inversión Lateral a Parada de Manos Lateral
-                    </CardTitle>
-                    <Badge variant="secondary">0.60 puntos</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div>
-                      <h4 className="font-semibold mb-2">
-                        Secuencia Completa:
-                      </h4>
-                      <ul className="space-y-1 text-sm">
-                        <li>
-                          • Paso atrás pierna derecha para desplante derecho
-                        </li>
-                        <li>
-                          • Levantar pierna izquierda atrás y arriba por encima
-                          de cabeza
-                        </li>
-                        <li>• Orejas cubiertas por brazos</li>
-                        <li>• Colocar mano derecha de lado en viga</li>
-                        <li>• Cuerpo gira 90° a izquierda</li>
-                        <li>
-                          • Colocar mano izquierda de lado (manos separadas
-                          ancho hombros)
-                        </li>
-                        <li>• Pierna derecha empuja viga</li>
-                        <li>
-                          •{" "}
-                          <strong>
-                            Parada de manos lateral con piernas juntas
-                          </strong>
-                        </li>
-                        <li>• Hombros extendidos, ángulo cadera abierto</li>
-                        <li>
-                          • Mantener cuerpo recto, descender hasta pila
-                          colchones
-                        </li>
-                        <li>• Demi-plié al contacto, equilibrio controlado</li>
-                        <li>• Manos permanecen en viga hasta aterrizaje</li>
-                      </ul>
-                    </div>
-                    <div className="bg-green-50 p-2 rounded">
-                      <p className="text-sm text-green-700">
-                        <strong>Énfasis:</strong> Postura, parada manos vertical
-                        en final controlado
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Elementos de Desarrollo */}
-            <Card className="bg-purple-50 border-purple-200">
+            {/* Técnica Detallada */}
+            <Card>
               <CardHeader>
-                <CardTitle className="text-purple-900">
-                  Elementos de Desarrollo
+                <CardTitle className="text-lg">
+                  Técnica Completa de Viga de Equilibrio
                 </CardTitle>
+                <Badge variant="outline">10.0 puntos total</Badge>
               </CardHeader>
-              <CardContent className="text-purple-800">
-                <ul className="space-y-2">
-                  <li>
-                    • <strong>Series de saltos extendidos:</strong> En viga baja
-                    con rebotes
-                  </li>
-                  <li>
-                    • <strong>Parada de manos transversal:</strong> En viga baja
-                    a descenso sobre pila de colchones
-                  </li>
-                  <li>
-                    •{" "}
-                    <strong>
-                      Inversión lateral a parada de manos lateral:
-                    </strong>{" "}
-                    En viga baja a descenso a pila colchones
-                  </li>
-                </ul>
+              <CardContent className="space-y-4">
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div>
+                    <h4 className="font-semibold mb-2">
+                      Entrada y Elementos Básicos:
+                    </h4>
+                    <ul className="space-y-1 text-sm">
+                      <li>• Entrada de salto al apoyo frontal</li>
+                      <li>• Patada de una pierna a levantarse</li>
+                      <li>• Equilibrio en passé al frente</li>
+                      <li>• Salto extendido con técnica correcta</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">
+                      Elementos Principales:
+                    </h4>
+                    <ul className="space-y-1 text-sm">
+                      <li>• Arabesca con ángulo de 30°</li>
+                      <li>• Balanceos de piernas al frente y atrás</li>
+                      <li>• ½ giro pivote (180°)</li>
+                      <li>• Salida de inversión lateral</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div>
+                    <h4 className="font-semibold mb-2">Control Corporal:</h4>
+                    <ul className="space-y-1 text-sm">
+                      <li>• Posición neutra de la cabeza</li>
+                      <li>• Cuerpo recto y alineado</li>
+                      <li>• Brazos en posición correcta</li>
+                      <li>• Equilibrio en elementos dinámicos</li>
+                      <li>• Control en balanceos de piernas</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Técnica de Salida:</h4>
+                    <ul className="space-y-1 text-sm">
+                      <li>• Inversión lateral controlada</li>
+                      <li>• Parada de manos lateral</li>
+                      <li>• Contacto de manos mantenido</li>
+                      <li>• Finalización segura</li>
+                      <li>• Control en descenso</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-yellow-50 p-3 rounded-lg border-l-4 border-yellow-600">
+                  <p className="text-yellow-800 text-sm">
+                    <strong>Puntos Clave de Evaluación:</strong> Entrada
+                    controlada, patada de una pierna con pies que abandonen la
+                    viga, equilibrio en passé, salto extendido con aterrizaje
+                    simultáneo, arabesca con tiempo de mantenimiento, balanceos
+                    con altura correcta, giro preciso, y salida de inversión
+                    lateral con vertical.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Penalizaciones Detalladas */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Tabla de Penalizaciones Detallada</CardTitle>
+                <CardDescription>
+                  Sistema completo de deducciones para Viga de Equilibrio Nivel
+                  2
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Accordion type="single" collapsible>
+                  {/* Entrada de salto al apoyo frontal */}
+                  <AccordionItem value="entrada-salto">
+                    <AccordionTrigger className="text-sm">
+                      <span className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4" />
+                        Entrada de salto al apoyo frontal (0.20 puntos)
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 text-sm">
+                        <div className="bg-blue-50 p-3 rounded">
+                          <h5 className="font-semibold mb-2 text-blue-700">
+                            Elemento Principal:
+                          </h5>
+                          <p className="text-blue-600">
+                            Entrada de salto al apoyo frontal
+                          </p>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              No extender el cuerpo en el apoyo frontal
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              Falta de continuidad en el ¼ (90°) de giro a
+                              sentada con las piernas separadas
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Patada de una pierna a levantarse */}
+                  <AccordionItem value="patada-una-pierna">
+                    <AccordionTrigger className="text-sm">
+                      <span className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4" />
+                        Patada de una pierna a levantarse (0.40 puntos)
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 text-sm">
+                        <div className="bg-blue-50 p-3 rounded">
+                          <h5 className="font-semibold mb-2 text-blue-700">
+                            Elemento Principal:
+                          </h5>
+                          <p className="text-blue-600">
+                            Patada de una pierna a levantarse
+                          </p>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              Falta de continuidad desde sentada hasta parada
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                            <span>
+                              No hacer que ninguno de los pies abandone la viga
+                            </span>
+                            <Badge variant="destructive">0.20</Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Equilibrio en passé al frente */}
+                  <AccordionItem value="equilibrio-passe">
+                    <AccordionTrigger className="text-sm">
+                      <span className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4" />
+                        Equilibrio en passé al frente (0.20 puntos)
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 text-sm">
+                        <div className="bg-blue-50 p-3 rounded">
+                          <h5 className="font-semibold mb-2 text-blue-700">
+                            Elemento Principal:
+                          </h5>
+                          <p className="text-blue-600">
+                            Equilibrio en passé al frente
+                          </p>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              Piernas en posición incorrecta (no en passé al
+                              frente)
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Salto extendido */}
+                  <AccordionItem value="salto-extendido">
+                    <AccordionTrigger className="text-sm">
+                      <span className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4" />
+                        Salto extendido (0.40 puntos)
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 text-sm">
+                        <div className="bg-blue-50 p-3 rounded">
+                          <h5 className="font-semibold mb-2 text-blue-700">
+                            Elemento Principal:
+                          </h5>
+                          <p className="text-blue-600">
+                            Salto extendido con aterrizaje correcto
+                          </p>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              No aterrizar con los dos pies al mismo tiempo
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>No aterrizar con los pies cerrados</span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Arabesca (30°) */}
+                  <AccordionItem value="arabesca">
+                    <AccordionTrigger className="text-sm">
+                      <span className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4" />
+                        Arabesca (30°) (0.40 puntos)
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 text-sm">
+                        <div className="bg-blue-50 p-3 rounded">
+                          <h5 className="font-semibold mb-2 text-blue-700">
+                            Elemento Principal:
+                          </h5>
+                          <p className="text-blue-600">
+                            Arabesca con ángulo de 30°
+                          </p>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                            <span>
+                              No levantar la pierna libre a mínimo 30° por
+                              encima de la viga
+                            </span>
+                            <Badge variant="destructive">0.20</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>No mantener la posición un segundo</span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Balanceo de pierna al frente */}
+                  <AccordionItem value="balanceo-pierna-frente">
+                    <AccordionTrigger className="text-sm">
+                      <span className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4" />
+                        Balanceo de pierna al frente (0.20 puntos)
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 text-sm">
+                        <div className="bg-blue-50 p-3 rounded">
+                          <h5 className="font-semibold mb-2 text-blue-700">
+                            Elemento Principal:
+                          </h5>
+                          <p className="text-blue-600">
+                            Balanceo de pierna al frente
+                          </p>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              No balancear la pierna trasera a mínimo 45° por
+                              encima de la viga
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              Falta de continuidad durante la secuencia
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Balanceo de pierna atrás */}
+                  <AccordionItem value="balanceo-pierna-atras">
+                    <AccordionTrigger className="text-sm">
+                      <span className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4" />
+                        Balanceo de pierna atrás (0.20 puntos)
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 text-sm">
+                        <div className="bg-blue-50 p-3 rounded">
+                          <h5 className="font-semibold mb-2 text-blue-700">
+                            Elemento Principal:
+                          </h5>
+                          <p className="text-blue-600">
+                            Balanceo de pierna atrás
+                          </p>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              No balancear la pierna trasera a mínimo 45° por
+                              encima de la viga
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              Falta de continuidad durante la secuencia
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* ½ (180°) giro pivote */}
+                  <AccordionItem value="giro-pivote">
+                    <AccordionTrigger className="text-sm">
+                      <span className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4" />½ (180°) giro pivote
+                        (0.20 puntos)
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 text-sm">
+                        <div className="bg-blue-50 p-3 rounded">
+                          <h5 className="font-semibold mb-2 text-blue-700">
+                            Elemento Principal:
+                          </h5>
+                          <p className="text-blue-600">½ (180°) giro pivote</p>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>Falta de precisión</span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Salida de inversión lateral */}
+                  <AccordionItem value="salida-inversion">
+                    <AccordionTrigger className="text-sm">
+                      <span className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4" />
+                        Salida de inversión lateral a parada de manos lateral
+                        (0.60 puntos)
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2 text-sm">
+                        <div className="bg-blue-50 p-3 rounded">
+                          <h5 className="font-semibold mb-2 text-blue-700">
+                            Elemento Principal:
+                          </h5>
+                          <p className="text-blue-600">
+                            Salida de inversión lateral a parada de manos
+                            lateral
+                          </p>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              Colocación incorrecta de las manos (simultánea)
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-red-50 rounded">
+                            <span>No lograr la vertical</span>
+                            <Badge variant="destructive">0.30</Badge>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+                            <span>
+                              No mantener el contacto de las manos con la viga
+                              en el aterrizaje
+                            </span>
+                            <Badge variant="secondary">0.10</Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
               </CardContent>
             </Card>
           </TabsContent>

@@ -134,7 +134,7 @@ export default function HomePage() {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  <Badge variant="outline">Nivel 1-6</Badge>
+                  <Badge variant="outline">Nivel 1-5</Badge>
                   <Badge variant="outline">Nivel 7-10</Badge>
                   <Badge variant="outline">Elite</Badge>
                 </div>
