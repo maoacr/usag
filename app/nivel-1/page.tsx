@@ -43,6 +43,18 @@ import {
 import Link from "next/link";
 import { PenalizacionesGenerales } from "@/components/penalizaciones-generales";
 
+import { 
+  SimboloSaltoExtendido, 
+  SimboloHandstand, 
+  SimboloKip, 
+  SimboloVueltaAtras, 
+  SimboloSubBalanceo,
+  SimboloArabesca,
+  SimboloCartwheel,
+  SimboloSplit,
+  DetalleSimbolo 
+} from "@/components/simbolos-tecnicos";
+
 function Nivel1Content() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -142,9 +154,14 @@ function Nivel1Content() {
           <TabsContent value="salto" className="space-y-6">
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Zap className="w-5 h-5" />
-                  Salto - Salto Extendido
+                <CardTitle className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Zap className="w-5 h-5" />
+                    Salto - Salto Extendido
+                  </div>
+                  <DetalleSimbolo title="Salto Extendido" description="Despegue desde ambos pies con cuerpo recto">
+                    <SimboloSaltoExtendido size={30} className="text-blue-600" />
+                  </DetalleSimbolo>
                 </CardTitle>
                 <CardDescription>
                   El Nivel 1 introduce el salto extendido, un elemento
@@ -402,16 +419,25 @@ function Nivel1Content() {
                     <h4 className="font-semibold text-blue-900 mb-2">
                       Elementos Principales:
                     </h4>
-                    <ul className="space-y-1 text-blue-800 text-sm">
-                      <li>• Entrada de subida de estómago (0.60 puntos)</li>
-                      <li>• Impulso (0.40 puntos)</li>
-                      <li>• Vuelta atrás (0.40 puntos)</li>
-                      <li>• Impulso a colocar piernas separadas</li>
-                      <li>
-                        • Salida de plantillas con piernas separadas (0.60
-                        puntos)
+                    <ul className="space-y-2 text-blue-800 text-sm">
+                      <li className="flex items-center justify-between">
+                        <span>• Entrada de subida de estómago (0.60 puntos)</span>
+                        <DetalleSimbolo title="Subida de Estómago" description="Entrada básica a apoyo frontal">
+                          <SimboloHandstand size={18} className="rotate-180" />
+                        </DetalleSimbolo>
                       </li>
-                      <li>• Salida de sub balanceo (0.60 puntos)</li>
+                      <li className="flex items-center justify-between">
+                        <span>• Vuelta atrás (0.40 puntos)</span>
+                        <DetalleSimbolo title="Vuelta Atrás" description="Círculo completo hacia atrás sobre la barra">
+                          <SimboloVueltaAtras size={18} />
+                        </DetalleSimbolo>
+                      </li>
+                      <li className="flex items-center justify-between">
+                        <span>• Salida de sub balanceo (0.60 puntos)</span>
+                        <DetalleSimbolo title="Salida de Sub Balanceo" description="Salida desde balanceo bajo la barra">
+                          <SimboloSubBalanceo size={18} />
+                        </DetalleSimbolo>
+                      </li>
                     </ul>
                   </div>
                   <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-600">
@@ -818,17 +844,19 @@ function Nivel1Content() {
                     <h4 className="font-semibold text-blue-900 mb-2">
                       Elementos Principales:
                     </h4>
-                    <ul className="space-y-1 text-blue-800 text-sm">
+                    <ul className="space-y-2 text-blue-800 text-sm">
                       <li>• Entrada de salto al apoyo frontal (0.20 puntos)</li>
-                      <li>• Patada de aguja (0.40 puntos)</li>
-                      <li>• Bloqueo de equilibrio en relevé (0.20 puntos)</li>
-                      <li>• Equilibrio en passé al frente (0.20 puntos)</li>
-                      <li>• Salto extendido (0.40 puntos)</li>
-                      <li>• Arabesca (30°) (0.40 puntos)</li>
-                      <li>• Balanceos de piernas al frente (0.20 puntos)</li>
-                      <li>
-                        • Salida de inversión lateral a 3/4 (22.5°) de parada de
-                        manos (0.60 puntos)
+                      <li className="flex items-center justify-between">
+                        <span>• Arabesca (30°) (0.40 puntos)</span>
+                        <DetalleSimbolo title="Arabesca" description="Elevación de pierna atrás a 30°">
+                          <SimboloArabesca size={18} />
+                        </DetalleSimbolo>
+                      </li>
+                      <li className="flex items-center justify-between">
+                        <span>• Salida de inversión lateral (0.60 puntos)</span>
+                        <DetalleSimbolo title="Inversión Lateral" description="Salida lateral pasando por la vertical">
+                          <SimboloCartwheel size={18} />
+                        </DetalleSimbolo>
                       </li>
                     </ul>
                   </div>
@@ -1221,14 +1249,19 @@ function Nivel1Content() {
                     <h4 className="font-semibold text-blue-900 mb-2">
                       Elementos Principales:
                     </h4>
-                    <ul className="space-y-1 text-blue-800 text-sm">
-                      <li>• Inversión lateral (0.60 puntos)</li>
-                      <li>• Rodada atrás agrupada (0.60 puntos)</li>
-                      <li>• Vela (0.20 puntos)</li>
-                      <li>• Equilibrio en passé al frente (0.40 puntos)</li>
-                      <li>• Chassé al frente (0.20 puntos)</li>
-                      <li>• Salto extendido (0.40 puntos)</li>
-                      <li>• Rodada al frente agrupada (0.40 puntos)</li>
+                    <ul className="space-y-2 text-blue-800 text-sm">
+                      <li className="flex items-center justify-between">
+                        <span>• Inversión lateral (0.60 puntos)</span>
+                        <DetalleSimbolo title="Inversión Lateral" description="Rueda o cartwheel pasando por la vertical">
+                          <SimboloCartwheel size={18} />
+                        </DetalleSimbolo>
+                      </li>
+                      <li className="flex items-center justify-between">
+                        <span>• Salto extendido (0.40 puntos)</span>
+                        <DetalleSimbolo title="Salto Extendido" description="Salto con piernas juntas y cuerpo recto">
+                          <SimboloSaltoExtendido size={18} />
+                        </DetalleSimbolo>
+                      </li>
                       <li>• ¾ de parada de manos (0.40 puntos)</li>
                     </ul>
                   </div>

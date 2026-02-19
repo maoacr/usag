@@ -43,6 +43,15 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
+import { 
+  SimboloRedondilla, 
+  SimboloFlicFlac, 
+  SimboloHandstand, 
+  SimboloSplit, 
+  SimboloCartwheel,
+  DetalleSimbolo 
+} from "@/components/simbolos-tecnicos";
+
 function Nivel3Content() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -1764,9 +1773,19 @@ function Nivel3Content() {
               {/* Acrobacia Principal */}
               <Card className="border-blue-200">
                 <CardHeader className="bg-blue-50/50">
-                  <CardTitle className="text-lg flex items-center gap-2">
-                    <Zap className="w-5 h-5 text-blue-600" />
-                    Serie Acrobática: Redondilla + Flic-Flac
+                  <CardTitle className="text-lg flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Zap className="w-5 h-5 text-blue-600" />
+                      Serie Acrobática: Redondilla + Flic-Flac
+                    </div>
+                    <div className="flex gap-2">
+                      <DetalleSimbolo title="Redondilla" description="Elemento de transición para acrobacia atrás">
+                        <SimboloRedondilla size={20} className="text-blue-700" />
+                      </DetalleSimbolo>
+                      <DetalleSimbolo title="Flic-Flac" description="Salto atrás con apoyo de manos">
+                        <SimboloFlicFlac size={20} className="text-blue-700" />
+                      </DetalleSimbolo>
+                    </div>
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="pt-6">
@@ -1800,7 +1819,12 @@ function Nivel3Content() {
               <Card>
                 <CardHeader>
                   <div className="flex items-center justify-between">
-                    <CardTitle className="text-lg">Rodada atrás a parada de manos</CardTitle>
+                    <CardTitle className="text-lg flex items-center gap-2">
+                      Rodada atrás a parada de manos
+                      <DetalleSimbolo title="Parada de Manos" description="Posición vertical invertida">
+                        <SimboloHandstand size={20} className="text-blue-600" />
+                      </DetalleSimbolo>
+                    </CardTitle>
                     <Badge variant="secondary">0.60 puntos</Badge>
                   </div>
                 </CardHeader>
@@ -1824,7 +1848,12 @@ function Nivel3Content() {
               {/* Saltos y Danza */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Elementos de Danza (90° Split)</CardTitle>
+                  <CardTitle className="text-lg flex items-center gap-2">
+                    Elementos de Danza (90° Split)
+                    <DetalleSimbolo title="Split 90°" description="Requisito mínimo de amplitud para Nivel 3">
+                      <SimboloSplit angle="90" size={20} className="text-blue-600" />
+                    </DetalleSimbolo>
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="grid gap-4 md:grid-cols-2">

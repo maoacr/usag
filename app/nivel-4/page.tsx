@@ -42,6 +42,15 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
+import { 
+  SimboloRedondilla, 
+  SimboloFlicFlac, 
+  SimboloHandstand, 
+  SimboloSplit, 
+  SimboloMortalAtras,
+  DetalleSimbolo 
+} from "@/components/simbolos-tecnicos";
+
 function Nivel4Content() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -2052,9 +2061,22 @@ function Nivel4Content() {
               {/* Tumbling Principal */}
               <Card className="border-blue-200">
                 <CardHeader className="bg-blue-50/50">
-                  <CardTitle className="text-lg flex items-center gap-2">
-                    <Zap className="w-5 h-5 text-blue-600" />
-                    Serie Principal: Redondilla + Flic-Flac + Mortal Atrás
+                  <CardTitle className="text-lg flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Zap className="w-5 h-5 text-blue-600" />
+                      Serie Principal: Redondilla + Flic-Flac + Mortal Atrás
+                    </div>
+                    <div className="flex gap-2">
+                      <DetalleSimbolo title="Redondilla" description="Salto de manos con giro de 180°">
+                        <SimboloRedondilla size={20} className="text-blue-700" />
+                      </DetalleSimbolo>
+                      <DetalleSimbolo title="Flic-Flac" description="Salto atrás con apoyo de manos">
+                        <SimboloFlicFlac size={20} className="text-blue-700" />
+                      </DetalleSimbolo>
+                      <DetalleSimbolo title="Mortal Atrás" description="Salto mortal sin apoyo de manos (Back Tuck)">
+                        <SimboloMortalAtras size={20} className="text-blue-700" />
+                      </DetalleSimbolo>
+                    </div>
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="pt-6">
@@ -2085,7 +2107,14 @@ function Nivel4Content() {
               {/* Danza Avanzada */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Danza y Saltos (120°)</CardTitle>
+                  <div className="flex items-center gap-2">
+                    <CardTitle className="text-lg flex items-center gap-2">
+                      Danza y Saltos (120°)
+                      <DetalleSimbolo title="Split 120°" description="Amplitud requerida para saltos en Nivel 4">
+                        <SimboloSplit angle="120" size={20} className="text-blue-600" />
+                      </DetalleSimbolo>
+                    </CardTitle>
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <div className="grid gap-4 md:grid-cols-2">

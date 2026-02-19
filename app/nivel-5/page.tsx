@@ -41,6 +41,15 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
+import { 
+  SimboloRedondilla, 
+  SimboloFlicFlac, 
+  SimboloHandstand, 
+  SimboloSplit, 
+  SimboloMortalAtras,
+  DetalleSimbolo 
+} from "@/components/simbolos-tecnicos";
+
 function Nivel5Content() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -2043,9 +2052,22 @@ function Nivel5Content() {
               {/* Tumbling Atrás */}
               <Card className="border-blue-200">
                 <CardHeader className="bg-blue-50/50">
-                  <CardTitle className="text-lg flex items-center gap-2">
-                    <Zap className="w-5 h-5 text-blue-600" />
-                    Serie Principal: Mortal Atrás Carpado (Pike)
+                  <CardTitle className="text-lg flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Zap className="w-5 h-5 text-blue-600" />
+                      Serie Principal: Mortal Atrás Carpado (Pike)
+                    </div>
+                    <div className="flex gap-2">
+                      <DetalleSimbolo title="Redondilla" description="Salto de manos con giro de 180°">
+                        <SimboloRedondilla size={20} className="text-blue-700" />
+                      </DetalleSimbolo>
+                      <DetalleSimbolo title="Flic-Flac" description="Salto atrás con apoyo de manos">
+                        <SimboloFlicFlac size={20} className="text-blue-700" />
+                      </DetalleSimbolo>
+                      <DetalleSimbolo title="Mortal Carpado" description="Salto mortal con piernas estiradas (Back Pike)">
+                        <SimboloMortalAtras size={20} className="text-blue-700" />
+                      </DetalleSimbolo>
+                    </div>
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="pt-6">
@@ -2066,7 +2088,12 @@ function Nivel5Content() {
               {/* Danza de Élite Obligatoria */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Danza y Flexibilidad (150°)</CardTitle>
+                  <CardTitle className="text-lg flex items-center gap-2">
+                    Danza y Flexibilidad (150°)
+                    <DetalleSimbolo title="Split 150°" description="Máxima amplitud exigida en niveles obligatorios">
+                      <SimboloSplit angle="150" size={20} className="text-blue-600" />
+                    </DetalleSimbolo>
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="grid gap-4 md:grid-cols-2">
