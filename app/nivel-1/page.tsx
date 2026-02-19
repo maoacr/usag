@@ -1,6 +1,7 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -40,9 +41,20 @@ import {
   Scale,
 } from "lucide-react";
 import Link from "next/link";
+import { PenalizacionesGenerales } from "@/components/penalizaciones-generales";
 
-export default function Nivel1Page() {
+function Nivel1Content() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const [activeTab, setActiveTab] = useState("salto");
+
+  useEffect(() => {
+    const tab = searchParams.get("tab");
+    if (tab && ["salto", "barras", "viga", "suelo"].includes(tab)) {
+      setActiveTab(tab);
+    }
+  }, [searchParams]);
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -53,6 +65,9 @@ export default function Nivel1Page() {
               <Button variant="ghost" size="sm" onClick={() => router.back()}>
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Volver
+              </Button>
+              <Button variant="ghost" size="sm" asChild>
+                <Link href="/">Inicio</Link>
               </Button>
               <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center">
                 <Trophy className="w-5 h-5 text-white" />
@@ -103,7 +118,7 @@ export default function Nivel1Page() {
           </p>
         </div>
 
-        <Tabs defaultValue="salto" className="space-y-6">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
           <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger value="salto" className="flex items-center gap-2">
               <img src="/vault.png" alt="Salto" className="w-8 h-8" />
@@ -1608,578 +1623,17 @@ export default function Nivel1Page() {
 
         {/* Botón flotante para penalizaciones generales */}
         <div className="fixed bottom-6 right-6 z-50">
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button
-                size="lg"
-                className="rounded-full shadow-lg bg-blue-600 hover:bg-blue-700 text-white"
-              >
-                <Scale className="w-5 h-5 mr-2" />
-                Penalizaciones Generales
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-              <DialogHeader>
-                <DialogTitle className="flex items-center gap-2">
-                  <Scale className="w-6 h-6" />
-                  Penalizaciones Generales - USAG
-                </DialogTitle>
-                <DialogDescription>
-                  Sistema completo de deducciones aplicable a todos los aparatos
-                  y niveles
-                </DialogDescription>
-              </DialogHeader>
-
-              <div className="space-y-6">
-                {/* Ámbito de aplicación */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Target className="w-5 h-5" />
-                      Ámbito de Aplicación
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex gap-2">
-                      {[
-                        "Barras Asimétricas",
-                        "Viga de Equilibrio",
-                        "Suelo",
-                      ].map((aparato) => (
-                        <Badge key={aparato} variant="outline">
-                          {aparato}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Principios Generales */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Info className="w-5 h-5" />
-                      Principios Generales
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2 text-sm">
-                      {[
-                        "Todos los elementos y enlaces deben realizarse con máxima amplitud y mejor ejecución en orden escrito.",
-                        "Cualquier desviación técnica o ejecución correcta se penaliza según esta tabla.",
-                        "Penalizaciones específicas de cada aparato se aplican además de estas generales.",
-                        "Errores que causen caída deducen ejecución y amplitud, pero no deducir errores de equilibrio que causen caída.",
-                        "Deducciones totales por ejecución y amplitud en un elemento principal no exceden el valor del elemento + 0.50.",
-                        "Deducciones por caídas, balanceos adicionales o falta de continuidad por caída son adicionales.",
-                        "Si más de la mitad de elementos principales se hacen con ayuda del entrenador, nota se basa en elementos sin ayuda menos deducciones por ejecución y amplitud, incluyendo elementos ayudados.",
-                        "Rutinas pueden invertirse en su totalidad, excepto elementos indicados individualmente.",
-                        "Determinar diestra o zurda según dominancia de salto leap split y split frontal; adaptar instrucciones de derecha/izquierda en consecuencia.",
-                      ].map((principio, index) => (
-                        <li key={index} className="flex items-start gap-2">
-                          <Badge variant="outline" className="mt-0.5 text-xs">
-                            {index + 1}
-                          </Badge>
-                          <span>{principio}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-
-                {/* Cambios al Texto Prescrito */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Cambios al Texto Prescrito</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <Accordion type="single" collapsible>
-                      <AccordionItem value="cambios-texto">
-                        <AccordionTrigger className="text-sm">
-                          Penalizaciones por Modificaciones
-                        </AccordionTrigger>
-                        <AccordionContent>
-                          <div className="space-y-3 text-sm">
-                            <div className="grid gap-2">
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>
-                                  Cambiar, invertir, añadir u omitir una parte
-                                  pequeña
-                                </span>
-                                <Badge variant="secondary">0.10</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>
-                                  Cambiar, invertir u omitir serie de enlaces
-                                </span>
-                                <Badge variant="secondary">0.30</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>
-                                  Invertir orden de dos elementos en serie de
-                                  danza enlazada en viga o suelo
-                                </span>
-                                <Badge variant="secondary">0.30</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
-                                <span>Cambiar un elemento principal</span>
-                                <Badge variant="destructive">
-                                  Valor del elemento
-                                </Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
-                                <span>
-                                  Sustituir u omitir un elemento principal
-                                </span>
-                                <Badge variant="destructive">
-                                  Doble del valor
-                                </Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
-                                <span>
-                                  Invertir elemento principal si no permitido
-                                </span>
-                                <Badge variant="destructive">
-                                  Mitad del valor
-                                </Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>Elemento principal incompleto</span>
-                                <Badge variant="secondary">
-                                  Hasta valor del elemento
-                                </Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>Añadir un elemento adicional</span>
-                                <Badge variant="secondary">0.30</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-green-50 rounded">
-                                <span>
-                                  Repetición de elemento perdido sin
-                                  penalización
-                                </span>
-                                <Badge variant="outline">Sin deducción</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>
-                                  Elemento principal con giro adicional
-                                </span>
-                                <Badge variant="secondary">
-                                  Hasta valor del elemento
-                                </Badge>
-                              </div>
-                            </div>
-                          </div>
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
-                  </CardContent>
-                </Card>
-
-                {/* Deducciones Específicas de Ejecución */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Deducciones Específicas de Ejecución</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <Accordion type="single" collapsible>
-                      <AccordionItem value="deducciones-ejecucion">
-                        <AccordionTrigger className="text-sm">
-                          Deducciones Generales por Ejecución
-                        </AccordionTrigger>
-                        <AccordionContent>
-                          <div className="space-y-3 text-sm">
-                            <div className="bg-blue-50 p-3 rounded">
-                              <h4 className="font-semibold mb-2">Máximas:</h4>
-                              <ul className="space-y-1">
-                                <li>
-                                  • Ejecución y amplitud en un elemento: 0.50
-                                </li>
-                                <li>• Caída: 0.50</li>
-                              </ul>
-                            </div>
-                            <div className="grid gap-2">
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>Dar pasos adicionales</span>
-                                <Badge variant="secondary">0.05</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>Pies flexionados o relajados</span>
-                                <Badge variant="secondary">0.05</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>Separación de piernas o rodillas</span>
-                                <Badge variant="secondary">0.20</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>
-                                  Alineación cuerpo/postura incorrecta en
-                                  elementos principales
-                                </span>
-                                <Badge variant="secondary">0.20</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>Brazos flexionados en apoyo</span>
-                                <Badge variant="secondary">0.30</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>Piernas flexionadas en apoyo</span>
-                                <Badge variant="secondary">0.30</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>
-                                  Errores de equilibrio (pequeños, medianos,
-                                  grandes)
-                                </span>
-                                <Badge variant="secondary">0.30</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
-                                <span>Caída en o desde aparato</span>
-                                <Badge variant="destructive">0.50</Badge>
-                              </div>
-                            </div>
-                          </div>
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
-                  </CardContent>
-                </Card>
-
-                {/* Deducciones Específicas por Aparato */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Deducciones Específicas por Aparato</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <Accordion type="single" collapsible>
-                      <AccordionItem value="barras-asimetricas">
-                        <AccordionTrigger className="text-sm">
-                          Barras Asimétricas
-                        </AccordionTrigger>
-                        <AccordionContent>
-                          <div className="space-y-2 text-sm">
-                            <div className="grid gap-2">
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>Dudas en salto o kip superior</span>
-                                <Badge variant="secondary">0.10</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>
-                                  Ajustes en colocación de manos o pies
-                                </span>
-                                <Badge variant="secondary">0.10</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>
-                                  Agarre alternativo o recuperar sin apoyo
-                                  adicional
-                                </span>
-                                <Badge variant="secondary">0.20</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>
-                                  Balanceo/impulso intermedio adicional (máx.
-                                  0.50)
-                                </span>
-                                <Badge variant="secondary">0.30</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>Tomar aparato para evitar caída</span>
-                                <Badge variant="secondary">0.30</Badge>
-                              </div>
-                            </div>
-                            <div className="bg-blue-50 p-3 rounded">
-                              <h5 className="font-semibold mb-2">
-                                Rozar/Tocar/Golpear:
-                              </h5>
-                              <ul className="space-y-1">
-                                <li>• Rozar o tocar: 0.10</li>
-                                <li>• Golpear aparato: 0.20</li>
-                                <li>• Golpear colchón: 0.30</li>
-                                <li>• Apoyar peso total en colchón: 0.50</li>
-                              </ul>
-                            </div>
-                          </div>
-                        </AccordionContent>
-                      </AccordionItem>
-
-                      <AccordionItem value="viga-suelo">
-                        <AccordionTrigger className="text-sm">
-                          Viga de Equilibrio y Suelo
-                        </AccordionTrigger>
-                        <AccordionContent>
-                          <div className="space-y-2 text-sm">
-                            <div className="grid gap-2">
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>No marcar passé relevé</span>
-                                <Badge variant="secondary">0.05</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>
-                                  No realizar giros 180°/360° en pie relevé alto
-                                </span>
-                                <Badge variant="secondary">0.10</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>
-                                  No mantener brazos cubriendo orejas en
-                                  elementos acrobáticos lentos
-                                </span>
-                                <Badge variant="secondary">0.05</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>
-                                  No aterrizar pies cerrados en saltos/jump
-                                </span>
-                                <Badge variant="secondary">0.10</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>
-                                  No aterrizar dos pies al mismo tiempo en
-                                  saltos/jump
-                                </span>
-                                <Badge variant="secondary">0.10</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>
-                                  Alineación incorrecta de piernas en arabesca
-                                  cuando indicado
-                                </span>
-                                <Badge variant="secondary">0.10</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>
-                                  No contraer o arquear cuando indicado
-                                </span>
-                                <Badge variant="secondary">0.10</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>
-                                  No patear o balancear pierna horizontal o más
-                                  arriba
-                                </span>
-                                <Badge variant="secondary">0.10</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>
-                                  Separación desigual de piernas en saltos
-                                  leap/jump
-                                </span>
-                                <Badge variant="secondary">0.20</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>
-                                  Apoyar pierna en superficie lateral de viga
-                                </span>
-                                <Badge variant="secondary">0.20</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>
-                                  Split insuficiente en elementos sin vuelo o
-                                  danza
-                                </span>
-                                <Badge variant="secondary">0.20</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>Patada adicional a parada de manos</span>
-                                <Badge variant="secondary">0.30</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>
-                                  Movimientos adicionales para
-                                  equilibrio/control
-                                </span>
-                                <Badge variant="secondary">0.30</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>Tomar viga para evitar caída</span>
-                                <Badge variant="secondary">0.30</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>Uso de apoyo complementario</span>
-                                <Badge variant="secondary">0.30</Badge>
-                              </div>
-                            </div>
-                            <div className="bg-blue-50 p-3 rounded">
-                              <h5 className="font-semibold mb-2">
-                                Ejemplos de uso de apoyo complementario:
-                              </h5>
-                              <ul className="space-y-1">
-                                <li>
-                                  • Pie(s) permanece(n) en colchón o botador
-                                  durante entrada
-                                </li>
-                                <li>
-                                  • Pie(s) contacto con colchón en sentado con
-                                  piernas separadas
-                                </li>
-                                <li>
-                                  • Pie(s) usan soporte o base de viga para
-                                  apoyarse
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
-                  </CardContent>
-                </Card>
-
-                {/* Deducciones por Ayuda */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Deducciones por Ayuda</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3 text-sm">
-                      <div className="bg-red-50 p-3 rounded">
-                        <h4 className="font-semibold mb-2">
-                          Valor máximo: Valor del elemento + 0.50
-                        </h4>
-                        <p>El entrenador ayuda o toca durante el elemento</p>
-                      </div>
-                      <div className="grid gap-2">
-                        <div className="flex justify-between items-center p-2 bg-red-50 rounded">
-                          <span>Deducción por ayuda</span>
-                          <Badge variant="destructive">0.50</Badge>
-                        </div>
-                        <div className="flex justify-between items-center p-2 bg-red-50 rounded">
-                          <span>Deducción por ayuda en aterrizaje</span>
-                          <Badge variant="destructive">0.50</Badge>
-                        </div>
-                        <div className="flex justify-between items-center p-2 bg-red-50 rounded">
-                          <span>Deducción por caída después de ayuda</span>
-                          <Badge variant="destructive">0.50</Badge>
-                        </div>
-                        <div className="flex justify-between items-center p-2 bg-red-50 rounded">
-                          <span>Deducción por captura en caída</span>
-                          <Badge variant="destructive">0.50</Badge>
-                        </div>
-                      </div>
-                      <div className="bg-yellow-50 p-2 rounded text-xs">
-                        <strong>Nota:</strong> Se deduce solo una caída aunque
-                        la gimnasta sea atrapada.
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Deducciones del Juez Principal */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Deducciones del Juez Principal</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <Accordion type="single" collapsible>
-                      <AccordionItem value="advertencias">
-                        <AccordionTrigger className="text-sm">
-                          Advertencias (0.10 puntos)
-                        </AccordionTrigger>
-                        <AccordionContent>
-                          <div className="space-y-2 text-sm">
-                            <ul className="space-y-1">
-                              <li>
-                                • Exceder tiempo en viga (evaluación continúa
-                                tras advertencia)
-                              </li>
-                              <li>
-                                • Cualquier parte del cuerpo toca fuera de marca
-                                límite de suelo
-                              </li>
-                              <li>
-                                • No presentarse ante Juez Principal antes y
-                                después de la rutina
-                              </li>
-                              <li>
-                                • Entrenador parado junto a viga durante toda la
-                                rutina tras advertencia
-                              </li>
-                            </ul>
-                          </div>
-                        </AccordionContent>
-                      </AccordionItem>
-
-                      <AccordionItem value="otras-deducciones">
-                        <AccordionTrigger className="text-sm">
-                          Otras Deducciones
-                        </AccordionTrigger>
-                        <AccordionContent>
-                          <div className="space-y-2 text-sm">
-                            <div className="grid gap-2">
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>
-                                  Indicaciones verbales o técnicas por
-                                  entrenador o compañeras
-                                </span>
-                                <Badge variant="secondary">0.20</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>Vestimenta incorrecta</span>
-                                <Badge variant="secondary">0.20</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>Inicio de rutina fuera de tiempo</span>
-                                <Badge variant="secondary">0.20</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>No respetar tiempo de calentamiento</span>
-                                <Badge variant="secondary">0.20</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>Conducta antideportiva de gimnasta</span>
-                                <Badge variant="secondary">0.20</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
-                                <span>
-                                  Uso excesivo de magnesia o cinta incorrecta
-                                </span>
-                                <Badge variant="secondary">0.20</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
-                                <span>
-                                  Uso de colchones, botadores o bloques no
-                                  autorizados
-                                </span>
-                                <Badge variant="destructive">0.30</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
-                                <span>
-                                  No retirar botador, colchón o bloque después
-                                  de la entrada
-                                </span>
-                                <Badge variant="destructive">0.30</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
-                                <span>
-                                  Uso incorrecto de especificaciones del aparato
-                                </span>
-                                <Badge variant="destructive">0.30</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
-                                <span>
-                                  Comenzar rutina antes de la señal del Juez
-                                  Principal
-                                </span>
-                                <Badge variant="destructive">0.50</Badge>
-                              </div>
-                              <div className="flex justify-between items-center p-2 bg-red-50 rounded">
-                                <span>
-                                  Rutina de suelo realizada sin música
-                                </span>
-                                <Badge variant="destructive">1.00</Badge>
-                              </div>
-                            </div>
-                          </div>
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
-                  </CardContent>
-                </Card>
-              </div>
-            </DialogContent>
-          </Dialog>
+          <PenalizacionesGenerales />
         </div>
       </main>
     </div>
+  );
+}
+
+export default function Nivel1Page() {
+  return (
+    <Suspense fallback={<div>Cargando...</div>}>
+      <Nivel1Content />
+    </Suspense>
   );
 }

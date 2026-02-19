@@ -1,5 +1,7 @@
 "use client";
-import { useRouter } from "next/navigation";
+
+import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -39,8 +41,18 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-export default function Nivel5Page() {
+function Nivel5Content() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const [activeTab, setActiveTab] = useState("salto");
+
+  useEffect(() => {
+    const tab = searchParams.get("tab");
+    if (tab && ["salto", "barras", "viga", "suelo"].includes(tab)) {
+      setActiveTab(tab);
+    }
+  }, [searchParams]);
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -51,6 +63,9 @@ export default function Nivel5Page() {
               <Button variant="ghost" size="sm" onClick={() => router.back()}>
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Volver
+              </Button>
+              <Button variant="ghost" size="sm" asChild>
+                <Link href="/">Inicio</Link>
               </Button>
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                 <Trophy className="w-5 h-5 text-white" />
@@ -101,7 +116,7 @@ export default function Nivel5Page() {
           </p>
         </div>
 
-        <Tabs defaultValue="salto" className="space-y-6">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
           <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger value="salto" className="flex items-center gap-2">
               <img src="/vault.png" alt="Salto" className="w-8 h-8" />
@@ -1986,22 +2001,108 @@ export default function Nivel5Page() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Users className="w-5 h-5" />
-                  Suelo - En Desarrollo
+                  <Target className="w-5 h-5" />
+                  Suelo - Descripción General
                 </CardTitle>
                 <CardDescription>
-                  El contenido para Suelo del Nivel 5 estará disponible
-                  próximamente.
+                  El Nivel 5 es el nivel obligatorio más avanzado, introduciendo el salto mortal atrás carpado y el mortal al frente, exigiendo una ejecución técnica casi perfecta.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-600">
-                  <p className="text-yellow-800">
-                    <strong>Próximamente:</strong> Información detallada sobre
-                    los elementos requeridos, técnicas y penalizaciones para
-                    Suelo en Nivel 5.
-                  </p>
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-600">
+                    <h4 className="font-semibold text-blue-900 mb-2">
+                      Elementos Principales:
+                    </h4>
+                    <ul className="space-y-1 text-blue-800 text-sm">
+                      <li>• Redondilla + Flic-Flac + Salto Mortal Atrás Carpado (0.60 puntos)</li>
+                      <li>• Salto Mortal al Frente Agrupado (0.60 puntos)</li>
+                      <li>• 1/1 giro en passé al frente (360°) (0.40 puntos)</li>
+                      <li>• Salto Leap Split (150°) (0.60 puntos)</li>
+                      <li>• Salto Jump Split (150°) (0.40 puntos)</li>
+                      <li>• Sissone (0.20 puntos)</li>
+                      <li>• Inversión lateral (0.60 puntos)</li>
+                    </ul>
+                  </div>
+                  <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-600">
+                    <h4 className="font-semibold text-green-900 mb-2">
+                      Características Técnicas:
+                    </h4>
+                    <ul className="space-y-1 text-green-800 text-sm">
+                      <li>• Introducción de mortales en ambas direcciones (atrás y frente)</li>
+                      <li>• Posición carpada (Pike) en el mortal atrás</li>
+                      <li>• Giro completo sobre un pie</li>
+                      <li>• Split de 150° en todos los saltos de danza</li>
+                    </ul>
+                  </div>
                 </div>
+              </CardContent>
+            </Card>
+
+            <div className="space-y-4">
+              {/* Tumbling Atrás */}
+              <Card className="border-blue-200">
+                <CardHeader className="bg-blue-50/50">
+                  <CardTitle className="text-lg flex items-center gap-2">
+                    <Zap className="w-5 h-5 text-blue-600" />
+                    Serie Principal: Mortal Atrás Carpado (Pike)
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="pt-6">
+                  <div className="space-y-3">
+                    <p className="text-sm text-gray-600">La serie Redondilla + Flic-Flac debe culminar en un mortal atrás manteniendo las piernas completamente extendidas y el cuerpo doblado por la cadera (carpado).</p>
+                    <div className="bg-red-50 p-3 rounded text-sm text-red-700">
+                      <strong>Penalizaciones de Forma:</strong>
+                      <ul className="list-disc list-inside mt-1">
+                        <li>Piernas dobladas en la carpa: hasta 0.30</li>
+                        <li>Ángulo de carpa insuficiente (mayor a 90°): hasta 0.20</li>
+                        <li>No mostrar posición carpada clara: el elemento puede ser degradado a agrupado</li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Danza de Élite Obligatoria */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Danza y Flexibilidad (150°)</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <div className="space-y-2">
+                      <h5 className="font-medium">Giros y Saltos:</h5>
+                      <div className="flex justify-between items-center p-2 border rounded text-sm">
+                        <span>1/1 Giro (360°) en passé</span>
+                        <Badge>0.40</Badge>
+                      </div>
+                      <div className="flex justify-between items-center p-2 border rounded text-sm">
+                        <span>Leap Split (150°)</span>
+                        <Badge>0.60</Badge>
+                      </div>
+                    </div>
+                    <div className="bg-yellow-50 p-3 rounded text-xs text-yellow-800 self-center">
+                      <strong>Requisito de Split:</strong> El Nivel 5 exige una gran flexibilidad. La falta de amplitud en los 150° se penaliza severamente (hasta 0.20 por elemento).
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Puntos para Evaluación */}
+            <Card className="bg-blue-50 border-blue-200">
+              <CardHeader>
+                <CardTitle className="text-blue-900">
+                  Resumen de Evaluación - Suelo Nivel 5
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-blue-800">
+                <ul className="space-y-2">
+                  <li>• <strong>Precisión:</strong> Finalización exacta de los giros de 360°.</li>
+                  <li>• <strong>Técnica de Mortal:</strong> Altura suficiente para permitir una carpa clara.</li>
+                  <li>• <strong>Extensión:</strong> Puntas estiradas y rodillas bloqueadas en toda la danza.</li>
+                  <li>• <strong>Ritmo:</strong> La rutina debe mostrar variaciones de tiempo y energía.</li>
+                </ul>
               </CardContent>
             </Card>
           </TabsContent>
@@ -2582,5 +2683,13 @@ export default function Nivel5Page() {
         </div>
       </main>
     </div>
+  );
+}
+
+export default function Nivel5Page() {
+  return (
+    <Suspense fallback={<div>Cargando...</div>}>
+      <Nivel5Content />
+    </Suspense>
   );
 }

@@ -1,5 +1,7 @@
 "use client";
-import { useRouter } from "next/navigation";
+
+import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -41,8 +43,18 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-export default function Nivel2Page() {
+function Nivel2Content() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const [activeTab, setActiveTab] = useState("salto");
+
+  useEffect(() => {
+    const tab = searchParams.get("tab");
+    if (tab && ["salto", "barras", "viga", "suelo"].includes(tab)) {
+      setActiveTab(tab);
+    }
+  }, [searchParams]);
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -53,6 +65,9 @@ export default function Nivel2Page() {
               <Button variant="ghost" size="sm" onClick={() => router.back()}>
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Volver
+              </Button>
+              <Button variant="ghost" size="sm" asChild>
+                <Link href="/">Inicio</Link>
               </Button>
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                 <Trophy className="w-5 h-5 text-white" />
@@ -110,7 +125,7 @@ export default function Nivel2Page() {
           </p>
         </div>
 
-        <Tabs defaultValue="salto" className="space-y-6">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
           <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger value="salto" className="flex items-center gap-2">
               <img src="/vault.png" alt="Salto" className="w-8 h-8" />
@@ -2471,5 +2486,13 @@ export default function Nivel2Page() {
         </div>
       </main>
     </div>
+  );
+}
+
+export default function Nivel2Page() {
+  return (
+    <Suspense fallback={<div>Cargando...</div>}>
+      <Nivel2Content />
+    </Suspense>
   );
 }

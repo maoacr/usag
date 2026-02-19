@@ -1,5 +1,7 @@
 "use client";
-import { useRouter } from "next/navigation";
+
+import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -40,8 +42,18 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-export default function Nivel4Page() {
+function Nivel4Content() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const [activeTab, setActiveTab] = useState("salto");
+
+  useEffect(() => {
+    const tab = searchParams.get("tab");
+    if (tab && ["salto", "barras", "viga", "suelo"].includes(tab)) {
+      setActiveTab(tab);
+    }
+  }, [searchParams]);
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -52,6 +64,9 @@ export default function Nivel4Page() {
               <Button variant="ghost" size="sm" onClick={() => router.back()}>
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Volver
+              </Button>
+              <Button variant="ghost" size="sm" asChild>
+                <Link href="/">Inicio</Link>
               </Button>
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                 <Trophy className="w-5 h-5 text-white" />
@@ -105,7 +120,7 @@ export default function Nivel4Page() {
           </p>
         </div>
 
-        <Tabs defaultValue="salto" className="space-y-6">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
           <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger value="salto" className="flex items-center gap-2">
               <img src="/vault.png" alt="Salto" className="w-8 h-8" />
@@ -1996,21 +2011,116 @@ export default function Nivel4Page() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Target className="w-5 h-5" />
-                  Suelo - En Desarrollo
+                  Suelo - Descripción General
                 </CardTitle>
                 <CardDescription>
-                  El contenido para Suelo del Nivel 4 estará disponible
-                  próximamente.
+                  El Nivel 4 introduce el salto mortal atrás (Back Tuck) y series acrobáticas de múltiples elementos, exigiendo una mayor potencia y control aéreo.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-600">
-                  <p className="text-yellow-800">
-                    <strong>Próximamente:</strong> Información detallada sobre
-                    los elementos requeridos, técnicas y penalizaciones para
-                    Suelo en Nivel 4.
-                  </p>
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-600">
+                    <h4 className="font-semibold text-blue-900 mb-2">
+                      Elementos Principales:
+                    </h4>
+                    <ul className="space-y-1 text-blue-800 text-sm">
+                      <li>• Redondilla + Flic-Flac + Salto Mortal Atrás Agrupado (0.60 puntos)</li>
+                      <li>• Inversión lateral (0.60 puntos)</li>
+                      <li>• ½ giro en passé al frente (0.40 puntos)</li>
+                      <li>• Salto Leap Split (120°) (0.60 puntos)</li>
+                      <li>• Salto Jump Split (120°) (0.40 puntos)</li>
+                      <li>• Parada de manos con rodada al frente (0.40 puntos)</li>
+                      <li>• Flic-Flac solo (0.60 puntos)</li>
+                    </ul>
+                  </div>
+                  <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-600">
+                    <h4 className="font-semibold text-green-900 mb-2">
+                      Características Técnicas:
+                    </h4>
+                    <ul className="space-y-1 text-green-800 text-sm">
+                      <li>• Serie acrobática de tres elementos (Tumbling principal)</li>
+                      <li>• Introducción del primer salto mortal (Back Tuck)</li>
+                      <li>• Split de 120° en saltos de danza</li>
+                      <li>• Énfasis en la altura y rotación del mortal</li>
+                    </ul>
+                  </div>
                 </div>
+              </CardContent>
+            </Card>
+
+            <div className="space-y-4">
+              {/* Tumbling Principal */}
+              <Card className="border-blue-200">
+                <CardHeader className="bg-blue-50/50">
+                  <CardTitle className="text-lg flex items-center gap-2">
+                    <Zap className="w-5 h-5 text-blue-600" />
+                    Serie Principal: Redondilla + Flic-Flac + Mortal Atrás
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="pt-6">
+                  <div className="space-y-4">
+                    <div className="grid gap-4 md:grid-cols-3 text-sm">
+                      <div className="p-3 bg-gray-50 rounded">
+                        <span className="font-bold text-blue-700">1. Redondilla:</span> Potencia inicial.
+                      </div>
+                      <div className="p-3 bg-gray-50 rounded">
+                        <span className="font-bold text-blue-700">2. Flic-Flac:</span> Transferencia de energía horizontal a vertical.
+                      </div>
+                      <div className="p-3 bg-gray-50 rounded">
+                        <span className="font-bold text-blue-700">3. Mortal Atrás:</span> Máxima altura y agrupación compacta.
+                      </div>
+                    </div>
+                    <div className="bg-red-50 p-3 rounded text-sm text-red-700">
+                      <h5 className="font-semibold mb-1">Deducciones Específicas del Mortal:</h5>
+                      <ul className="list-disc list-inside space-y-1">
+                        <li>Falta de altura: hasta 0.30</li>
+                        <li>Falta de agrupación (pecho en rodillas): hasta 0.20</li>
+                        <li>No abrir el mortal antes de aterrizar: hasta 0.20</li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Danza Avanzada */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Danza y Saltos (120°)</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <div className="space-y-2">
+                      <div className="flex justify-between items-center p-2 border rounded">
+                        <span>Leap Split (120°)</span>
+                        <Badge>0.60</Badge>
+                      </div>
+                      <div className="flex justify-between items-center p-2 border rounded">
+                        <span>Jump Split (120°)</span>
+                        <Badge>0.40</Badge>
+                      </div>
+                    </div>
+                    <div className="bg-yellow-50 p-3 rounded text-xs text-yellow-800">
+                      <strong>Nota sobre amplitud:</strong> Si el ángulo es menor a 120°, se aplica una deducción proporcional de hasta 0.20. Si es menor a 90°, se puede considerar el elemento como de un nivel inferior.
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Puntos para Evaluación */}
+            <Card className="bg-blue-50 border-blue-200">
+              <CardHeader>
+                <CardTitle className="text-blue-900">
+                  Resumen de Evaluación - Suelo Nivel 4
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-blue-800">
+                <ul className="space-y-2">
+                  <li>• <strong>Potencia:</strong> Aceleración constante en la serie acrobática.</li>
+                  <li>• <strong>Control Aéreo:</strong> Posición neutra de la cabeza en el mortal.</li>
+                  <li>• <strong>Aterrizaje:</strong> "Stick" o aterrizaje clavado sin pasos adicionales.</li>
+                  <li>• <strong>Postura:</strong> Piernas completamente extendidas en la inversión lateral.</li>
+                </ul>
               </CardContent>
             </Card>
           </TabsContent>
@@ -2591,5 +2701,13 @@ export default function Nivel4Page() {
         </div>
       </main>
     </div>
+  );
+}
+
+export default function Nivel4Page() {
+  return (
+    <Suspense fallback={<div>Cargando...</div>}>
+      <Nivel4Content />
+    </Suspense>
   );
 }

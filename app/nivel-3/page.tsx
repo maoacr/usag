@@ -1,5 +1,7 @@
 "use client";
-import { useRouter } from "next/navigation";
+
+import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -41,8 +43,18 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-export default function Nivel3Page() {
+function Nivel3Content() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const [activeTab, setActiveTab] = useState("salto");
+
+  useEffect(() => {
+    const tab = searchParams.get("tab");
+    if (tab && ["salto", "barras", "viga", "suelo"].includes(tab)) {
+      setActiveTab(tab);
+    }
+  }, [searchParams]);
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -53,6 +65,9 @@ export default function Nivel3Page() {
               <Button variant="ghost" size="sm" onClick={() => router.back()}>
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Volver
+              </Button>
+              <Button variant="ghost" size="sm" asChild>
+                <Link href="/">Inicio</Link>
               </Button>
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                 <Trophy className="w-5 h-5 text-white" />
@@ -106,7 +121,7 @@ export default function Nivel3Page() {
           </p>
         </div>
 
-        <Tabs defaultValue="salto" className="space-y-6">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
           <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger value="salto" className="flex items-center gap-2">
               <img src="/vault.png" alt="Salto" className="w-8 h-8" />
@@ -1702,7 +1717,6 @@ export default function Nivel3Page() {
             </Card>
           </TabsContent>
 
-          {/* SUELO */}
           <TabsContent value="suelo" className="space-y-6">
             <Card>
               <CardHeader>
@@ -1711,153 +1725,140 @@ export default function Nivel3Page() {
                   Suelo - Descripción General
                 </CardTitle>
                 <CardDescription>
-                  La rutina de suelo en Nivel 2 mantiene el enfoque en
-                  fundamentos de tumbling y danza, con mayor énfasis en la
-                  expresión artística y coordinación.
+                  La rutina de suelo en Nivel 3 introduce elementos acrobáticos de mayor potencia como la redondilla y el flic-flac, además de exigir una mayor amplitud en los saltos de danza.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="grid gap-4 md:grid-cols-2">
                   <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-600">
                     <h4 className="font-semibold text-blue-900 mb-2">
-                      Notas Importantes:
+                      Elementos Principales:
                     </h4>
                     <ul className="space-y-1 text-blue-800 text-sm">
-                      <li>
-                        • Figuras son guía, texto tiene flexibilidad para
-                        opciones
-                      </li>
-                      <li>• Solo elementos principales en mayúsculas</li>
-                      <li>
-                        • Brazos en arriba pueden ser curvados o extendidos
-                      </li>
-                      <li>
-                        • Rutina puede invertirse salvo elementos con asterisco
-                        (*)
-                      </li>
+                      <li>• Inversión lateral (0.60 puntos)</li>
+                      <li>• Rodada atrás a parada de manos (0.60 puntos)</li>
+                      <li>• ½ giro en passé al frente (0.40 puntos)</li>
+                      <li>• Salto Leap Split (90°) (0.60 puntos)</li>
+                      <li>• Salto Jump Split (90°) (0.40 puntos)</li>
+                      <li>• Redondilla (0.60 puntos)</li>
+                      <li>• Flic-Flac (0.60 puntos)</li>
+                      <li>• Parada de manos con rodada al frente (0.40 puntos)</li>
                     </ul>
                   </div>
                   <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-600">
                     <h4 className="font-semibold text-green-900 mb-2">
-                      Posición Inicial:
+                      Características Técnicas:
                     </h4>
-                    <p className="text-green-800 text-sm">
-                      Comenzar en esquina o borde de suelo. Posición recta de
-                      pie. Brazo derecho flexionado con dorso y antebrazo en
-                      espalda baja, brazo izquierdo diagonal abajo al lado.
-                      Enfoque hacia brazo izquierdo.
-                    </p>
+                    <ul className="space-y-1 text-green-800 text-sm">
+                      <li>• Primer nivel con serie acrobática (Redondilla + Flic-flac)</li>
+                      <li>• Rodada atrás con paso por la vertical</li>
+                      <li>• Mayor exigencia de split en saltos (90°)</li>
+                      <li>• Control de aterrizaje en series dinámicas</li>
+                    </ul>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             <div className="space-y-4">
-              {/* Pose, Inversión lateral */}
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-lg">
-                      1. Pose, Inversión Lateral*
-                    </CardTitle>
-                    <Badge variant="secondary">0.60 puntos</Badge>
-                  </div>
+              {/* Acrobacia Principal */}
+              <Card className="border-blue-200">
+                <CardHeader className="bg-blue-50/50">
+                  <CardTitle className="text-lg flex items-center gap-2">
+                    <Zap className="w-5 h-5 text-blue-600" />
+                    Serie Acrobática: Redondilla + Flic-Flac
+                  </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div>
-                      <h4 className="font-semibold mb-2">
-                        Secuencia Completa:
-                      </h4>
-                      <ul className="space-y-1 text-sm">
-                        <li>
-                          • Desde posición inicial, demi-plié y ligero torso
-                          hacia adelante
-                        </li>
-                        <li>• Abdominales contraídos</li>
-                        <li>
-                          • Brazos hacia adelante y arriba para terminar
-                          flexionados con palmas afuera
-                        </li>
-                        <li>
-                          • Extender torso y piernas a posición recta de pie
-                        </li>
-                        <li>
-                          • Abrir brazos a lados-en medio, enfoque al frente
-                        </li>
-                        <li>
-                          • Si se invierte inversión lateral, apuntar pie
-                          izquierdo adelante
-                        </li>
-                        <li>
-                          • Transferir peso a pie derecho para desplante derecho
-                        </li>
-                        <li>
-                          • Levantar pierna izquierda atrás y arriba sobre
-                          cabeza
-                        </li>
-                        <li>
-                          • Cubrir orejas con brazos mientras gira 90° izquierda
-                        </li>
-                        <li>
-                          • Colocar manos en suelo separadas ancho hombros para
-                          inversión lateral
-                        </li>
-                        <li>• Cabeza alineada con hombros y cadera abiertos</li>
-                        <li>• Girar 90° y descender manteniendo brazos</li>
-                        <li>• Terminar recta de pie con brazos arriba</li>
+                <CardContent className="pt-6">
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <div className="space-y-2">
+                      <h5 className="font-medium text-gray-900">Redondilla (Round-off):</h5>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• Entrada con paso largo y dinámico</li>
+                        <li>• Manos alternadas, pasando por la vertical</li>
+                        <li>• Repulsión de hombros potente</li>
+                        <li>• Aterrizaje simultáneo con ambos pies</li>
                       </ul>
                     </div>
-                    <div className="bg-green-50 p-2 rounded">
-                      <p className="text-sm text-green-700">
-                        <strong>Énfasis:</strong> Alineación cuerpo y cabeza,
-                        mostrar ángulo hombros abierto y pasar vertical
-                      </p>
+                    <div className="space-y-2">
+                      <h5 className="font-medium text-gray-900">Flic-Flac (Back Handspring):</h5>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• Salto hacia atrás inmediato tras redondilla</li>
+                        <li>• Extensión completa del cuerpo en vuelo</li>
+                        <li>• Bloqueo fuerte de brazos en el suelo</li>
+                        <li>• Aterrizaje controlado en demi-plié</li>
+                      </ul>
                     </div>
-                    <div className="bg-red-50 p-2 rounded">
-                      <p className="text-sm text-red-700">
-                        <strong>Nota:</strong> Elemento marcado con asterisco
-                        (*) - no se puede invertir
-                      </p>
-                    </div>
-                    <div className="bg-yellow-50 p-2 rounded">
-                      <p className="text-sm text-yellow-700">
-                        <strong>Deducciones:</strong> 0.10 colocación incorrecta
-                        manos simultánea, hasta 0.30 no pasar vertical, 0.10 no
-                        mantener alineación cabeza
-                      </p>
-                    </div>
+                  </div>
+                  <div className="mt-4 p-3 bg-red-50 rounded text-sm text-red-700">
+                    <strong>Penalización Crítica:</strong> 0.30 por falta de continuidad entre redondilla y flic-flac.
                   </div>
                 </CardContent>
               </Card>
 
-              {/* Nota sobre continuación */}
-              <Card className="bg-yellow-50 border-yellow-200">
+              {/* Rodada atrás a parada de manos */}
+              <Card>
                 <CardHeader>
-                  <CardTitle className="text-yellow-900 flex items-center gap-2">
-                    <BookOpen className="w-5 h-5" />
-                    Rutina Continúa...
-                  </CardTitle>
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="text-lg">Rodada atrás a parada de manos</CardTitle>
+                    <Badge variant="secondary">0.60 puntos</Badge>
+                  </div>
                 </CardHeader>
-                <CardContent className="text-yellow-800">
-                  <p>
-                    La rutina de suelo del Nivel 2 continúa con elementos
-                    adicionales de tumbling y danza. La información completa
-                    incluye más elementos que desarrollan coordinación,
-                    expresión artística y habilidades progresivas de gimnasia,
-                    construyendo sobre las bases de los niveles anteriores.
-                  </p>
-                  <div className="mt-3 p-3 bg-white rounded border-l-4 border-yellow-600">
-                    <p className="text-sm text-yellow-800">
-                      <strong>Determinación de Dominancia:</strong> Para
-                      gimnastas zurdas, intercambiar derecha por izquierda en
-                      toda la rutina según dominio determinado por salto leap
-                      split y split frontal.
-                    </p>
+                <CardContent>
+                  <div className="space-y-3 text-sm text-gray-600">
+                    <p>Rodada hacia atrás manteniendo brazos estirados, pasando por la vertical (parada de manos) antes de bajar a desplante.</p>
+                    <ul className="grid grid-cols-2 gap-2">
+                      <li className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4 text-yellow-600" />
+                        No pasar por la vertical: hasta 0.30
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4 text-yellow-600" />
+                        Brazos doblados: hasta 0.50
+                      </li>
+                    </ul>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Saltos y Danza */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Elementos de Danza (90° Split)</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <div className="p-3 bg-gray-50 rounded">
+                      <h5 className="font-medium mb-1">Leap Split:</h5>
+                      <p className="text-xs text-gray-500 mb-2">Salto de gran paso con 90° de separación.</p>
+                      <Badge variant="outline" className="text-blue-600 border-blue-200">0.60 pts</Badge>
+                    </div>
+                    <div className="p-3 bg-gray-50 rounded">
+                      <h5 className="font-medium mb-1">Jump Split:</h5>
+                      <p className="text-xs text-gray-500 mb-2">Salto desde dos pies con 90° de separación.</p>
+                      <Badge variant="outline" className="text-blue-600 border-blue-200">0.40 pts</Badge>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
             </div>
+
+            {/* Puntos para Evaluación */}
+            <Card className="bg-blue-50 border-blue-200">
+              <CardHeader>
+                <CardTitle className="text-blue-900">
+                  Resumen de Evaluación - Suelo Nivel 3
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-blue-800">
+                <ul className="space-y-2">
+                  <li>• <strong>Continuidad:</strong> Fluidez total en la conexión Redondilla + Flic-flac.</li>
+                  <li>• <strong>Verticalidad:</strong> Control total en la parada de manos tras la rodada.</li>
+                  <li>• <strong>Amplitud:</strong> Split de 90° mínimo en todos los saltos requeridos.</li>
+                  <li>• <strong>Artística:</strong> Expresividad y ritmo acorde a la música (si aplica).</li>
+                </ul>
+              </CardContent>
+            </Card>
           </TabsContent>
         </Tabs>
 
@@ -2436,5 +2437,13 @@ export default function Nivel3Page() {
         </div>
       </main>
     </div>
+  );
+}
+
+export default function Nivel3Page() {
+  return (
+    <Suspense fallback={<div>Cargando...</div>}>
+      <Nivel3Content />
+    </Suspense>
   );
 }
